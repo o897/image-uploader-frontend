@@ -11,6 +11,8 @@ a {
   color: initial;
 }
 
+
+
 /* Upload page */
 
 .image p {
@@ -166,6 +168,11 @@ button {
   background-color: inherit;
   color: #4F4F4F;
   padding-left: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  white-space: normal!important; 
+
 }
 
 .uploaded__image--link button {

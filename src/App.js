@@ -1,4 +1,3 @@
-import Complete from "./pages/Complete"
 import Home from "./pages/Home"
 
 const App = () => {

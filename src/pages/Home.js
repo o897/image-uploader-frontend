@@ -18,6 +18,7 @@ export default function Home() {
     if (file.length > 0) {
       setFile([...file]);
     }
+
   };
 
   const handleDragOver = (event) => {
@@ -48,7 +49,9 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:3003/upload", {
+      // const response = await fetch("http://localhost:3003/upload", {
+
+      const response = await fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
         method: "POST",
         body: formData,
         onUploadProgress: (event) => {
@@ -60,7 +63,7 @@ export default function Home() {
       });
       setShowHome(!showHome)
       setShowPreview(!showPreview)
-      setFile([])
+      // setFile([])
     } catch (error) {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
@@ -104,12 +107,13 @@ export default function Home() {
             </button>
 
           {msg && <span>{msg}</span>}
+          {file && <span>{file.name}</span>}
         </div>
       </div>
 
       { showPreview &&  (
         <Suspense fallback={<Loading />}>
-            <CompletePreview />
+            <CompletePreview filename={file.name}/>
         </Suspense>
       )}
     </>
