@@ -47,9 +47,8 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:3004/upload", {
-      
-      // const response = await fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
+      // const response = await fetch("http://localhost:3004/upload", {
+      const response = await fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
         method: "POST",
         body: formData,
         onUploadProgress: (event) => {

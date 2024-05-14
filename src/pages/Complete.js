@@ -1,7 +1,6 @@
 export default function Complete ({ filename }) {
     // It is impossible to pass an array to our children
     
-    const link = `https://res.cloudinary.com/dudvkaduc/image/upload/v1715693794/${filename}.png`
    return (
     <div>
         <div className="image">

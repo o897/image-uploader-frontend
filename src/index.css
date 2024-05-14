@@ -73,7 +73,7 @@ button {
 .image h1 {
   color: #4F4F4F;
   text-align: center;
-  margin: 0;
+  margin: -5px 0;
   padding: 0;
   line-height: 27px;
   font-size: 18px;
@@ -129,7 +129,6 @@ button {
 }
 
 /* Uploaded image and link */
-
 .Uploaded__image {
   width: 338px;
   height: 224.4px;
@@ -156,7 +155,6 @@ button {
   font-weight: 600;
   line-height: 25px;
   margin-bottom: 10px;
-
 }
 
 .Uploaded__image--link {
@@ -169,8 +167,6 @@ button {
   border-radius: 8px;
   background-color: #F6F8FB;
   justify-content: space-between;
-
-
 }
 
 .Uploaded__image--link-p {
@@ -184,7 +180,6 @@ button {
   width: 240px;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 }
 
 .uploaded__image--link-btn {
@@ -209,8 +204,6 @@ button {
   height: 30px;
   background: green;
 }
-
-
 /* Progress bar */
 
 .progress-bar {
