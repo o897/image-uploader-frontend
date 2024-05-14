@@ -2,8 +2,6 @@ import { useRef, useState, lazy,Suspense } from "react";
 import Loading from "./Loading";
 import "../index.css";
 
-// you need to use formdata to transer data with axios
-
 const CompletePreview = lazy(() => delayForLoading(import('./Complete')));
 
 export default function Home() {
@@ -49,9 +47,9 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      // const response = await fetch("http://localhost:3003/upload", {
-
-      const response = await fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
+      const response = await fetch("http://localhost:3004/upload", {
+      
+      // const response = await fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
         method: "POST",
         body: formData,
         onUploadProgress: (event) => {
@@ -63,7 +61,7 @@ export default function Home() {
       });
       setShowHome(!showHome)
       setShowPreview(!showPreview)
-      // setFile([])
+      // setFile([])updaed
     } catch (error) {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
