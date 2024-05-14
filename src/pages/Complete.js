@@ -20,7 +20,7 @@ export default function Complete({ filename }) {
         </div>
         <div className="Uploaded__image">
           <img
-            src="https://res.cloudinary.com/dudvkaduc/image/upload/v1715693794/${filename}.jpg"
+            src={`https://res.cloudinary.com/dudvkaduc/image/upload/v1715693794/${filename}.jpg`}
             alt=""
           />
         </div>
