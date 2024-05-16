@@ -1,35 +1,26 @@
-import { useEffect,useState } from "react";
-
-
+import { useEffect, useState } from "react";
 
 export default function Complete({ filename }) {
-    
-
-const [imageData, setImageData] = useState(null);
-
-  const [name, setName] = useState(filename.slice(0,-4));
-  console.log("name : ",name);
+  const [imageData, setImageData] = useState(null);
+  const [name, setName] = useState(filename.slice(0, -4));
+  
+  console.log("name : ", name);
 
   useEffect(() => {
     // Fetch image data from your backend API
     fetch(`https://image-uploader-backend-yzqj.onrender.com/api/${name}`)
-      .then(response => response.json())
-      .then(data => setImageData(data))
-      .catch(error => console.error('Error fetching image data:', error));
+      .then((response) => response.json())
+      .then((data) => setImageData(data))
+      .catch((error) => console.error("Error fetching image data:", error));
   }, []);
 
-  const {url} = imageData;
+  const { url } = imageData;
 
   console.log("new url", url);
-//   console.log("url ; ", url);
-  
-  return (
-    
-    <div>
 
-    {
-       imageData !== null ? 
-     ( <div className="image">
+  return (
+    <div>
+      <div className="image">
         <div className="Upload__message">
           <i>
             <svg
@@ -45,31 +36,19 @@ const [imageData, setImageData] = useState(null);
           <div className="Upload__message-title">Uploaded Successfully!</div>
         </div>
         <div className="Uploaded__image">
-          <img
-            src={url}
-            alt=""
-          />
+          <img src={url} alt="" />
         </div>
         <div className="Uploaded__image--link">
-          <div className="Uploaded__image--link-p">
-            {url}
-          </div>
+          <div className="Uploaded__image--link-p">{url}</div>
           <button
             className="uploaded__image--link-btn"
-            onClick={() =>
-              navigator.clipboard.writeText(
-                {url}
-              )
-            }
+            onClick={() => navigator.clipboard.writeText({ url })}
           >
             Copy Link
           </button>
         </div>
-      </div>)
-
-      : ("Image data not set")
-    }
-      
+      </div>
+      )
     </div>
   );
 }
