@@ -1,10 +1,11 @@
-import { useRef, useState, lazy,Suspense } from "react";
+import { useRef, useState, lazy,Suspense} from "react";
 import Loading from "./Loading";
 import "../index.css";
 
 const CompletePreview = lazy(() => delayForLoading(import('./Complete')));
 
 export default function Home() {
+
   const [file, setFile] = useState();
   const [msg, setMsg] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
@@ -47,16 +48,10 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      // const response = await fetch("http://localhost:3004/upload", {
-      const response =  fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
+      const response = fetch("http://localhost:3004/upload", {
+      // const response = fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
         method: "POST",
-        body: formData,
-        onUploadProgress: (event) => {
-          const percentCompleted = Math.round(
-            (event.loaded * 100) / event.total
-          );
-          setProgress(percentCompleted);
-        },
+        body: formData
       });
       setShowHome(!showHome)
       setShowPreview(!showPreview)
@@ -104,7 +99,7 @@ export default function Home() {
             </button>
 
           {msg && <span>{msg}</span>}
-          {file && <span>{file.name}</span>}
+          {file && <span className="filename">{file.name}</span>}
         </div>
       </div>
 
