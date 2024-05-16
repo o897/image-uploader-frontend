@@ -48,8 +48,8 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = fetch("http://localhost:3004/upload", {
-      // const response = fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
+      // const response = fetch("http://localhost:3004/upload", {
+      const response = fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
         method: "POST",
         body: formData
       });
