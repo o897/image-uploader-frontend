@@ -55,13 +55,8 @@ export default function Home() {
         "https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload",
         {
           method: "POST",
-          headers: {
-            "access-control-allow-origin" : "*",
-            "Content-type": "application/json; charset=UTF-8"
-          },
           body: formData,
-        },
-        
+        }
       );
     } catch (error) {
       console.log("Error upload image : ", error);
