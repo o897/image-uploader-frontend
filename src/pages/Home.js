@@ -57,6 +57,7 @@ export default function Home() {
         "https://image-uploader-backend-yzqj.onrender.com/upload",
         {
           method: "POST",
+          mode: 'no-cors',
           body: formData,
         }
       );
