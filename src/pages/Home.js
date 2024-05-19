@@ -1,23 +1,25 @@
-import { useRef, useState, lazy,Suspense} from "react";
-import Loading from "./Loading";
+import { useRef, useState, lazy, Suspense, useEffect } from "react";
+// import Loading from "./Loading";
+import { useNavigate } from "react-router-dom";
+
 import "../index.css";
 
-const CompletePreview = lazy(() => delayForLoading(import('./Complete')));
+// const CompletePreview = lazy(() => delayForLoading(import('./Complete')));
 
 export default function Home() {
+  const navigate = useNavigate();
 
   const [file, setFile] = useState();
   const [msg, setMsg] = useState(null);
-  const [showPreview, setShowPreview] = useState(false);
-  const [showHome, setShowHome] = useState(true);
-  const [progress, setProgress] = useState(0);
+  // const [showPreview, setShowPreview] = useState(false);
+  // const [showHome, setShowHome] = useState(true);
+
   const handleDrop = (event) => {
     event.preventDefault();
     const { file } = event.dataTransfer;
     if (file.length > 0) {
       setFile([...file]);
     }
-
   };
 
   const handleDragOver = (event) => {
@@ -49,23 +51,25 @@ export default function Home() {
 
     try {
       // const response = fetch("http://localhost:3004/upload", {
-      const response = fetch("https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload", {
-        method: "POST",
-        body: formData
-      });
-      setShowHome(!showHome)
-      setShowPreview(!showPreview)
-      // setFile([])updaed
+      const response = fetch(
+        "https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
     } catch (error) {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
+
+    navigate("/complete");
   };
 
   return (
     <>
       <div className="App">
-        <div className="image" style={{ display: showHome ? 'inline-flex' : 'none' }}>
+        <div className="image">
           <h1>Upload your file</h1>
           <p>File should be Jpeg, Png...</p>
           <div
@@ -94,27 +98,14 @@ export default function Home() {
           />
           <button onClick={onButtonClick}>Choose a file</button>
 
-            <button className="upload__button" onClick={handleUpload}>
-              Upload
-            </button>
+          <button className="upload__button" onClick={handleUpload}>
+            Upload
+          </button>
 
           {msg && <span>{msg}</span>}
           {file && <span className="filename">{file.name}</span>}
         </div>
       </div>
-
-      { showPreview &&  (
-        <Suspense fallback={<Loading />}>
-            <CompletePreview filename={file.name}/>
-        </Suspense>
-      )}
     </>
   );
 }
-
-function delayForLoading(promise) {
-    return new Promise(resolve => {
-        setTimeout(resolve, 3000);
-    }).then(() => promise);
-}
-

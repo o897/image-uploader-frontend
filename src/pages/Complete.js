@@ -1,23 +1,38 @@
 import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 export default function Complete({ filename }) {
   const [imageData, setImageData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // Fetch image data from your backend API
-    fetch(`https://image-uploader-backend-yzqj.onrender.com/api/${filename}`)
-      .then((response) => response.json())
-      .then((data) => setImageData(data))
-      .catch((error) => console.error("Error fetching image data:", error));
-  }, []);
+  useEffect (() => {
+    const fetchData = async () => {
+      setLoading(true);
 
-  const { url } = imageData;
+      try {
+        const response = await fetch(`https://image-uploader-backend-yzqj.onrender.com/api/${filename}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setImageData(data);
+      } catch (error) {
+        console.error("Error fetching image data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, [])
 
-  console.log("new url", imageData);
+  console.log(imageData);
 
   return (
     <>
-      {
+
+      {loading && <Loading/>}
+      { imageData && (
         <div className="image">
           <div className="Upload__message">
             <i>
@@ -34,19 +49,20 @@ export default function Complete({ filename }) {
             <div className="Upload__message-title">Uploaded Successfully!</div>
           </div>
           <div className="Uploaded__image">
-            <img src={url} alt="" />
+            <img src={imageData.url} alt="" />
           </div>
           <div className="Uploaded__image--link">
-            <div className="Uploaded__image--link-p">{url}</div>
+            <div className="Uploaded__image--link-p">{imageData.url}</div>
             <button
               className="uploaded__image--link-btn"
-              onClick={() => navigator.clipboard.writeText({ url })}
+              onClick={() => navigator.clipboard.writeText(imageData.url)}
             >
               Copy Link
             </button>
           </div>
         </div>
-      }
+      )}
+      
     </>
   );
 }
