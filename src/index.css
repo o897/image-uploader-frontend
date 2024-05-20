@@ -137,6 +137,7 @@ button {
   height: 224.4px;
   border-radius: 12px;
   justify-content: center;
+  margin-bottom: 3px;
 }
 
 .Upload__message {

@@ -1,18 +1,13 @@
-import { useRef, useState, lazy, Suspense, useEffect } from "react";
-// import Loading from "./Loading";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../index.css";
-
-// const CompletePreview = lazy(() => delayForLoading(import('./Complete')));
 
 export default function Home() {
   const navigate = useNavigate();
 
   const [file, setFile] = useState();
   const [msg, setMsg] = useState(null);
-  // const [showPreview, setShowPreview] = useState(false);
-  // const [showHome, setShowHome] = useState(true);
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -50,14 +45,10 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      // const response = fetch("http://localhost:3004/upload", {
-      // "https://image-uploader-backend-git-main-o897s-projects.vercel.app/upload",
 
-      const response = fetch(
-        "https://image-uploader-backend-yzqj.onrender.com/upload",
-        {
+      // const response = fetch("http://localhost:3004/upload", {
+         const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
-          mode: 'no-cors',
           body: formData,
         }
       );
@@ -65,8 +56,9 @@ export default function Home() {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
+    
+    navigate('/complete', { state: { filename: file.name } });
 
-    navigate("/complete");
   };
 
   return (
