@@ -17,12 +17,12 @@ export default function Complete() {
       );
       const data = await response.json();
       if (loading) {
-        setTimeout(() => setLoading(false), 3000);
         setImageData(data);
+        setLoading(false);
       }
     };
 
-    fetchData()
+    fetchData();
 
   }, []);
 
