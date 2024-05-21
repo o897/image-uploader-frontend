@@ -11,9 +11,9 @@ export default function Home() {
 
   const handleDrop = (event) => {
     event.preventDefault();
-    const { file } = event.dataTransfer;
-    if (file.length > 0) {
-      setFile([...file]);
+    let files  = event.dataTransfer.files;
+    if (files.length > 0) {
+      setFile(files[0]);
     }
   };
 
