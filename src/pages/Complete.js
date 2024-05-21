@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import {useQuery} from "react-query"
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 
@@ -7,34 +8,42 @@ export default function Complete() {
   const filename = location.state?.filename;
   // const filename = "20230802_131109.jpg";
 
-  const [imageData, setImageData] = useState(null);
-  const [loading, setLoading] = useState(true); // Initialize loading as true
+  // const [imageData, setImageData] = useState(null);
+  // const [loading, setLoading] = useState(true); // Initialize loading as true
 
-  useEffect(() => {
-    const fetchData = async () => {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch(
+  //       `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
+  //     );
+  //     const data = await response.json();
+  //     if (loading) {
+  //       setImageData(data);
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
+   const fetchData = async () => {
       const response = await fetch(
         `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       );
-      const data = await response.json();
-      if (loading) {
-        setImageData(data);
-        setLoading(false);
-      }
-    };
+      return response.json();
+    }
 
-    fetchData();
-
-  }, []);
+    const {isLoading, error, data} = useQuery('image', fetchData);
 
   console.log("filename Complete page : ", filename);
-  console.log("image data : ", imageData);
+  console.log("image data : ", data);
+  console.log("error : ",error);
 
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <Loading />
       ) : (
-        imageData && (
+        data && (
           <div className="image">
             <div className="Upload__message">
               <i>
@@ -53,13 +62,13 @@ export default function Complete() {
               </div>
             </div>
             <div className="Uploaded__image">
-              <img src={imageData.url} alt="" />
+              <img src={data.url} alt="" />
             </div>
             <div className="Uploaded__image--link">
-              <div className="Uploaded__image--link-p">{imageData.url}</div>
+              <div className="Uploaded__image--link-p">{data.url}</div>
               <button
                 className="uploaded__image--link-btn"
-                onClick={() => navigator.clipboard.writeText(imageData.url)}
+                onClick={() => navigator.clipboard.writeText(data.url)}
               >
                 Copy Link
               </button>
