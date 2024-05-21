@@ -15,11 +15,9 @@ export default function Complete() {
       const response = await fetch(
         `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       );
-      const data = await response.json();
-      if (loading) {
-        setLoading(false);
-        setImageData(data);
-      }
+      const data = await response.json();    
+      setImageData(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
