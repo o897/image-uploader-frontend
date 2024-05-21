@@ -17,11 +17,13 @@ export default function Complete() {
       );
       const data = await response.json();
       if (loading) {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 3000);
         setImageData(data);
       }
     };
-    fetchData();
+
+    fetchData()
+
   }, []);
 
   console.log("filename Complete page : ", filename);

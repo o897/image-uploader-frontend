@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   background-color:#FAFAFB;
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   
 }
 
@@ -19,7 +21,7 @@ button {
   width: 101px;
   height: 31.984px;
   color: #FFF;
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans", sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.42px;
@@ -184,6 +186,7 @@ button {
   width: 240px;
   white-space: nowrap;
   text-overflow: ellipsis;
+
 }
 
 .uploaded__image--link-btn {
@@ -193,6 +196,7 @@ button {
   background: #2F80ED;
   align-items: flex-end;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .Uploaded__image img {
@@ -208,8 +212,8 @@ button {
   height: 30px;
   background: green;
 }
-/* Progress bar */
 
+/* Progress bar */
 .progress-bar {
   width: 400px;
   height: 143px;
