@@ -224,6 +224,12 @@ button {
   transform: translate(-50%,50%);
 }
 
+.progress-bar-title {
+  position: absolute;
+  transform: translate(20%, 100%);
+  background-color: #f0f0f0;
+}
+
 .progress {
   position: absolute;
   transform: translate(-50%,-50%);
@@ -233,7 +239,7 @@ button {
   width: 100.71px;
   background-color: #007bff;
   border-radius: 8px;
-  animation: progress-animation 2s linear forwards;
+  animation: progress-animation 3s infinite alternate;
 }
 
 /* End progress bar */
