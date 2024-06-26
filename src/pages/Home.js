@@ -44,9 +44,12 @@ export default function Home() {
 
     formData.append("file", file);
 
+    
+
     try {
 
-      // const response = fetch("http://localhost:3004/upload", {
+      // const response = fetch("http://localhost:3004/upload", {t
+ 
          const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
           body: formData,
@@ -57,7 +60,9 @@ export default function Home() {
       setMsg("Error Uploading file.");
     }
     
-    navigate('/complete', { state: { filename: file.name } });
+    setTimeout(() => {
+      navigate('/complete', { state: { filename: file.name } });
+    }, 1000);
 
   };
 
