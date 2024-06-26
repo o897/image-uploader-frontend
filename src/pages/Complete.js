@@ -15,22 +15,22 @@ export default function Complete() {
       const response = await fetch(
         `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       );
-      const data = await response.json();    
+      const data = response.json();    
       setImageData(data);
+      console.log("image data : ", imageData);
       setLoading(false);
     };
     fetchData();
   }, [imageData]);
 
   console.log("filename Complete page : ", filename);
-  console.log("image data : ", imageData);
 
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
-        imageData?.url && (
+        imageData && (
           <div className="image">
             <div className="Upload__message">
               <i>
@@ -49,7 +49,7 @@ export default function Complete() {
               </div>
             </div>
             <div className="Uploaded__image">
-              <img src={imageData.url} alt="404" />
+              <img src={imageData.url} alt="" />
             </div>
             <div className="Uploaded__image--link">
               <div className="Uploaded__image--link-p">{imageData.url}</div>
