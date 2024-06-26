@@ -11,12 +11,13 @@ export default function Complete() {
   const [loading, setLoading] = useState(true); // Initialize loading as true
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
+    const fetchData = () => {
+      const response = fetch(
         `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       );
-      const data = await response.json();    
+      const data = response.json();    
       setImageData(data);
+      console.log(imageData);
       setLoading(false);
     };
     fetchData();
@@ -30,7 +31,7 @@ export default function Complete() {
       {loading ? (
         <Loading />
       ) : (
-        imageData && (
+        imageData?.url && (
           <div className="image">
             <div className="Upload__message">
               <i>
@@ -49,7 +50,7 @@ export default function Complete() {
               </div>
             </div>
             <div className="Uploaded__image">
-              <img src={imageData.url} alt="" />
+              <img src={imageData.url} alt="https://res.cloudinary.com/teepublic/image/private/s--9_lwy7bt--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:38/co_ffffff,e_outline:inner_fill:38/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1513290234/production/designs/2179068_1.jpg" />
             </div>
             <div className="Uploaded__image--link">
               <div className="Uploaded__image--link-p">{imageData.url}</div>
