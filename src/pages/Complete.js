@@ -25,8 +25,6 @@ export default function Complete() {
     fetchData();
   }, []);
 
-  console.log("filename Complete page : ", filename);
-
   return (
     <>
       {loading ? (
