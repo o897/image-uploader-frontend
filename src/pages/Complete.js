@@ -9,7 +9,9 @@ export default function Complete() {
 
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(true); // Initialize loading as true
-
+  const currentTime = new Date();
+  const timeString = currentTime.toLocaleTimeString();
+  // If image hasn't been uploaded keep on fetching
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -17,7 +19,7 @@ export default function Complete() {
       );
       const data = response.json();    
       setImageData(data);
-      console.log("image data : ", imageData);
+      console.log("image data : ", timeString , " - ", imageData);
       setLoading(false);
     };
     fetchData();

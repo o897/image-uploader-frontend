@@ -62,7 +62,7 @@ export default function Home() {
     
     setTimeout(() => {
       navigate('/complete', { state: { filename: file.name } });
-    }, 1000);
+    }, 500);
 
   };
 
