@@ -14,8 +14,10 @@ export default function Complete() {
   // If image hasn't been uploaded keep on fetching
   useEffect(() => {
     const fetchData = async () => {
+      // `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
+        `https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/${filename}`
+
       );
       const data = response.json();    
       setImageData(data);
