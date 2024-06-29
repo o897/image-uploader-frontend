@@ -6,6 +6,7 @@ export default function Complete() {
   const location = useLocation();
   const filename = location.state?.filename;
   const {imgId} = useParams();
+  console.log(imgId);
   // const filename = "20230802_131109.jpg";
 
   const [imageData, setImageData] = useState(null);
@@ -18,7 +19,7 @@ export default function Complete() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/api/${filename ?? imgId}`
+        `https://image-uploader-backend-yzqj.onrender.com/api/${filename || imgId}`
       );
       const data = await response.json();
       setImageData(data);
