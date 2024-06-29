@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 
 export default function Complete() {
   const location = useLocation();
   const filename = location.state?.filename;
+  const {imgId} = useParams();
   // const filename = "20230802_131109.jpg";
 
   const [imageData, setImageData] = useState(null);
@@ -17,11 +18,10 @@ export default function Complete() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
+        `https://image-uploader-backend-yzqj.onrender.com/api/${filename ?? imgId}`
       );
-      const data = response.json();
+      const data = await response.json();
       setImageData(data);
-      console.log("image data : ", timeString, " - ", imageData);
       setLoading(false);
     };
     fetchData();
