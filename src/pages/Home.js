@@ -47,10 +47,10 @@ export default function Home() {
     
 
     try {
-
-        // const response = fetch("http://localhost:3004/upload", {t
-        //  const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
-          const response = fetch("https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/upload",{
+        // const response = fetch("https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/upload",{
+        // const response = fetch("http://localhost:3004/upload", {
+        
+         const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
           body: formData,
         }

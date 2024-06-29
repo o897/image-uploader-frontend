@@ -8,20 +8,20 @@ export default function Complete() {
   // const filename = "20230802_131109.jpg";
 
   const [imageData, setImageData] = useState(null);
-  const [loading, setLoading] = useState(true); // Initialize loading as true
+  const [loading, setLoading] = useState(true); 
   const currentTime = new Date();
   const timeString = currentTime.toLocaleTimeString();
-  // If image hasn't been uploaded keep on fetching
+
+  // `https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/${filename}`
+
   useEffect(() => {
     const fetchData = async () => {
-      // `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       const response = await fetch(
-        `https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/${filename}`
-
+        `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
       );
-      const data = response.json();    
+      const data = response.json();
       setImageData(data);
-      console.log("image data : ", timeString , " - ", imageData);
+      console.log("image data : ", timeString, " - ", imageData);
       setLoading(false);
     };
     fetchData();
