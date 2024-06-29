@@ -5,21 +5,19 @@ import Loading from "./Loading";
 export default function Complete() {
   const location = useLocation();
   const filename = location.state?.filename;
-  const {imgId} = useParams();
-  console.log(imgId);
-  // const filename = "20230802_131109.jpg";
-
+  const { imgId } = useParams();
   const [imageData, setImageData] = useState(null);
-  const [loading, setLoading] = useState(true); 
-  const currentTime = new Date();
-  const timeString = currentTime.toLocaleTimeString();
+  const [loading, setLoading] = useState(true);
 
-  // `https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/${filename}`
+  // `http://localhost:3004/api/acrylic.jpg`
+  // `http://localhost:3004/api/${filename || imgId}`
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/api/${filename}`
+        `https://image-uploader-backend-yzqj.onrender.com/api/${
+          filename || imgId
+        }`
       );
       const data = await response.json();
       setImageData(data);

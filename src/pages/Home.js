@@ -47,10 +47,9 @@ export default function Home() {
     
 
     try {
-        // const response = fetch("https://image-uploader-backend-8w76tadu3-o897s-projects.vercel.app/upload",{
-        // const response = fetch("http://localhost:3004/upload", {
-
-         const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
+      // "http://localhost:3004/upload",
+      // const response = fetch("http://localhost:3004/upload", {
+        const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
           body: formData,
         }
@@ -59,7 +58,10 @@ export default function Home() {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
-      navigate('/complete', { state: { filename: file.name } });
+    // 
+      // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+      navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+
   };
 
   return (
