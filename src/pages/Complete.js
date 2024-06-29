@@ -32,7 +32,7 @@ export default function Complete() {
       {loading ? (
         <Loading />
       ) : (
-        imageData?.url && (
+        imageData && (
           <div className="image">
             <div className="Upload__message">
               <i>
