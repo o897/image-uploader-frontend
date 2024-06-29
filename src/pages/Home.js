@@ -59,9 +59,7 @@ export default function Home() {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
-    
       navigate('/complete', { state: { filename: file.name } });
-  
   };
 
   return (
