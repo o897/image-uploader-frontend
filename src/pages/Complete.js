@@ -5,18 +5,19 @@ import Loading from "./Loading";
 export default function Complete() {
   const location = useLocation();
   const filename = location.state?.filename;
-  const { imgId } = useParams();
+  const { image } = useParams();
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  console.log(image);
   // `http://localhost:3004/api/acrylic.jpg`
   // `http://localhost:3004/api/${filename || imgId}`
+  // `http://localhost:3004/api/${image || filename}`  
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/api/${
-          filename || imgId
+         `https://image-uploader-backend-yzqj.onrender.com/api/${
+          image || filename
         }`
       );
       const data = await response.json();
@@ -24,7 +25,7 @@ export default function Complete() {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [image]);
 
   return (
     <>
