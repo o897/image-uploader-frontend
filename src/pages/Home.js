@@ -104,7 +104,7 @@ export default function Home() {
           {file && <span className="filename">{file.name}</span>}
 
         </div>
-        <p style={{display: "flex",justifyContent: "center"}}>refresh page if results not showing</p>
+        <p style={{display: "flex",justifyContent: "center", marginTop: "50px"}}>refresh page if results not showing</p>
 
       </div>
 
