@@ -102,8 +102,12 @@ export default function Home() {
 
           {msg && <span>{msg}</span>}
           {file && <span className="filename">{file.name}</span>}
+
         </div>
+        <p style={{display: "flex",justifyContent: "center"}}>refresh page if results not showing</p>
+
       </div>
+
     </>
   );
 }
