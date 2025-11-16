@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
+  
   background-color:#FAFAFB;
   font-family: "Poppins", sans-serif;
 }
@@ -242,6 +241,88 @@ button {
 }
 
 /* End progress bar */
+
+/* login page */
+/* App styling */
+
+/* Form login page */
+.form__signin h1 {
+    margin-bottom: 20px;
+}
+
+.form__signin {
+    font-family: Inter,sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0; 
+}
+
+.form__signin-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: .5px solid #e7e5e5;
+}
+
+.form__signin-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.form__signin-input input {
+    height: 35px;
+    border-radius: 6px;
+    border: 0.5px solid #9e9c9c;
+    padding-left: 10px;
+    /* border: none; */
+}
+
+.form__signin-input input:focus {
+
+    border: 1px solid#d1cfcf;
+}
+
+.form__signin-btn {
+    height: 45px;
+    width: 318px;
+    border-radius: 4px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 500;
+
+}
+
+.form__signin-btn.login{
+    background-color: black;
+    color: #fff;
+}
+
+/* End Form login page */
+
+/* Register page */
+.form__signin-btn.register {
+    background-color: #9e9c9c;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+/* End Register page */
+
+/* end login page */
+
+
 
 @keyframes progress-animation {
   0% {

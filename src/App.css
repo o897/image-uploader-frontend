@@ -1,0 +1,78 @@
+/* navbar */
+.navbar {
+    border-bottom: 1px solid #909696;
+    margin-bottom: 20px;
+    padding: 10px 20px;    
+    
+}
+
+.navbar__menu {
+    display: flex;
+    gap: 20px;
+    padding-right: 10px;
+    align-items: center;
+    color: #909696;
+    font-size: 1.4rem;
+}
+
+.navbar__menu-input {
+    width: 70%;
+    height: 38px;
+    padding: 5px 8px;
+    forced-color-adjust:none ;
+    border: 1px solid #909696 ;
+    padding-left: 17px;
+    border-radius: 10px;
+    font-size: 1em;
+
+}
+
+.navbar__menu input:focus {
+  border-color: #aaa;          /* subtle focus border */
+  box-shadow: none;            /* remove blue glow */
+  font-weight: normal;         /* keep text normal on focus */
+  outline: none;
+}
+/* end navbar */
+
+/* hero */
+.hero {
+    margin: auto 20vw;
+}
+
+.hero__images {
+    columns: 3;
+    /* number of vertical stacks (like Unsplash) */
+    column-gap: 25px;
+    /* spacing between the stacks */
+}
+
+
+
+hero__images-image.r {
+    display: flex;
+    justify-self: end;
+}
+
+.hero__images-image.l {
+    display: flex;
+    justify-self: start;
+}
+
+.hero__images-image img {
+    width: 550px;
+    height: 570px;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 5px;
+}
+
+
+
+/* random images sizes */
+
+
+
+
+/* end hero */

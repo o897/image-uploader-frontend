@@ -1,113 +1,43 @@
-import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar"
+import { useState } from "react"
+function Home() {
 
-import "../index.css";
+  // fetch images from cloudinary api
 
-export default function Home() {
-  const navigate = useNavigate();
+  const [pictures,setPictures] = useState()
 
-  const [file, setFile] = useState();
-  const [msg, setMsg] = useState(null);
+  
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    let files  = event.dataTransfer.files;
-    if (files.length > 0) {
-      setFile(files[0]);
-    }
-  };
-
-  const handleDragOver = (event) => {
-    event.preventDefault();
-  };
-
-  const handleDragStart = (event) => {
-    event.dataTransfer.setData("text/plain", event.target.id);
-  };
-
-  const inputFile = useRef(null);
-
-  const onButtonClick = () => {
-    inputFile.current.click();
-  };
-
-  const handleUpload = (e) => {
-    e.preventDefault();
-
-    if (!file) {
-      setMsg("No file selected");
-      console.log("No file selected");
-      return;
-    }
-
-    const formData = new FormData();
-
-    formData.append("file", file);
-
-    
-
-    try {
-      // "http://localhost:3004/upload",
-      // const response = fetch("http://localhost:3004/upload", {
-        const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
-          method: "POST",
-          body: formData,
-        }
-      );
-    } catch (error) {
-      console.log("Error upload image : ", error);
-      setMsg("Error Uploading file.");
-    }
-    
-      // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
-      navigate(`/complete/${file.name}`, { state: { filename: file.name } });
-
-  };
-
-  return (
-    <>
-      <div className="App">
-        <div className="image">
-          <h1>Upload your file</h1>
-          <p>File should be Jpeg, Png...</p>
-          <div
-            className="image__box"
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
-          >
-            <div
-              className="image__box-icon"
-              draggable="true"
-              onDragStart={handleDragStart}
-            >
-              {/* if file not uploaded show svg if true show progress and after file and  link on same page */}
-              <img src="image.svg" alt="" />
-            </div>
+   return (
+    <div>
+      <Navbar/>
+      <div className="hero">
+          <div className="hero__images">
+              <div className="hero__images-image l">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNubLmqdOK9pZWU-2IiD20cuSIdUUDi9-NvQ&s" alt=""/>
+              </div>
+              <div className="hero__images-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDK2iXXm3J4BUxIjQANFOKMiOLRvwvGVSPnA&s" alt="" />
+              </div>
+              <div className="hero__images-image r">
+                 <img src="https://www.discoverafrica.com/wp-content/uploads/2022/08/iStock-1174860404-1920x1080.jpg" alt=""/>
+              </div>
           </div>
-          <p className="or">Or</p>
-
-          <input
-            type="file"
-            name="file"
-            onChange={(e) => setFile(e.target.files[0])}
-            id="file"
-            ref={inputFile}
-            style={{ display: "none" }}
-          />
-          <button onClick={onButtonClick}>Choose a file</button>
-
-          <button className="upload__button" onClick={handleUpload}>
-            Upload
-          </button>
-
-          {msg && <span>{msg}</span>}
-          {file && <span className="filename">{file.name}</span>}
-
-        </div>
-        <p style={{display: "flex",justifyContent: "center", marginTop: "50px"}}>refresh page if results not showing</p>
-
+           <div className="hero__images">
+              <div className="hero__images-image l">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNubLmqdOK9pZWU-2IiD20cuSIdUUDi9-NvQ&s" alt=""/>
+              </div>
+              <div className="hero__images-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDK2iXXm3J4BUxIjQANFOKMiOLRvwvGVSPnA&s" alt="" />
+              </div>
+              <div className="hero__images-image r">
+                 <img src="https://www.discoverafrica.com/wp-content/uploads/2022/08/iStock-1174860404-1920x1080.jpg" alt=""/>
+              </div>
+          </div>
+         
       </div>
-
-    </>
-  );
+    </div>
+   )
 }
+
+export default Home
