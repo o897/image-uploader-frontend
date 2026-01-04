@@ -47,7 +47,7 @@ export default function Upload () {
 
     try {
       // "http://localhost:3004/upload",
-      // const response = fetch("http://localhost:3004/upload", {
+      // const response = fetch("http://localhost:3004/image/upload", {
         const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
           body: formData,
@@ -93,7 +93,7 @@ export default function Upload () {
             ref={inputFile}
             style={{ display: "none" }}
           />
-          <button onClick={onButtonClick}>Choose a file</button>
+          <button onClick={onButtonClick} className="choose_file-btn">Choose a file</button>
 
           <button className="upload__button" onClick={handleUpload}>
             Upload
@@ -104,9 +104,7 @@ export default function Upload () {
 
         </div>
         <p style={{display: "flex",justifyContent: "center", marginTop: "50px"}}>refresh page if results not showing</p>
-
       </div>
-
     </>
   );
 }

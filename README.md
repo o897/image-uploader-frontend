@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Poroject Description
+
+A MERN-stack image sharing platform inspired by Pexels, built to demonstrate real-world API consumption, authentication, media uploads, and user-controlled content sharing.
+
+The home page displays curated stock photos fetched from a public API, showing my ability to integrate and optimize third-party APIs.
+
+Authenticated users can upload images to Cloudinary, manage their personal gallery, and choose whether their photos are private or publicly shared with the community.
+
+The app focuses on performance, clean UI, and scalable backend design.

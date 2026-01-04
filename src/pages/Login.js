@@ -46,7 +46,7 @@ const Login = () => {
                 console.log(data);
                 
                 // 2. NOW, the frontend performs the redirect.
-                navigate('/home');
+                navigate('/upload');
 
             } else {
                 console.error("Login failed: ", data.message);
@@ -73,9 +73,10 @@ const Login = () => {
                     {/* handle login on the frontend if it return user redirect */}
                     <button className="form__signin-btn"><a href="http://localhost:3000/auth/google">Sign in with Google</a></button>
                     <button className="form__signin-btn">Sign in with Apple</button>
-                    <button className="form__signin-btn">Sign in with Facebook</button>
+                    <button className="form__signin-btn"><a href="http://localhost:3000/auth/facebook"> Sign in with Facebook</a></button>
                 </div>
 
+                {/* make it a component */}
                 <div className="form__signin-input">
                     <label htmlFor="">Email</label>
                     <input type="text" name="email" onChange={handleChange} value={formData.email} />

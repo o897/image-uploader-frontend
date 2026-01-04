@@ -16,9 +16,10 @@ export default function Complete() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-         `https://image-uploader-backend-yzqj.onrender.com/api/${
-          image || filename
-        }`
+        //  `https://image-uploader-backend-yzqj.onrender.com/api/${
+        //   image || filename
+        // }`
+        `http://localhost:3004/image/api/${image || filename}` 
       );
       const data = await response.json();
       setImageData(data);
