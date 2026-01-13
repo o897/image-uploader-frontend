@@ -93,7 +93,7 @@ function Home() {
         </div>
         <div className="hero__images">
           {photos.slice(12, 17).map((photo) => (
-            <div className="hero__images-image" key={photo.id}>
+            <div className="hero__images-image s" key={photo.id}>
               <img src={photo.src.medium} alt={photo.alt || ""}
                 loading="lazy"
               />

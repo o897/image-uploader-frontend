@@ -135,8 +135,8 @@
 
 
 .hero__images-image img {
-    width: -webkit-fill-available;
-    height: 347px;
+    width: 500px;
+    height: 700px;
     cursor: pointer;
 
 }
