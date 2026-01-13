@@ -89,7 +89,8 @@
 .hero {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+    
 
     /* overflow-x: none; */
 }
@@ -130,20 +131,20 @@
 .hero__images {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
 }
 
 
 .hero__images-image img {
-    width: 500px;
-    height: 700px;
+    width: 410px;
+    height: 600px;
     cursor: pointer;
+    border-radius: 15px;
+    object-fit: contain;
 
 }
 
-.hero__images-image img {
 
-}
 
 
 /* end hero */

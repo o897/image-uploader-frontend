@@ -47,8 +47,8 @@ export default function Upload () {
 
     try {
       // "http://localhost:3004/upload",
-      const response = fetch("http://localhost:3004/image/upload", {
-        // const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
+      // const response = fetch("http://localhost:3004/image/upload", {
+        const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
           method: "POST",
           body: formData,
         }

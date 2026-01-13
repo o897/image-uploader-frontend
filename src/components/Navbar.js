@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="navbar__menu">
                 <input name="search" className="navbar__menu-input" placeholder="Search photos using keywords or a description"/>
                 <button className="navbar__menu-btn-login" onClick={() => navigate('/login')}>Log in</button>
-                <button className="submit__img-btn" onClick={() => navigate('/upload')}>Submit an image</button>   
+                <button className="submit__img-btn" onClick={() => navigate('/upload')}>Upload an image</button>   
             </div>
         </div>
         <div className="options">

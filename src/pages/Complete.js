@@ -1,6 +1,7 @@
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
+import Navbar from "../components/Navbar";
 
 export default function Complete() {
   const location = useLocation();
@@ -34,7 +35,9 @@ export default function Complete() {
         <Loading />
       ) : (
         imageData?.url && (
-          <div className="image">
+          <div>
+            <Navbar/>
+             <div className="image">
             <div className="Upload__message">
               <i>
                 <svg
@@ -64,6 +67,9 @@ export default function Complete() {
               </button>
             </div>
           </div>
+          </div>
+
+         
         )
       )}
     </>
