@@ -64,10 +64,28 @@ function Home() {
         <h3>A MERN-stack image sharing platform inspired by Pexels, built to demonstrate real-world API consumption, authentication, media uploads, and user-controlled content sharing.</h3>
         <div className="collection-card">
           {/* when a person hover it flips with some funny meme people encouraged to upload some memes */}
-          <h4>Work memes</h4>
-        </div>
-        <div className="collection-card">
+        
+            <div className="collection-card-front">
+              {/* <h4>Work memes</h4> */}
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9J3tl5Eu3zxb4HuCB3ys6yXmXREZDacqMLg&s" alt="Avatar"/>
 
+            </div>
+            
+    
+          <div className="collection-card-back">
+            <h5>backside</h5>
+          </div>
+        </div>
+
+        <div className="collection-card">
+            <div className="collection-card-front">
+              <h4>Study memes</h4>
+            </div>
+      
+          
+          <div className="collection-card-back">
+            <p>backside</p>
+          </div>
         </div>
       </div>
 

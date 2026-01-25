@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
+import Navbar from "../components/Navbar";
 
-export default function Upload () {
+export default function Upload() {
   const navigate = useNavigate();
 
   const [file, setFile] = useState();
@@ -10,7 +11,7 @@ export default function Upload () {
 
   const handleDrop = (event) => {
     event.preventDefault();
-    let files  = event.dataTransfer.files;
+    let files = event.dataTransfer.files;
     if (files.length > 0) {
       setFile(files[0]);
     }
@@ -43,28 +44,29 @@ export default function Upload () {
 
     formData.append("file", file);
 
-    
+
 
     try {
-      // "http://localhost:3004/upload",
-      // const response = fetch("http://localhost:3004/image/upload", {
-        const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload",{
-          method: "POST",
-          body: formData,
-        }
+      // "http://localhost:3000/upload",
+      // const response = fetch("http://localhost:3000/image/upload", {
+      const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload", {
+        method: "POST",
+        body: formData,
+      }
       );
     } catch (error) {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
-    
-      // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
-      navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+
+    // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+    navigate(`/complete/${file.name}`, { state: { filename: file.name } });
 
   };
 
   return (
     <>
+      <Navbar />
       <div className="App">
         <div className="image">
           <h1>Upload your file</h1>
@@ -103,7 +105,7 @@ export default function Upload () {
           {file && <span className="filename">{file.name}</span>}
 
         </div>
-        <p style={{display: "flex",justifyContent: "center", marginTop: "50px"}}>refresh page if results not showing</p>
+        <p style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>refresh page if results not showing</p>
       </div>
     </>
   );

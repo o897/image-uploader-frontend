@@ -252,6 +252,7 @@ a {
 /* Form login page */
 .form__signin h1 {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .form__signin {
@@ -309,6 +310,7 @@ a {
 .form__signin-btn.login{
     background-color: black;
     color: #fff;
+    cursor: pointer;
 }
 
 /* End Form login page */
