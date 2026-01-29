@@ -44,15 +44,14 @@ export default function Upload() {
 
     formData.append("file", file);
 
-
-
     try {
-      // "http://localhost:3000/upload",
       // const response = fetch("http://localhost:3000/image/upload", {
-      const response = fetch("https://image-uploader-backend-yzqj.onrender.com/upload", {
-        method: "POST",
-        body: formData,
-      }
+      const response = fetch(
+        "https://image-uploader-backend-yzqj.onrender.com/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
       );
     } catch (error) {
       console.log("Error upload image : ", error);
@@ -61,7 +60,6 @@ export default function Upload() {
 
     // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
     navigate(`/complete/${file.name}`, { state: { filename: file.name } });
-
   };
 
   return (
@@ -95,7 +93,9 @@ export default function Upload() {
             ref={inputFile}
             style={{ display: "none" }}
           />
-          <button onClick={onButtonClick} className="choose_file-btn">Choose a file</button>
+          <button onClick={onButtonClick} className="choose_file-btn">
+            Choose a file
+          </button>
 
           <button className="upload__button" onClick={handleUpload}>
             Upload
@@ -103,9 +103,16 @@ export default function Upload() {
 
           {msg && <span>{msg}</span>}
           {file && <span className="filename">{file.name}</span>}
-
         </div>
-        <p style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>refresh page if results not showing</p>
+        <p
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "50px",
+          }}
+        >
+          refresh page if results not showing
+        </p>
       </div>
     </>
   );
