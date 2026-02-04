@@ -87,12 +87,13 @@
   gap: 10px;
   align-items: flex-start;
   padding: 20px;
+  margin: 0 15vw;
 }
 
 .hero__images {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   flex: 1;
   max-width: 410px;
 }
