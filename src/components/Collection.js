@@ -1,21 +1,29 @@
-import Navbar from "./Navbar"
-
+import Navbar from "./Navbar";
+import { useState } from "react";
 function Collection() {
-
-    return (
-        <>
-           <Navbar/>
-
-            <div>
-                <div>
-                    <img src="https://images.pexels.com/photos/35109028/pexels-photo-35109028/free-photo-of-stargazer-under-the-milky-way-at-night.jpeg?auto=compress&cs=tinysrgb&w=524&h=392&fit=crop&crop=focalpoint&dpr=1"/>
-                </div>
-                <div>loremum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conseq </div>
-            </div>
-        </>
-    )
-
+  const [photos, setPhotos] = useState();
+  return (
+    <>
+      <div className="collections collections__menu">
+        <div className="colections__menu-item">Daily</div>
+        <div className="colections__menu-item">History</div>
+        <div className="colections__menu-item">Throwback</div>
+        <div className="colections__menu-item">Afcon</div>
+      </div>
+      <div className="collections__photos">
+        {photos ? (
+          <div>photos</div>
+        ) : (
+          <div className="colection__photos-show">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/022/059/000/non_2x/no-image-available-icon-vector.jpg"
+              srcSet=""
+            />
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
 
-export default Collection
-
+export default Collection;

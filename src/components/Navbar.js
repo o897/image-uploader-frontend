@@ -46,7 +46,7 @@ const Navbar = () => {
           ) : (
             // after user logs in log btn changes into user profile icon
             <button
-              className="navbar__menu-btn-login"
+              className="navbar__menu-btn-login submit__img-btn"
               onClick={() => navigate("/login")}
             >
               Log in
@@ -56,7 +56,7 @@ const Navbar = () => {
             className="submit__img-btn"
             onClick={() => navigate("/upload")}
           >
-            Upload an image
+            Upload
           </button>
         </div>
       </div>

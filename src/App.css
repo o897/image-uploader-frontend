@@ -20,14 +20,9 @@
 }
 
 .navbar__menu-btn-login {
-  width: 70px;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  background-color: #aaa;
-  border-radius: 12px;
-  height: 40px;
+  color: #0a0a0a !important;
+  font-weight: 600 !important;
+  background-color: #fff !important;
 }
 
 .navbar__menu-input {
@@ -58,12 +53,14 @@
 }
 
 .submit__img-btn {
+  border: 1px solid #bfaeae;
   font-weight: 600;
   cursor: pointer;
   background-color: #000;
   color: #fff;
   height: 40px;
-  border-radius: 12px;
+  border-radius: 7px;
+  width: 100px;
 }
 
 .options {
@@ -84,7 +81,7 @@
 .hero {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   align-items: flex-start;
   padding: 20px;
   margin: 0 15vw;
@@ -93,7 +90,7 @@
 .hero__images {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   flex: 1;
   max-width: 410px;
 }
@@ -108,10 +105,9 @@
 
 .collection {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
-  justify-content: flex-end;
-  position: relative;
+  justify-content: flex-start;
   right: 117px;
   margin-bottom: 20px;
   margin: 10px 10vw;
@@ -119,69 +115,29 @@
 
 .collection-intro {
   font-size: 1.4rem;
-}
-/* .collection-card {
-    height: 260px;
-    width: 350px;
-    border-radius: 12px;
-    border: 1px solid;
-    position: relative;
-    background-color: #df36acf6
-}
-
-.collection-card h4 {
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    transform: rotateX('angle');
-}
-
-.collection-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-} */
-
-.collection-card {
-  height: 300px;
-  perspective: 1000px; /* required for 3D effect */
-  width: 35%;
-  border-radius: 10px;
-}
-
-.collection-card:hover .collection-card-inner {
-  transform: rotateY(180deg); /* horizontal flip */
-}
-
-.collection-card-front,
-.collection-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* hides the reverse side */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: "Poppins";
+  font-weight: 100;
 }
 
 .collection-card-front {
-  background: #333;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  border-radius: 22px;
+  border: 1px solid #afa8a8;
+  padding: 20px;
+  height: 235px;
+  border: 1px solid #e9e7e7;
+  width: 230px;
 }
 
 .collection-card-front-head {
   display: flex;
-  justify-content: space-between;
-}
-.collection-card-back {
-  background: purple;
-  color: white;
-  transform: rotateY(180deg); /* flipped initially */
+  gap: 70px;
 }
 
+.colection__photos-show img {
+  height: 400px;
+  width: 400px;
+  display: block;
+  margin: auto;
+}
 /* end hero */
 .community {
   display: flex;
@@ -215,3 +171,38 @@
   width: 200px;
   object-fit: cover;
 }
+
+/* profile */
+
+.profile_container {
+  margin: 10vh 12vw;
+  padding: 20px;
+}
+
+.profile_user {
+  display: flex;
+  gap: 90px;
+}
+
+.profile_icon img {
+  object-fit: contain;
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+}
+/* end profile */
+
+/* collection__menu */
+.collections__menu {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #a8a3a3;
+  padding: 20px 0;
+}
+
+.colection__photos-show {
+}
+.colections__menu-item {
+  cursor: pointer;
+}
+/* end */

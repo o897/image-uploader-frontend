@@ -7,6 +7,7 @@ const API_URL =
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth(); // 2. Grab the login function from context
 
   const [formData, setFormData] = useState({
     email: "",
@@ -37,6 +38,10 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
+        // 3. Save user data globally and to LocalStorage
+        // Assuming 'data' contains user info like { name, email, token }
+        login(data);
+
         console.log("Login successful:", data);
         navigate("/upload");
       } else {

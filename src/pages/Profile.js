@@ -1,6 +1,9 @@
 import Navbar from "../components/Navbar";
+import Collection from "../components/Collection";
+import { useEffect } from "react";
 
 const Profile = () => {
+  const { user } = useAuth();
   return (
     <>
       <Navbar />
@@ -18,7 +21,14 @@ const Profile = () => {
             <p>User Bio or Description</p>
           </div>
         </div>
-        <div className="profile"></div>
+        <div>
+          <h2>User Session Data:</h2>
+          {/* This prints the object as a readable string on the page */}
+          <pre style={{ background: "#f4f4f4", padding: "10px" }}>
+            {user ? JSON.stringify(user, null, 2) : "No user logged in"}
+          </pre>
+        </div>
+        <Collection />
       </div>
     </>
   );

@@ -63,16 +63,13 @@ function Home() {
         <div className="collection-card">
           {/* when a person hover it flips with some funny meme people encouraged to upload some memes */}
 
+          {/* Cringe pic challenge */}
           <div className="collection-card-front">
-            <h4>front</h4>
-            {/* <img
+            <h4>Cringe</h4>
+            <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9J3tl5Eu3zxb4HuCB3ys6yXmXREZDacqMLg&s"
               alt="Avatar"
-            /> */}
-          </div>
-
-          <div className="collection-card-back">
-            <h5>backside</h5>
+            />
           </div>
         </div>
         <div className="collection-card">
@@ -82,19 +79,16 @@ function Home() {
               <div>See all</div>
             </div>
             <ul>
-              <li>Anime</li>
+              <li>Daily</li>
               <li>History</li>
               <li>Throwback</li>
               <li>Afcon</li>
             </ul>
           </div>
-
-          <div className="collection-card-back">
-            <p>backside</p>
-          </div>
         </div>
       </div>
 
+      <h4>Images by Pexels</h4>
       <div className="hero">
         <div className="hero__images">
           {photos.slice(0, 5).map((photo) => (
