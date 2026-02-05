@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Collection from "../components/Collection";
 import { useEffect } from "react";
+import { useAuth } from "../contexts/AuthContext";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -17,8 +18,7 @@ const Profile = () => {
             />
           </div>
           <div className="profile_details">
-            <h2>User Name</h2>
-            <p>User Bio or Description</p>
+            <h2>User Name</h2>|<p>User Bio or Description</p>
           </div>
         </div>
         <div>
