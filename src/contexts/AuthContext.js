@@ -43,11 +43,13 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
+  console.log("auth provider file");
   const login = (userData) => {
+    console.log("userData : ", userData);
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
   };
-
+  // "https://ttyfcy-3000.csb.app
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
