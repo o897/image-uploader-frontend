@@ -75,8 +75,8 @@ function Home() {
         <div className="collection-card">
           <div className="collection-card-front">
             <div className="collection-card-front-head">
-              <div>Collections</div>
-              <div>See all</div>
+              <div className="collection-card-item">Collections</div>
+              <div className="collection-card-item s">See all</div>
             </div>
             <ul>
               <li>Daily</li>
@@ -88,7 +88,6 @@ function Home() {
         </div>
       </div>
 
-      <h4>Images by Pexels</h4>
       <div className="hero">
         <div className="hero__images">
           {photos.slice(0, 5).map((photo) => (

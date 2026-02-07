@@ -26,7 +26,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("log in btn cliked");
+    
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
@@ -64,12 +65,10 @@ const Login = () => {
             className="form__signin-btn"
             href={`${API_URL}/auth/google`}
             rel="noopener noreferrer"
+            
           >
             Sign in with Google
           </a>
-          <button className="form__signin-btn" type="button">
-            Sign in with Apple
-          </button>
           <a
             className="form__signin-btn"
             href={`${API_URL}/auth/facebook`}
@@ -98,7 +97,7 @@ const Login = () => {
           />
         </div>
 
-        <button className="form__signin-btn login" type="submit">
+        <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>
           Sign in
         </button>
 

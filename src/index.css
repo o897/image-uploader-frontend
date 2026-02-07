@@ -241,8 +241,10 @@ a {
 
 /* Form login page */
 .form__signin h1 {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: center;
+  font-weight: 600;
+  font-family: 'Poppins';
 }
 
 .form__signin {
@@ -293,12 +295,51 @@ a {
   border: none;
   border-radius: 7px;
   font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.form__signin-btn[href*="google"] {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #e0e0e0;
+}
+
+.form__signin-btn[href*="google"]:hover {
+  background-color: #f8f8f8;
+  border-color: #d3d3d3;
+}
+
+.form__signin-btn[href*="facebook"] {
+  background-color: #1877f2;
+  color: #fff;
+}
+
+.form__signin-btn[href*="facebook"]:hover {
+  background-color: #0a66c2;
+}
+
+.form__signin-btn:not([href]) {
+  background-color: #000;
+  color: #fff;
+}
+
+.form__signin-btn:not([href]):hover {
+  background-color: #333;
 }
 
 .form__signin-btn.login {
   background-color: black;
   color: #fff;
   cursor: pointer;
+}
+
+.form__signin-btn.login:hover {
+  background-color: #333;
 }
 
 /* End Form login page */

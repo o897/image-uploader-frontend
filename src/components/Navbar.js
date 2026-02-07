@@ -8,26 +8,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // extend pop up component
-  // <a href="http://localhost:3000/auth/google"></a>
 
-  // check to see if user is  logged in if yes hide some things
+  // check to see if user is logged in if yes hide some things
   useEffect(() => {
-    try {
-      fetch("http://localhost:3000/success", {
-        method: "GET",
-        credentials: "include",
-      })
-        .then((data) => {
-          setUser(data.user);
-        })
-        .catch(() => {
-          setUser(null);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    } catch (error) {}
+
+    console.log("HI");
   }, []);
   return (
     <>
@@ -42,7 +27,7 @@ const Navbar = () => {
             placeholder="Search photos using keywords or a description"
           />
           {user ? (
-            <Link to={"http://localhost:3000/auth/logout"}>Logout</Link>
+            <Link to={"https://image-uploader-backend-yzqj.onrender.com/auth/logout"}>Logout</Link>
           ) : (
             // after user logs in log btn changes into user profile icon
             <button
