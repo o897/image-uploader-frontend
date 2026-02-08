@@ -6,6 +6,8 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://image-uploader-backend-yzqj.onrender.com";
 
+  const LOCAL_URL =  "http://localhost:3001";
+
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth(); // 2. Grab the login function from context
@@ -29,7 +31,8 @@ const Login = () => {
     console.log("log in btn cliked");
     
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${LOCAL_URL}/auth/login`, {
+      // const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

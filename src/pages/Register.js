@@ -25,14 +25,14 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         console.log(formData);
-        
+
         e.preventDefault();
 
         try {
 
-            const response = await fetch('http://localhost:3004/auth/creds', {
+            const response = await fetch('http://localhost:3001/auth/creds', {
 
-            // const response = await fetch('http://localhost:3000/auth/login', {
+                // const response = await fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,6 +70,10 @@ const Login = () => {
             <form className="form__signin" onSubmit={handleSubmit}>
                 <h1>Register</h1>
                 {/* make it a component */}
+                <div className="form__signin-input">
+                    <label htmlFor="">Email</label>
+                    <input type="email" name="email" onChange={handleChange} value={formData.email} />
+                </div>
                 <div className="form__signin-input">
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" onChange={handleChange} value={formData.password} />
