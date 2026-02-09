@@ -26,28 +26,18 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e, authType = "email") => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      let response;
-      let endpoint;
-
-      if (authType === "email") {
-        endpoint = `${API_URL}/auth/login`;
-        response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(formData),
-        });
-      } else if (authType === "google" || authType === "facebook") {
-        // Redirect to OAuth endpoint
-        window.location.href = `${API_URL}/auth/${authType}`;
-        return;
-      }
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
 
@@ -69,20 +59,20 @@ const Login = () => {
         <h1>Welcome back</h1>
 
         <div className="form__signin-btns">
-          <button
+          <a
             className="form__signin-btn"
-            type="button"
-            onClick={(e) => handleSubmit(e, "google")}
+            href={`${API_URL}/auth/google`}
+            rel="noopener noreferrer"
           >
             Sign in with Google
-          </button>
-          <button
+          </a>
+          <a
             className="form__signin-btn"
-            type="button"
-            onClick={(e) => handleSubmit(e, "facebook")}
+            href={`${API_URL}/auth/facebook`}
+            rel="noopener noreferrer"
           >
             Sign in with Facebook
-          </button>
+          </a>
         </div>
 
         <div className="form__signin-input">
