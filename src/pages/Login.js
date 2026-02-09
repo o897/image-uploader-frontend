@@ -6,11 +6,11 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://image-uploader-backend-yzqj.onrender.com";
 
-const LOCAL_URL = "http://localhost:3001";
+const LOCAL_URL =  "http://localhost:3001";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login } = useAuth(); // 2. Grab the login function from context
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,32 +26,24 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e, authType = "email") => {
+  const handleSubmit = async (e, authType) => {
     e.preventDefault();
-
+    
     try {
-      let response;
-      let endpoint;
 
-      if (authType === "email") {
-        endpoint = `${API_URL}/auth/login`;
-        response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(formData),
-        });
-      } else if (authType === "google" || authType === "facebook") {
-        // Redirect to OAuth endpoint
-        window.location.href = `${API_URL}/auth/${authType}`;
-        return;
-      }
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
+        // Save user to LocalStorage
         login(data);
         console.log("Login successful:", data);
         navigate("/upload");
@@ -65,20 +57,22 @@ const Login = () => {
 
   return (
     <div className="login__pg">
-      <form className="form__signin" onSubmit={(e) => handleSubmit(e, "email")}>
+      <form className="form__signin" onSubmit={handleSubmit}>
         <h1>Welcome back</h1>
 
         <div className="form__signin-btns">
           <button
             className="form__signin-btn"
-            type="button"
+            href={`${API_URL}/auth/google`}
+            rel="noopener noreferrer"
             onClick={(e) => handleSubmit(e, "google")}
           >
             Sign in with Google
           </button>
           <button
             className="form__signin-btn"
-            type="button"
+            href={`${API_URL}/auth/facebook`}
+            rel="noopener noreferrer"
             onClick={(e) => handleSubmit(e, "facebook")}
           >
             Sign in with Facebook
@@ -104,7 +98,7 @@ const Login = () => {
           />
         </div>
 
-        <button className="form__signin-btn login" type="submit">
+        <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>
           Sign in
         </button>
 
