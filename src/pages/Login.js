@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -52,6 +52,16 @@ const Login = () => {
       console.error("An error occurred during login:", error);
     }
   };
+
+  useEffect(() => {
+    const response = fetch(`${API_URL}/auth/success`);
+    const data = response.json();
+
+    if (response.ok) {
+      login(data);
+      console.log("logged in using google");
+    }
+  }, []);
 
   return (
     <div className="login__pg">
