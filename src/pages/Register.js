@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
-const Login = () => {
+const Register = () => {
+
+    const {login} = useAuth();
     const API_URL =
         process.env.REACT_APP_API_URL ||
         "https://image-uploader-backend-yzqj.onrender.com";
@@ -27,13 +30,14 @@ const Login = () => {
         }))
     }
 
+    // register user
     const handleSubmit = async (e) => {
         console.log(formData);
 
         e.preventDefault();
 
         try {
-            const response = await fetch(`${API_URL}/auth/creds`, {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +48,7 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
-                // console.log(data);
+                login(data);
                 navigate('/upload');
             } else {
                 console.error("Login failed: ", data.message);
@@ -67,11 +71,11 @@ const Login = () => {
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" onChange={handleChange} value={formData.password} />
                 </div>
-                <button className="form__signin-btn login" type="submit">Register</button>
+                <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>Register</button>
                 <p>Create an account</p>
             </form>
         </div>
     )
 }
 
-export default Login;
+export default Register;

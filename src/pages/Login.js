@@ -44,7 +44,6 @@ const Login = () => {
       if (response.ok) {
         // Save user to LocalStorage
         login(data);
-
         console.log("Login successful:", data);
         navigate("/upload");
       } else {
