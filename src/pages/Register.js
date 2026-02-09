@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Login = () => {
+    const API_URL =
+        process.env.REACT_APP_API_URL ||
+        "https://image-uploader-backend-yzqj.onrender.com";
+
+    const LOCAL_URL = "http://localhost:3001";
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -20,7 +25,6 @@ const Login = () => {
             ...prevData,
             [name]: value
         }))
-
     }
 
     const handleSubmit = async (e) => {
@@ -29,10 +33,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-
-            const response = await fetch('http://localhost:3001/auth/creds', {
-
-                // const response = await fetch('http://localhost:3000/auth/login', {
+            const response = await fetch(`${API_URL}/auth/creds`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,27 +44,15 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
-
-                console.log(data);
-
-                // 2. NOW, the frontend performs the redirect.
+                // console.log(data);
                 navigate('/upload');
-
             } else {
                 console.error("Login failed: ", data.message);
             }
-
-
         } catch (error) {
-
-            // This catches network errors (e.g., server is down)
             console.error("An error occurred during login:", error);
-            // setError("Could not connect to the server. Please try again later.");
-
         }
     }
-
-
 
     return (
         <div className="login__pg">
@@ -78,15 +67,11 @@ const Login = () => {
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" onChange={handleChange} value={formData.password} />
                 </div>
-
                 <button className="form__signin-btn login" type="submit">Register</button>
                 <p>Create an account</p>
             </form>
         </div>
-
     )
 }
-
-
 
 export default Login;

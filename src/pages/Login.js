@@ -6,7 +6,7 @@ const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://image-uploader-backend-yzqj.onrender.com";
 
-  const LOCAL_URL =  "http://localhost:3001";
+const LOCAL_URL =  "http://localhost:3001";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,11 +28,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("log in btn cliked");
     
     try {
-      const response = await fetch(`${LOCAL_URL}/auth/login`, {
-      // const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,8 +42,7 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // 3. Save user data globally and to LocalStorage
-        // Assuming 'data' contains user info like { name, email, token }
+        // Save user to LocalStorage
         login(data);
 
         console.log("Login successful:", data);
