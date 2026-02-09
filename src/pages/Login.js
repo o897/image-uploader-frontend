@@ -53,18 +53,6 @@ const Login = () => {
     }
   };
 
-  useEffect(async () => {
-    let response = await fetch(`${API_URL}/auth/success`);
-    let data = response.json();
-    if (response.ok) {
-      login(data);
-      console.log("Login successful:", data);
-      navigate("/upload");
-    } else {
-      console.error("Login failed:", data?.message || data);
-    }
-  }, []);
-
   return (
     <div className="login__pg">
       <form className="form__signin" onSubmit={(e) => handleSubmit(e, "email")}>

@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
-
 const Navbar = () => {
+  const API_URL =
+    process.env.REACT_APP_API_URL ||
+    "https://image-uploader-backend-yzqj.onrender.com";
+
   const navigate = useNavigate();
 
-  const { user,logout } = useAuth();
+  const { user, logout, login } = useAuth();
 
   const handleLogout = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       await fetch("http://localhost:3001/auth/logout");
@@ -20,12 +23,8 @@ const Navbar = () => {
     } catch (e) {
       console.log("logout failed", e);
     }
-  }
-  // check to see if user is logged in if yes hide some things
-  useEffect(() => {
+  };
 
-    console.log(user ? "user loggd in" : "no user");
-  }, []);
   return (
     <>
       <div className="navbar">
@@ -39,15 +38,14 @@ const Navbar = () => {
             placeholder="Search photos using keywords or a description"
           />
           {user ? (
-
             <div>
-
-              <button
+              <a
                 className="navbar__menu-btn-login submit__img-btn"
-                onClick={handleLogout}
+                href={`${API_URL}/auth/logout`}
+                rel="noopener noreferrer"
               >
-                Log out
-              </button>
+                Logout
+              </a>
 
               <button
                 className="submit__img-btn"
@@ -56,7 +54,6 @@ const Navbar = () => {
                 Upload
               </button>
             </div>
-
           ) : (
             // after user logs in log btn changes into user profile icon
             <button
@@ -66,7 +63,6 @@ const Navbar = () => {
               Log in
             </button>
           )}
-
         </div>
       </div>
 
