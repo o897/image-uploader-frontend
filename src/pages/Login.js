@@ -53,13 +53,15 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    const response = fetch(`${API_URL}/auth/success`);
-    const data = response.json();
-
+  useEffect(async () => {
+    let response = await fetch(`${API_URL}/auth/success`);
+    let data = response.json();
     if (response.ok) {
       login(data);
-      console.log("logged in using google");
+      console.log("Login successful:", data);
+      navigate("/upload");
+    } else {
+      console.error("Login failed:", data?.message || data);
     }
   }, []);
 
