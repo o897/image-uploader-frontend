@@ -17,13 +17,28 @@ const Navbar = () => {
     e.preventDefault();
 
     try {
-      await fetch("http://localhost:3001/auth/logout");
+      await fetch(`${API_URL}/auth/logout`);
       logout();
       navigate("/");
     } catch (e) {
       console.log("logout failed", e);
     }
   };
+
+  useEffect(() => {
+    try {
+      const response = fetch(`${API_URL}/auth/success`);
+
+      const data = response.json();
+      if (response.ok) {
+        login(data);
+      } else {
+        console.error("Login failed:", data?.message || data);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   return (
     <>
@@ -39,13 +54,12 @@ const Navbar = () => {
           />
           {user ? (
             <div>
-              <a
+              <button
                 className="navbar__menu-btn-login submit__img-btn"
-                href={`${API_URL}/auth/logout`}
-                rel="noopener noreferrer"
+                onClick={handleLogout}
               >
                 Logout
-              </a>
+              </button>
 
               <button
                 className="submit__img-btn"
