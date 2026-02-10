@@ -9,18 +9,24 @@ const Profile = () => {
     "https://image-uploader-backend-yzqj.onrender.com";
   const { user, login } = useAuth();
   useEffect(() => {
-    try {
-      const response = fetch(`${API_URL}/auth/success`);
+    const fetchUser = async () => {
+      try {
+        const response = await fetch(`${API_URL}/auth/success`, {
+          credentials: "include", // include cookies if you are using sessions
+        });
+        const data = await response.json();
 
-      const data = response.json();
-      if (response.ok) {
-        login(data);
-      } else {
-        console.error("Login failed:", data?.message || data);
+        if (response.ok) {
+          login(data);
+        } else {
+          console.error("Login failed:", data?.message || data);
+        }
+      } catch (e) {
+        console.error("Fetch error:", e);
       }
-    } catch (e) {
-      console.log(e);
-    }
+    };
+
+    fetchUser();
   }, []);
 
   return (
