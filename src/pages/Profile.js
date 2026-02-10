@@ -4,10 +4,25 @@ import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { user, login } = useAuth();
+  useEffect(() => {
+    try {
+      const response = fetch(`${API_URL}/auth/success`);
+
+      const data = response.json();
+      if (response.ok) {
+        login(data);
+      } else {
+        console.error("Login failed:", data?.message || data);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
+
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="profile_container">
         <div className="profile_user">
           <div className="profile_icon">
