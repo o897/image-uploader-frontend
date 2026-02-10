@@ -1,9 +1,12 @@
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import Collection from "../components/Collection";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 const Profile = () => {
+  const API_URL =
+    process.env.REACT_APP_API_URL ||
+    "https://image-uploader-backend-yzqj.onrender.com";
   const { user, login } = useAuth();
   useEffect(() => {
     try {
