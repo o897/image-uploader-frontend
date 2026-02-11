@@ -126,7 +126,7 @@ const Anime = () => {
     };
 
     fetchData();
-  }, [API_KEY]);
+  }, []);
 
   // FIX 3: Handle Loading and Error states in the UI
   if (loading) return <div className="loading">Loading photos...</div>;
