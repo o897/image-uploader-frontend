@@ -137,7 +137,7 @@ const Anime = () => {
       <div className="hero">
         <div className="hero__images">
           {/* Now photos is at least [], so .slice() won't crash */}
-          {photos.slice(0, 5).map((photo) => (
+          {photos.slice(0, 6).map((photo) => (
             <div className="hero__images-image" key={photo.id}>
               <img
                 src={photo.src.large}
