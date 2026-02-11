@@ -136,7 +136,7 @@ const Anime = () => {
     <>
       <div className="hero">
         <div className="hero__images">
-          {photos.slice(0, 3).map((photo) => (
+          {photos.slice(0, 2).map((photo) => (
             <div className="hero__images-image" key={photo.id}>
               <img
                 src={photo.src.large}
@@ -149,7 +149,7 @@ const Anime = () => {
           ))}
         </div>
         <div className="hero__images">
-          {photos.slice(4, 6).map((photo) => (
+          {photos.slice(3, 5).map((photo) => (
             <div className="hero__images-image" key={photo.id}>
               <img
                 src={photo.src.large}
@@ -162,7 +162,7 @@ const Anime = () => {
           ))}
         </div>
         <div className="hero__images">
-          {photos.slice(7, 9).map((photo) => (
+          {photos.slice(6, 8).map((photo) => (
             <div className="hero__images-image s" key={photo.id}>
               <img
                 src={photo.src.large}
