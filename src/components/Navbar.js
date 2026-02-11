@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
+
 const Navbar = () => {
   const API_URL =
     process.env.REACT_APP_API_URL ||

@@ -2,6 +2,7 @@
 import Collection from "../components/Collection";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import Navbar from "../components/Navbar";
 
 const Profile = () => {
   const API_URL =
