@@ -43,7 +43,13 @@ const Profile = () => {
             />
           </div>
           <div className="profile_details">
-            <h2>User Name</h2>|<p>User Bio or Description</p>
+            <h2>
+              {user.firstName} {user.lastName}
+            </h2>
+            |<p>User Bio or Description</p>
+          </div>
+          <div>
+            <button>Edit profile</button>
           </div>
         </div>
         <div>

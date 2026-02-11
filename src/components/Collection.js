@@ -1,7 +1,10 @@
-import Navbar from "./Navbar";
 import { useState } from "react";
+import Anime from "../pages/Anime";
 function Collection() {
   const [photos, setPhotos] = useState();
+
+  // render the collection that the user picked
+  //  I already  set the set for the collection already
   return (
     <>
       <div className="collections collections__menu">
@@ -10,9 +13,12 @@ function Collection() {
         <div className="colections__menu-item">Throwback</div>
         <div className="colections__menu-item">Afcon</div>
       </div>
+      {/* Here we will render, each component of its kind eg {anime, cringe, throwback etc} */}
+      {/* if a user hasnt posted anything we show nothing */}
       <div className="collections__photos">
         {photos ? (
-          <div>photos</div>
+          // fill this space with what the user already posted across all collections
+          <div>my photos</div>
         ) : (
           <div className="colection__photos-show">
             <img
@@ -22,6 +28,7 @@ function Collection() {
           </div>
         )}
       </div>
+      <Anime />
     </>
   );
 }
