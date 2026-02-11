@@ -31,7 +31,7 @@ const Profile = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="profile_container">
         <div className="profile_user">
           <div className="profile_icon">
