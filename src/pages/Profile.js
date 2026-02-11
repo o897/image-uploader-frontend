@@ -1,10 +1,35 @@
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import Collection from "../components/Collection";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import Navbar from "../components/Navbar";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const API_URL =
+    process.env.REACT_APP_API_URL ||
+    "https://image-uploader-backend-yzqj.onrender.com";
+  const { user, login } = useAuth();
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch(`${API_URL}/auth/success`, {
+          credentials: "include", // include cookies if you are using sessions
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          login(data);
+        } else {
+          console.error("Login failed:", data?.message || data);
+        }
+      } catch (e) {
+        console.error("Fetch error:", e);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -18,7 +43,13 @@ const Profile = () => {
             />
           </div>
           <div className="profile_details">
-            <h2>User Name</h2>|<p>User Bio or Description</p>
+            <h2>
+              {user?.firstName} {user?.lastName}
+            </h2>
+            <p>User Bio or Description</p>
+          </div>
+          <div>
+            <button>Edit profile</button>
           </div>
         </div>
         <div>

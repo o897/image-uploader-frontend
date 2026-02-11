@@ -6,11 +6,12 @@ import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Anime from "./pages/Anime";
 import Community from "./pages/Community";
+
 const App = () => {
   return (
     <BrowserRouter>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
+        <Route path="/anime" element={<Anime />} />
       </Routes>
     </BrowserRouter>
   );

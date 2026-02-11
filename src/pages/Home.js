@@ -1,5 +1,6 @@
-import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   // fetch images from cloudinary api
@@ -9,6 +10,8 @@ function Home() {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
@@ -30,15 +33,6 @@ function Home() {
 
         const result = await response.json();
         console.log("result photos", result);
-        // Read custom rate-limit headers
-        const rateLimit = response.headers.get("X-Ratelimit-Limit");
-        const remaining = response.headers.get("X-Ratelimit-Remaining");
-        const reset = response.headers.get("X-Ratelimit-Reset");
-
-        console.log("Rate Limit:", rateLimit);
-        console.log("Remaining:", remaining);
-        console.log("Reset:", reset);
-
         setPhotos(result.photos); // ✅ photos only
       } catch (err) {
         setError(err.message);
@@ -52,7 +46,19 @@ function Home() {
 
   return (
     <>
-      <Navbar />
+      <div className="navbar">
+        <div>
+          <Link to="/"> Memoir</Link>
+        </div>
+        <div className="navbar__menu">
+          <button
+            className="navbar__menu-btn-login submit__img-btn"
+            onClick={() => navigate("/login")}
+          >
+            Log in
+          </button>
+        </div>
+      </div>
 
       <div className="collection">
         <h3 className="collection-intro">

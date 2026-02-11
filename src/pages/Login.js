@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -26,11 +26,18 @@ const Login = () => {
     }));
   };
 
+<<<<<<< HEAD
   const handleSubmit = async (e, authType) => {
+=======
+  const handleSubmit = async (e) => {
+>>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
     e.preventDefault();
     
     try {
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
       const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -61,22 +68,28 @@ const Login = () => {
         <h1>Welcome back</h1>
 
         <div className="form__signin-btns">
-          <button
+          <a
             className="form__signin-btn"
             href={`${API_URL}/auth/google`}
             rel="noopener noreferrer"
+<<<<<<< HEAD
             onClick={(e) => handleSubmit(e, "google")}
+=======
+>>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
           >
             Sign in with Google
-          </button>
-          <button
+          </a>
+          <a
             className="form__signin-btn"
             href={`${API_URL}/auth/facebook`}
             rel="noopener noreferrer"
+<<<<<<< HEAD
             onClick={(e) => handleSubmit(e, "facebook")}
+=======
+>>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
           >
             Sign in with Facebook
-          </button>
+          </a>
         </div>
 
         <div className="form__signin-input">

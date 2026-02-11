@@ -4,7 +4,7 @@ function Community({ name, coverImage, userPicture, title, description }) {
   // db to inject into the card
   return (
     <>
-      <Navbar />F
+      <Navbar />
       <div>
         <h2>{title ?? "community title"}</h2>
         <div className="community">
