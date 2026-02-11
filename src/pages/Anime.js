@@ -137,36 +137,8 @@ const Anime = () => {
       <div className="hero">
         <div className="hero__images">
           {/* Now photos is at least [], so .slice() won't crash */}
-          {photos.slice(0, 2).map((photo) => (
+          {photos.slice(0, 5).map((photo) => (
             <div className="hero__images-image" key={photo.id}>
-              <img
-                src={photo.src.large}
-                srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                sizes="(max-width: 500px) 100vw, 410px"
-                alt={photo.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="hero__images">
-          {photos.slice(3, 5).map((photo) => (
-            <div className="hero__images-image" key={photo.id}>
-              <img
-                src={photo.src.large}
-                srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                sizes="(max-width: 500px) 100vw, 410px"
-                alt={photo.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="hero__images">
-          {photos.slice(6, 8).map((photo) => (
-            <div className="hero__images-image s" key={photo.id}>
               <img
                 src={photo.src.large}
                 srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
