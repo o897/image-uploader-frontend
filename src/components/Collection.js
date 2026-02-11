@@ -28,7 +28,7 @@ function Collection() {
           </div>
         )}
       </div>
-      <Anime />
+    
     </>
   );
 }

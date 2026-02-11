@@ -2,6 +2,7 @@
 import Collection from "../components/Collection";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import Anime from "./Anime";
 import Navbar from "../components/Navbar";
 
 const Profile = () => {
@@ -60,6 +61,7 @@ const Profile = () => {
           </pre>
         </div>
         <Collection />
+          <Anime />
       </div>
     </>
   );
