@@ -26,18 +26,10 @@ const Login = () => {
     }));
   };
 
-<<<<<<< HEAD
-  const handleSubmit = async (e, authType) => {
-=======
   const handleSubmit = async (e) => {
->>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
     e.preventDefault();
     
     try {
-<<<<<<< HEAD
-
-=======
->>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
       const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -72,10 +64,6 @@ const Login = () => {
             className="form__signin-btn"
             href={`${API_URL}/auth/google`}
             rel="noopener noreferrer"
-<<<<<<< HEAD
-            onClick={(e) => handleSubmit(e, "google")}
-=======
->>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
           >
             Sign in with Google
           </a>
@@ -83,10 +71,6 @@ const Login = () => {
             className="form__signin-btn"
             href={`${API_URL}/auth/facebook`}
             rel="noopener noreferrer"
-<<<<<<< HEAD
-            onClick={(e) => handleSubmit(e, "facebook")}
-=======
->>>>>>> bb9619685a359e0a49f236a14a55a1634adee042
           >
             Sign in with Facebook
           </a>
