@@ -27,18 +27,21 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    try {
-      const response = fetch(`${API_URL}/auth/success`);
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(`${API_URL}/auth/success`, {
+          credentials: "include",
+        });
 
-      const data = response.json();
-      if (response.ok) {
-        login(data);
-      } else {
-        console.error("Login failed:", data?.message || data);
+        if (response.ok) {
+          const data = await response.json();
+          login(data);
+        }
+      } catch (e) {
+        console.log("Auth check skipped:", e.message);
       }
-    } catch (e) {
-      console.log(e);
-    }
+    };
+    checkAuth();
   }, []);
 
   return (
