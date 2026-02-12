@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+// This show 5 or 4 set of photos beside their user but this is all according to the community :/community
 
 const Anime = () => {
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
-  // FIX 1: Initialize as an empty array [] instead of undefined
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -62,7 +62,6 @@
   width: 100px;
   transition: all 0.4s ease;
   margin-right: 10px;
-
 }
 
 .submit__img-btn:hover {
@@ -118,7 +117,6 @@
   display: flex;
   gap: 15px;
   flex-direction: column;
- 
 }
 
 .collection-intro {
@@ -127,7 +125,6 @@
   font-weight: 400;
   text-align: center;
   justify-content: center;
-
 }
 
 .collection-card-front {
@@ -159,7 +156,6 @@
 }
 
 /* end hero */
-
 
 /* community */
 
@@ -210,10 +206,12 @@
   left: 0;
   right: 0;
   padding: 30px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -255,7 +253,7 @@
   transform: translateY(0);
 }
 
-/* --- Optional: Top Badge (e.g., "Trending") --- */
+/* --- Optional: Top Badge Challeng --- */
 .collection-badge {
   position: absolute;
   top: 20px;
@@ -274,6 +272,18 @@
 }
 
 /* end community */
+
+/* --- Challeng --- */
+.challenge-photos {
+  display: flex;
+  gap: 20px;
+}
+
+.challenge-photos-item img {
+  height: 400px;
+  width: 200px;
+}
+/* End Challenge */
 
 /* profile */
 
@@ -304,7 +314,8 @@
   padding: 20px 0;
 }
 
-.colection__photos-show {}
+.colection__photos-show {
+}
 
 .colections__menu-item {
   cursor: pointer;

@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
-        <Route path="/challenge/:name" element={<Anime />} />
+        <Route path="/challenge/anime" element={<Anime />} />
       </Routes>
     </BrowserRouter>
   );
