@@ -286,11 +286,15 @@
 }
 
 .challenge__title-sub {
+  margin: 0 auto;
+  display: flex;
   text-align: center;
+  margin-bottom: 20px;
+  width: 800px;
 }
 
 .challenge-photos {
-  padding-left: 30px;
+  padding: 20px;
   justify-content: flex-start;
   display: flex;
   gap: 20px;
@@ -305,9 +309,22 @@
 
 }
 
+.challenge-user-stat {
+  display: flex;
+  margin: 10px 0;
+  gap: 20px
+}
+
+.challenge-user-stat-item {
+  background-color: #ff6b6b;
+  border-radius: 15px;
+  padding: 8px;
+}
+
 .challenge-user {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
 }
 
 .challenge-photos.duo {
@@ -331,7 +348,9 @@
   width: 275px;
 }
 
-
+.challenge-photos.s {
+  background-color: #000;
+}
 
 /* End Challenge */
 

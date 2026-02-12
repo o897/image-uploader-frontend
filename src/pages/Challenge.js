@@ -35,9 +35,10 @@ const Challenge = () => {
       <Navbar />
       <div className="challenge__title">Anime</div>
       <div className="challenge__title-sub">
-        Photo and video competitions designed to inspire you to get out there,
-        shoot, and share your work with the world. You might even win prizes
-        while you do.
+        Anime challenges created to inspire you to explore your favorite
+        characters, scenes, and art styles. Jump in, create, and share your
+        passion with others who love anime just as much as you do. No prizes —
+        just pure creativity and love for the culture.
       </div>
       {/* top 5 liked pictures */}
 
@@ -59,12 +60,60 @@ const Challenge = () => {
         </div>
         <div className="challenge-photos-item l">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHKNOZTz54_bsmQ7SWawYdiuxlky5pMwD-g&s" />
-          {/* <div className="challenge-user-name">@username</div></div> */}
+        </div>
+
+        <div className="challenge-user">
+          <h2>FirstName LastName</h2>
+          <div>
+            I’ve loved anime since childhood — the stories, the emotion, the
+            powerful characters, and the worlds that felt bigger than reality.
+            It wasn’t just entertainment; it was inspiration, imagination, and a
+            place where I could escape and dream bigger.
+          </div>
+          <div className="challenge-user-stat">
+            <div className="challenge-user-stat-item">
+              Liked by <span>123</span>
+            </div>
+            <div className="challenge-user-stat-item">
+              Days since last post <span>123</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="challenge-photos s">
+        <div className="challenge-photos-item s">
+          <img src="https://thenerddaily.com/wp-content/uploads/2018/08/Reasons-To-Watch-Anime.jpg?x26698" />
+        </div>
+        <div className="challenge-photos duo">
           <div className="challenge-photos-item m">
             <img src="https://m.media-amazon.com/images/S/pv-target-images/9cef9a4a0cd4d6727d10a7d7ced004f09f3c9c03d50ee16feaf401b914703352._SX1080_FMjpg_.jpg" />
           </div>
+          <div className="challenge-photos-item m">
+            <img src="https://m.media-amazon.com/images/S/pv-target-images/9cef9a4a0cd4d6727d10a7d7ced004f09f3c9c03d50ee16feaf401b914703352._SX1080_FMjpg_.jpg" />
+          </div>
+        </div>
+        <div className="challenge-photos-item s">
+          <img src="https://m.media-amazon.com/images/S/pv-target-images/9cef9a4a0cd4d6727d10a7d7ced004f09f3c9c03d50ee16feaf401b914703352._SX1080_FMjpg_.jpg" />
+        </div>
+        <div className="challenge-photos-item l">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHKNOZTz54_bsmQ7SWawYdiuxlky5pMwD-g&s" />
+        </div>
+
+        <div className="challenge-user">
+          <h2>FirstName LastName</h2>
           <div>
-            <div>Title</div>
+            I’ve loved anime since childhood — the stories, the emotion, the
+            powerful characters, and the worlds that felt bigger than reality.
+            It wasn’t just entertainment; it was inspiration, imagination, and a
+            place where I could escape and dream bigger.
+          </div>
+          <div className="challenge-user-stat">
+            <div className="challenge-user-stat-item">
+              Liked by <span>123</span>
+            </div>
+            <div className="challenge-user-stat-item">
+              Days since last post <span>123</span>
+            </div>
           </div>
         </div>
       </div>
