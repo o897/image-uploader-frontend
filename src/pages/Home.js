@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Community from "./Community";
+import Navbar from "../components/Navbar";
 
 function Home() {
   // fetch images from cloudinary api
@@ -46,7 +48,7 @@ function Home() {
 
   return (
     <>
-      <div className="navbar">
+      {/* <div className="navbar">
         <div>
           <Link to="/"> Memoir</Link>
         </div>
@@ -58,83 +60,65 @@ function Home() {
             Log in
           </button>
         </div>
-      </div>
+      </div> */}
 
+      <section className="home_intro">
+         <Navbar />
       <div className="collection">
         <h3 className="collection-intro">
           A MERN-stack image sharing platform inspired by Pexels, built to
           demonstrate real-world API consumption, authentication, media uploads,
           and user-controlled content sharing.
         </h3>
-        <div className="collection-card">
-          {/* when a person hover it flips with some funny meme people encouraged to upload some memes */}
+        <Community />
+      </div>
+      </section>
+    
 
-          {/* Cringe pic challenge */}
-          <div className="collection-card-front">
-            <h4>Cringe</h4>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9J3tl5Eu3zxb4HuCB3ys6yXmXREZDacqMLg&s"
-              alt="Avatar"
-            />
+      <section className="home_hero">
+        <div className="hero">
+          <div className="hero__images">
+            {photos.slice(0, 5).map((photo) => (
+              <div className="hero__images-image" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="hero__images">
+            {photos.slice(6, 11).map((photo) => (
+              <div className="hero__images-image" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="hero__images">
+            {photos.slice(12, 17).map((photo) => (
+              <div className="hero__images-image s" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
-        <div className="collection-card">
-          <div className="collection-card-front">
-            <div className="collection-card-front-head">
-              <div className="collection-card-item">Collections</div>
-              <div className="collection-card-item s">See all</div>
-            </div>
-            <ul>
-              <li>Daily</li>
-              <li>History</li>
-              <li>Throwback</li>
-              <li>Afcon</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      <div className="hero">
-        <div className="hero__images">
-          {photos.slice(0, 5).map((photo) => (
-            <div className="hero__images-image" key={photo.id}>
-              <img
-                src={photo.src.large}
-                srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                sizes="(max-width: 500px) 100vw, 410px"
-                alt={photo.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="hero__images">
-          {photos.slice(6, 11).map((photo) => (
-            <div className="hero__images-image" key={photo.id}>
-              <img
-                src={photo.src.large}
-                srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                sizes="(max-width: 500px) 100vw, 410px"
-                alt={photo.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="hero__images">
-          {photos.slice(12, 17).map((photo) => (
-            <div className="hero__images-image s" key={photo.id}>
-              <img
-                src={photo.src.large}
-                srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                sizes="(max-width: 500px) 100vw, 410px"
-                alt={photo.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
     </>
   );
 }

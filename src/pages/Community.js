@@ -1,18 +1,20 @@
 import React from 'react';
-// import './App.css'; // Ensure CSS is imported
+import { Link } from 'react-router-dom';
 
 const data = [
-  { title: "Urban Decay", count: "124 Photos", img: "https://images.unsplash.com/photo-1444723121867-c6120638054d?auto=format&fit=crop&w=600&q=80" },
-  { title: "Golden Hour", count: "89 Photos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" },
-  { title: "Abstract", count: "210 Photos", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80" },
-  { title: "Minimalism", count: "45 Photos", img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=80" },
+  { title: "Anime", count: "124 Photos", img: "https://www.lingualift.com/wp-content/uploads/2020/03/anime.png" },
+  { title: "Daily", count: "89 Photos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" },
+  { title: "Throwback", count: "210 Photos", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80" },
+  { title: "Scenery", count: "45 Photos", img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=80" },
 ];
 
 export default function Community() {
   return (
     <div className="collections-grid">
       {data.map((item, index) => (
-        <div key={index} className="collection-card">
+
+        <Link to={`/community/${item.title.toLowerCase()}`} key={index}>
+           <div key={index} className="collection-card"> 
           
           {/* Optional Badge */}
           <div className="collection-badge">Challenge</div>
@@ -24,6 +26,8 @@ export default function Community() {
             <span className="collection-meta">{item.count} — Created by You</span>
           </div>
         </div>
+        </Link>
+       
       ))}
     </div>
   );
