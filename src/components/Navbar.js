@@ -3,6 +3,8 @@ import "../../src/App.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { CiSearch } from "react-icons/ci";
+
 
 
 const Navbar = () => {

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Community from "./Community";
 import Navbar from "../components/Navbar";
 
+
 function Home() {
   // fetch images from cloudinary api
 

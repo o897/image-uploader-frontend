@@ -1,5 +1,4 @@
 const All = () => {
- 
 
     return (
         <>

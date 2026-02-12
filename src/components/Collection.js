@@ -8,17 +8,17 @@ function Collection() {
   return (
     <>
       <div className="collections collections__menu">
+        <div className="colections__menu-item">Anime</div>
         <div className="colections__menu-item">Daily</div>
-        <div className="colections__menu-item">History</div>
         <div className="colections__menu-item">Throwback</div>
-        <div className="colections__menu-item">Afcon</div>
+        <div className="colections__menu-item">Scenery</div>
       </div>
       {/* Here we will render, each component of its kind eg {anime, cringe, throwback etc} */}
       {/* if a user hasnt posted anything we show nothing */}
       <div className="collections__photos">
         {photos ? (
           // fill this space with what the user already posted across all collections
-          <div><Anime/></div>
+          <div>hi</div>
         ) : (
           <div className="colection__photos-show">
             <img

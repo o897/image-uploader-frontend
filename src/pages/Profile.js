@@ -4,8 +4,21 @@ import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Anime from "./Anime";
 import Navbar from "../components/Navbar";
+import UpdateProfile from "./UpdateProfile";
+import { useState } from "react";
+
 
 const Profile = () => {
+
+    const [open, setOpen] = useState(false);
+
+ 
+
+  const handleSave = (updatedData) => {
+    console.log("Updated User:", updatedData);
+    // send to backend here
+  };
+
   const API_URL =
     process.env.REACT_APP_API_URL ||
     "https://image-uploader-backend-yzqj.onrender.com";
@@ -30,7 +43,7 @@ const Profile = () => {
 
     fetchUser();
   }, []);
-
+  console.log("user :",user.user.firstName)
   return (
     <>
       <Navbar />
@@ -45,23 +58,23 @@ const Profile = () => {
           </div>
           <div className="profile_details">
             <h2>
-              {user?.firstName} {user?.lastName}
+              {user.user?.firstName} {user.user?.lastName}
             </h2>
             <p>User Bio or Description</p>
           </div>
           <div>
-            <button>Edit profile</button>
+            <button onClick={() => setOpen(true)}>Edit Profile</button>
+
           </div>
-        </div>
-        <div>
-          <h2>User Session Data:</h2>
-          {/* This prints the object as a readable string on the page */}
-          <pre style={{ background: "#f4f4f4", padding: "10px" }}>
-            {user ? JSON.stringify(user, null, 2) : "No user logged in"}
-          </pre>
+           <UpdateProfile
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        user={user}
+        onSave={handleSave}
+      />
         </div>
         <Collection />
-          <Anime />
+        <Anime />
       </div>
     </>
   );
