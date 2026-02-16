@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useParams } from "react-router-dom";
 
 export default function ChallengeIntro() {
@@ -39,3 +40,16 @@ export default function ChallengeIntro() {
     </>
   );
 }
+=======
+export default function ChallengeIntro (title,sub) {
+
+    return (
+        <>
+            <div className="challenge__title">{title}</div>
+            <div className="challenge__title-sub">
+                {sub}
+            </div>
+        </>
+    )
+}
+>>>>>>> 9df9709 (before update component)
