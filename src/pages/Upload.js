@@ -44,9 +44,8 @@ export default function Upload() {
     formData.append("file", file);
 
     try {
-      setMsg("Uploading..."); // Optional: tell the user it's working
+      setMsg("Uploading...");
 
-      // 2. Added AWAIT here
       const response = await fetch(
         "https://image-uploader-backend-yzqj.onrender.com/image/upload",
         {
@@ -56,7 +55,6 @@ export default function Upload() {
       );
 
       if (response.ok) {
-        // 3. Only navigate AFTER the response is successful
         navigate(`/complete/${file.name}`, { state: { filename: file.name } });
       } else {
         setMsg("Upload failed on server.");

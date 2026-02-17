@@ -7,16 +7,11 @@ import Navbar from "../components/Navbar";
 import UpdateProfile from "./UpdateProfile";
 import { useState } from "react";
 
-
 const Profile = () => {
-
-    const [open, setOpen] = useState(false);
-
- 
+  const [open, setOpen] = useState(false);
 
   const handleSave = (updatedData) => {
     console.log("Updated User:", updatedData);
-    // send to backend here
   };
 
   const API_URL =
@@ -43,7 +38,8 @@ const Profile = () => {
 
     fetchUser();
   }, []);
-  console.log("user :",user.user.firstName)
+
+  // console.log("user :", user.user.firstName);
   return (
     <>
       <Navbar />
@@ -64,14 +60,13 @@ const Profile = () => {
           </div>
           <div>
             <button onClick={() => setOpen(true)}>Edit Profile</button>
-
           </div>
-           <UpdateProfile
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        user={user}
-        onSave={handleSave}
-      />
+          <UpdateProfile
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            user={user}
+            onSave={handleSave}
+          />
         </div>
         <Collection />
         <Anime />
