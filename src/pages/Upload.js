@@ -31,35 +31,40 @@ export default function Upload() {
     inputFile.current.click();
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
+    // 1. Added async
     e.preventDefault();
 
     if (!file) {
       setMsg("No file selected");
-      console.log("No file selected");
       return;
     }
 
     const formData = new FormData();
-
     formData.append("file", file);
 
     try {
-      // const response = fetch("http://localhost:3000/image/upload", {
-      const response = fetch(
+      setMsg("Uploading..."); // Optional: tell the user it's working
+
+      // 2. Added AWAIT here
+      const response = await fetch(
         "https://image-uploader-backend-yzqj.onrender.com/image/upload",
         {
           method: "POST",
           body: formData,
         }
       );
+
+      if (response.ok) {
+        // 3. Only navigate AFTER the response is successful
+        navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+      } else {
+        setMsg("Upload failed on server.");
+      }
     } catch (error) {
       console.log("Error upload image : ", error);
       setMsg("Error Uploading file.");
     }
-
-    // navigate(`/complete/${file.name}`, { state: { filename: file.name } });
-    navigate(`/complete/${file.name}`, { state: { filename: file.name } });
   };
 
   return (
