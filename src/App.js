@@ -20,11 +20,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
-<<<<<<< HEAD
         <Route path="/challenge/:category" element={<Challenge />} />
-=======
-        <Route path="/challenge/:title" element={<Challenge />} />
->>>>>>> 9df9709 (before update component)
       </Routes>
     </BrowserRouter>
   );
