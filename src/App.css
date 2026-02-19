@@ -125,7 +125,8 @@
   font-family: "Poppins";
   font-weight: 400;
   text-align: center;
-  justify-content: center;
+  width: 70%;
+  margin: 0px auto;
 }
 
 .collection-card-front {
@@ -210,10 +211,12 @@
   left: 0;
   right: 0;
   padding: 30px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -282,7 +285,7 @@
   font-weight: 600;
   text-align: center;
   margin: 20px 0;
-  font-family: "Poppins"
+  font-family: "Poppins";
 }
 
 .challenge__title-sub {
@@ -304,12 +307,10 @@
   justify-content: flex-start;
   padding: 20px;
   width: 75%;
-
 }
 
 .challenge-user img {
   width: 170px;
-
 }
 
 .challenge-user-stat {
@@ -329,14 +330,13 @@
 .challenge-user {
   display: flex;
   flex-direction: column;
-
 }
 
 .challenge-photos.duo {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding : 0;
+  padding: 0;
 }
 
 .challenge-photos-item.s img {
@@ -348,8 +348,7 @@
 .challenge-photos-item.m img {
   height: 210px;
   width: 275px;
-    object-fit: cover;
-
+  object-fit: cover;
 }
 
 .challenge-photos-item.l img {
@@ -357,7 +356,6 @@
   width: 275px;
   object-fit: cover;
   border-radius: 8px;
-
 }
 
 /* End Challenge */
@@ -392,16 +390,16 @@
   padding: 20px 0;
 }
 
-.colections__menu-item{
+.colections__menu-item {
   border-radius: 12px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    color: #fff;
-    background-color: #000;
-    cursor: pointer;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
 }
 
 /* end */

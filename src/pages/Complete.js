@@ -16,18 +16,23 @@ export default function Complete() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/image/api/${
-          image || filename
-        }`
-        // `http://localhost:3004/image/api/${image || filename}`
-      );
-      const data = await response.json();
-      setImageData(data);
-      setLoading(false);
+      try {
+        const response = await fetch(
+          `https://image-uploader-backend-yzqj.onrender.com/image/api/${
+            image || filename
+          }`
+        );
+        if (!response.ok) throw new Error("Image not found");
+        const data = await response.json();
+        setImageData(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
-  }, [image]);
+  }, [image, filename]); // Add filename to dependency array
 
   return (
     <>
