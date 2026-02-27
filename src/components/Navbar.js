@@ -53,11 +53,7 @@ const Navbar = () => {
           <Link to="/"> Memoir</Link>
         </div>
         <div className="navbar__menu">
-          <input
-            name="search"
-            className="navbar__menu-input"
-            placeholder="Search photos using keywords or a description"
-          />
+        
           {user ? (
             <div>
               <button

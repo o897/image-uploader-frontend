@@ -33,9 +33,11 @@ export default function ChallengeIntro() {
   if (!data) return null;
 
   return (
-    <>
-      <div className="challenge__title">{data.title}</div>
-      <div className="challenge__title-sub">{data.description}</div>
-    </>
+    <div className="challenge-background">
+      <div className="challenge__title">Anime -</div>
+      <div className="challenge__title-sub">Explore the intersection of reality and animation. Capture scenes with high-contrast cel-shaded lighting, vibrant pastel skies, or compositions that feel like a frame from a Studio Ghibli or Makoto Shinkai film.</div>
+      div
+      <button>Join the Challenge</button>
+    </div>
   );
 }

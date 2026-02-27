@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { FaRegThumbsUp } from "react-icons/fa";
 import ChallengeIntro from "../components/ChallengeIntro";
+import { useParams } from "react-router-dom";
 
 const Challenge = () => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
 
-  useEffect(() => {
+    useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.pexels.com/v1/curated?page=1&per_page=20"
+          `https://api.pexels.com/v1/{}?page=1&per_page=20`
         );
 
         if (!response.ok) {
@@ -39,83 +40,113 @@ const Challenge = () => {
 
       {/* top 5 liked pictures */}
       <ChallengeIntro />
-      {/* make a map it should rotate */}
-      <div>Home/Challenge</div>
 
       <div className="challenge-photos">
-        <div className="challenge-photos-item s">
-          <img src="https://thenerddaily.com/wp-content/uploads/2018/08/Reasons-To-Watch-Anime.jpg?x26698" />
-        </div>
-        <div className="challenge-photos duo">
-          <div className="challenge-photos-item m">
-            <img src="https://comicbook.com/wp-content/uploads/sites/4/2025/01/One-Piece-Anime-Episodes-Hiatus-Watch.jpg" />
+        <div className="challenge-photos-pic">
+          <div className="challenge-photo">
+            <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
           </div>
-          <div className="challenge-photos-item m">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsVElG1mHnr6oGMZa_FhCWF5iEXcKLbbF89A&s" />
+          <div className="challenge-photo-items">
+            <div>Like</div>
+            <div>Download</div>
+            <div>Share</div>
           </div>
-        </div>
-        <div className="challenge-photos-item s">
-          <img src="https://m.media-amazon.com/images/S/pv-target-images/9cef9a4a0cd4d6727d10a7d7ced004f09f3c9c03d50ee16feaf401b914703352._SX1080_FMjpg_.jpg" />
-        </div>
-        <div className="challenge-photos-item l">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHKNOZTz54_bsmQ7SWawYdiuxlky5pMwD-g&s" />
+          <div className="challenge-photos-comments">
+            <div className="challenge-photos-comments-user">
+
+            </div>
+            <div className="challenge-user-entries">
+              <div className="">
+                first name
+              </div>
+              <div>
+                comment
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <div className="challenge-user">
-          <h2>FirstName LastName</h2>
-          <div>
-            I’ve loved anime since childhood — the stories, the emotion, the
-            powerful characters, and the worlds that felt bigger than reality.
-            It wasn’t just entertainment; it was inspiration, imagination, and a
-            place where I could escape and dream bigger.
-          </div>
-          <div className="challenge-user-stat">
-            <div className="challenge-user-stat-item">
-              <FaRegThumbsUp /> Like
+        <div className="challenge-users">
+         
+
+          <div className="chlng-usr-sugtn">
+            {/* map here */}
+            <div className="chlng-usr-sugtn-title">More like this</div>
+            <div className="chlng-usr-sugtn">
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
             </div>
-            <div className="challenge-user-stat-item">
-              <button>Join the Challenge</button>
+          </div>
+
+          <div className="chalng-user-uploads">
+            <div className="chlng-usr-sugtn">
+              {/* map here */}
+              <div className="chlng-usr-sugtn">
+
+                <div className="chlng-user-icon">
+                  <div className="chlng-user-pic">
+                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
+                    <p>Orapeleng Mathebula</p>
+                  </div>
+
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
+                </div>
+
+                <div className="chlng-user-icon">
+                  <div className="chlng-user-pic">
+                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
+                    <p>Orapeleng Mathebula</p>
+                  </div>
+
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
+                </div>
+                <div className="chlng-user-icon">
+                  <div className="chlng-user-pic">
+                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
+                    <p>Orapeleng Mathebula</p>
+                  </div>
+
+                  <div className="chlng-usr-sugtn-item">
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="challenge-photos">
-        <div className="challenge-photos-item s">
-          <img src="https://thenerddaily.com/wp-content/uploads/2018/08/Reasons-To-Watch-Anime.jpg?x26698" />
-        </div>
-        <div className="challenge-photos duo">
-          <div className="challenge-photos-item m">
-            <img src="https://comicbook.com/wp-content/uploads/sites/4/2025/01/One-Piece-Anime-Episodes-Hiatus-Watch.jpg" />
-          </div>
-          <div className="challenge-photos-item m">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsVElG1mHnr6oGMZa_FhCWF5iEXcKLbbF89A&s" />
-          </div>
-        </div>
-        <div className="challenge-photos-item s">
-          <img src="https://m.media-amazon.com/images/S/pv-target-images/9cef9a4a0cd4d6727d10a7d7ced004f09f3c9c03d50ee16feaf401b914703352._SX1080_FMjpg_.jpg" />
-        </div>
-        <div className="challenge-photos-item l">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHKNOZTz54_bsmQ7SWawYdiuxlky5pMwD-g&s" />
-        </div>
 
-        <div className="challenge-user">
-          <h2>FirstName Suename</h2>
-          <div>
-            I’ve loved anime since childhood — the stories, the emotion, the
-            powerful characters, and the worlds that felt bigger than reality.
-            It wasn’t just entertainment; it was inspiration, imagination, and a
-            place where I could escape and dream bigger.
-          </div>
-          <div className="challenge-user-stat">
-            <div className="challenge-user-stat-item">
-              <FaRegThumbsUp /> Like
-            </div>
-            <div className="challenge-user-stat-item">
-              <button>Join the Challenge</button>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   );
 };

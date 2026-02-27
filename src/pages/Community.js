@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 const data = [
   {
@@ -11,22 +12,28 @@ const data = [
     title: "Daily",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Throwback",
-    count: "210 Photos",
-    img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Scenery",
-    count: "45 Photos",
-    img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=80",
-  },
+  }
 ];
 
 export default function Community() {
   return (
     <div className="collections-grid">
+
+      <div className="search">
+         <h3 className="collection-intro">
+            The best free stock photos, royalty free images & videos shared by creators.
+        </h3>
+        <div className="search-wrapper">
+          <FaSearch className="search-icon" />
+          <input
+            name="search"
+            className="navbar__menu-input"
+            placeholder="Search photos using keywords or a description"
+          />
+        </div>
+      </div>
+
+
       {data.map((item, index) => (
         <Link to={`/challenge/${item.title.toLowerCase()}`} key={index}>
           <div key={index} className="collection-card">

@@ -25,26 +25,36 @@
   background-color: #fff !important;
 }
 
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  height: max-content;
+  background-color: #c9c9c4;
+  border-radius: 20px;
+  padding: 2px 18px;
+  align-self: flex-end;
+  margin-bottom: 30px;
+  width: 450px;
+
+}
+
 .navbar__menu-input {
   width: 80%;
   height: 38px;
-  padding: 5px 8px;
-  forced-color-adjust: none;
-  border: none;
   padding-left: 17px;
-  border-radius: 11px;
+  border: none;
   font-size: 0.8em;
-  background-color: #e0e4e4;
+  background-color: transparent;
+  outline: none;
+
 }
 
 .navbar__menu input:focus {
-  border-color: #aaa;
-  /* subtle focus border */
+  border-color: none;
   box-shadow: none;
-  /* remove blue glow */
   font-weight: normal;
-  /* keep text normal on focus */
   outline: none;
+  border: none;
 }
 
 .navbar__menu-btn {
@@ -55,7 +65,7 @@
 .submit__img-btn {
   border: 1px solid #bfaeae;
   cursor: pointer;
-  background-color: #000;
+  background-color: #dfdbdb;
   color: #fff;
   height: 40px;
   border-radius: 7px;
@@ -121,12 +131,13 @@
 }
 
 .collection-intro {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-family: "Poppins";
   font-weight: 400;
-  text-align: center;
-  width: 70%;
+  text-align: left;
   margin: 0px auto;
+  margin-bottom: 15px;
+
 }
 
 .collection-card-front {
@@ -166,21 +177,20 @@
 
 /* --- Collections Grid Layout --- */
 .collections-grid {
-  display: grid;
+  display: flex;
   /* Creates a responsive grid that fits as many columns as possible */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
   padding: 40px 20px;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: center;
 }
 
 /* --- The Card Container --- */
 .collection-card {
   position: relative;
   height: 400px;
-  /* Tall editorial look */
-  border-radius: 16px;
+  width: 350px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
@@ -211,12 +221,10 @@
   left: 0;
   right: 0;
   padding: 30px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -225,7 +233,6 @@
   transition: all 0.4s ease;
 }
 
-/* --- Typography --- */
 .collection-title {
   color: white;
   font-size: 1.8rem;
@@ -280,83 +287,98 @@
 
 /* --- Challeng --- */
 
-.challenge__title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  text-align: center;
-  margin: 20px 0;
-  font-family: "Poppins";
-}
 
-.challenge__title-sub {
-  margin: 0 auto;
-  display: flex;
-  text-align: center;
-  margin-bottom: 20px;
-  width: 800px;
-}
+
 
 .challenge-photos {
-  margin: 20px auto;
-  align-items: center;
-  background-color: #f1f1f1;
-  /* border-bottom-left-radius: 100px; */
-  /* border-bottom-right-radius: 100px; */
+
   display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-  padding: 20px;
-  width: 75%;
+  justify-content: center;
+
 }
 
-.challenge-user img {
-  width: 170px;
-}
-
-.challenge-user-stat {
-  display: flex;
-  margin: 10px 0;
-  gap: 20px;
-  align-items: center;
-}
-
-.challenge-user-stat-item {
-  font-size: 1.2em;
-  border-radius: 15px;
-  padding: 8px;
-  color: #565655;
-}
-
-.challenge-user {
+.challenge-photos-pic {
   display: flex;
   flex-direction: column;
+
+
 }
 
-.challenge-photos.duo {
+.challenge-photo {
+  border: 1px solid;
+}
+
+.challenge-photo img {
+  width: 1000px;
+
+}
+
+.challenge-users {
+  border: 1px solid red;
+
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 0;
+  margin: 0 30px;
 }
 
-.challenge-photos-item.s img {
-  height: 280px;
-  width: 200px;
-  object-fit: cover;
+.chlng-user-icon {
+    justify-content: center;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: #ebeaea;
 }
 
-.challenge-photos-item.m img {
-  height: 210px;
-  width: 275px;
-  object-fit: cover;
+.chlng-usr-sugtn-title {
+  padding: 10px;
 }
 
-.challenge-photos-item.l img {
-  height: 370px;
-  width: 275px;
-  object-fit: cover;
-  border-radius: 8px;
+.chlng-user-pic {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 33px;
 }
+
+.chlng-user-pic img {
+  width: 50px;
+  height: 50px;
+}
+
+.chlng-usr-sugtn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px;
+}
+
+.chlng-usr-sugtn-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 30px;
+
+}
+
+
+.chlng-usr-sugtn-item img {
+  object-fit: fill;
+  width: 140px;
+  height: 130px;
+}
+
+.challenge-photo-items {
+  display: flex;
+  gap: 20px;
+}
+
+
+.challenge-photos {
+  display: flex;
+}
+
+
 
 /* End Challenge */
 
@@ -496,6 +518,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

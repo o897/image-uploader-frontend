@@ -66,11 +66,6 @@ function Home() {
       <section className="home_intro">
          <Navbar />
       <div className="collection">
-        <h3 className="collection-intro">
-          A MERN-stack image sharing platform inspired by Pexels, built to
-          demonstrate real-world API consumption, authentication, media uploads,
-          and user-controlled content sharing.
-        </h3>
         <Community />
       </div>
       </section>
