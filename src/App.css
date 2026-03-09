@@ -35,7 +35,6 @@
   align-self: flex-end;
   margin-bottom: 30px;
   width: 450px;
-
 }
 
 .navbar__menu-input {
@@ -46,7 +45,6 @@
   font-size: 0.8em;
   background-color: transparent;
   outline: none;
-
 }
 
 .navbar__menu input:focus {
@@ -137,7 +135,6 @@
   text-align: left;
   margin: 0px auto;
   margin-bottom: 15px;
-
 }
 
 .collection-card-front {
@@ -221,10 +218,12 @@
   left: 0;
   right: 0;
   padding: 30px;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -287,21 +286,14 @@
 
 /* --- Challeng --- */
 
-
-
-
 .challenge-photos {
-
   display: flex;
   justify-content: center;
-
 }
 
 .challenge-photos-pic {
   display: flex;
   flex-direction: column;
-
-
 }
 
 .challenge-photo {
@@ -310,7 +302,6 @@
 
 .challenge-photo img {
   width: 1000px;
-
 }
 
 .challenge-users {
@@ -322,12 +313,12 @@
 }
 
 .chlng-user-icon {
-    justify-content: center;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    background-color: #ebeaea;
+  justify-content: center;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  background-color: #ebeaea;
 }
 
 .chlng-usr-sugtn-title {
@@ -358,9 +349,7 @@
   align-items: center;
   gap: 10px;
   margin-left: 30px;
-
 }
-
 
 .chlng-usr-sugtn-item img {
   object-fit: fill;
@@ -373,12 +362,9 @@
   gap: 20px;
 }
 
-
 .challenge-photos {
   display: flex;
 }
-
-
 
 /* End Challenge */
 
@@ -526,3 +512,87 @@
 }
 
 /* end modal */
+
+/* Comment section */
+.comment-section {
+  max-width: 700px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.comment-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.comment-input textarea {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  resize: none;
+}
+
+.comment-input button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.comment-body {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.time {
+  color: #777;
+  font-size: 12px;
+}
+
+.comment-text {
+  margin: 8px 0;
+}
+
+.actions button {
+  margin-right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #555;
+}
+
+.replies {
+  margin-top: 10px;
+  margin-left: 40px;
+  border-left: 2px solid #eee;
+  padding-left: 10px;
+}
+/* end Comment section */
