@@ -15,7 +15,7 @@ const Challenge = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.pexels.com/v1/${category}?page=1&per_page=20`
+          `https://api.pexels.com/v1/search?query={category}&per_page=1`
         );
 
         if (!response.ok) {
@@ -67,33 +67,21 @@ const Challenge = () => {
               <div className="chlng-usr-sugtn-item">
                 {photos.slice(0, 2).map((photo) => (
                   <div className="hero__images-image" key={photo.id}>
-                    <img
-                      src={photo.src.small}
-                      alt={photo.alt}
-                      loading="lazy"
-                    />
+                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
                   </div>
                 ))}
               </div>
               <div className="chlng-usr-sugtn-item">
                 {photos.slice(3, 5).map((photo) => (
                   <div className="hero__images-image" key={photo.id}>
-                    <img
-                      src={photo.src.small}
-                      alt={photo.alt}
-                      loading="lazy"
-                    />
+                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
                   </div>
                 ))}
               </div>
               <div className="chlng-usr-sugtn-item">
                 {photos.slice(6, 8).map((photo) => (
                   <div className="hero__images-image" key={photo.id}>
-                    <img
-                      src={photo.src.small}
-                      alt={photo.alt}
-                      loading="lazy"
-                    />
+                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
                   </div>
                 ))}
               </div>
