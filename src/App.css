@@ -93,10 +93,18 @@
 
 /* hero */
 
-.home-hero {
-  background-color: #000;
-}
 
+
+#challenge {
+  background-color: #000;
+  border-radius: 20px;
+  padding: 30px 0;
+
+}
+.home_hero-title {
+  text-align: center;
+  color: #fff;
+}
 .hero {
   display: flex;
   justify-content: center;
@@ -366,6 +374,33 @@
   display: flex;
 }
 
+.challenge-background {
+ position: relative;
+ text-align: center;
+ left: 25%;
+ width: 50%;
+ margin: 0 0 30px;
+}
+
+.challenge__title {
+  font-weight: 600;
+  font-size: 1.7em;
+}
+
+.challenge__title-sub {
+  margin: 10px 0;
+}
+
+.challenge-background button {
+  background-color: #000;
+  color: #fff;
+  width: 170px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* End Challenge */
 
 /* profile */
@@ -513,86 +548,63 @@
 
 /* end modal */
 
-/* Comment section */
-.comment-section {
-  max-width: 700px;
-  margin: auto;
-  font-family: Arial, sans-serif;
+
+/* submissions */
+.submission {
+  margin: 20px 0;
 }
 
-.comment-input {
+.submissions {
+  width: min-content;
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  margin: 0 auto;
+  font-family: Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif;
+
 }
 
-.comment-input textarea {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  resize: none;
-}
-
-.comment-input button {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.comment {
+.user-submissions {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 3px;
+ 
 }
 
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+.user-submissions img {
+  margin: 0;
+  height: 400px;
+  width: 200px;
+  object-fit: cover;
 }
 
-.comment-body {
-  background: #f9fafb;
-  padding: 12px;
-  border-radius: 10px;
-  width: 100%;
-}
-
-.comment-header {
+.user-submission-keyinfo {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  margin: 10px 0;
+  padding: 10px;
 }
 
-.username {
-  font-weight: bold;
+.user-submission-info-key {
+  display: flex;
+  flex-direction: column;
+}
+.user-submission-info {
+  border: 1px solid #dfdbdb;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 20px 0 0 20px;
+
 }
 
-.time {
-  color: #777;
-  font-size: 12px;
+.user-submission-info img {
+  border-radius: 20px 0 0 20px;
+  height: 100px;
 }
 
-.comment-text {
-  margin: 8px 0;
+.user-submission-abt {
+  width: 55%;
 }
 
-.actions button {
-  margin-right: 10px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: #555;
-}
-
-.replies {
-  margin-top: 10px;
-  margin-left: 40px;
-  border-left: 2px solid #eee;
-  padding-left: 10px;
-}
-/* end Comment section */
+/* end submission */

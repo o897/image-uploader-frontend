@@ -49,19 +49,6 @@ function Home() {
 
   return (
     <>
-      {/* <div className="navbar">
-        <div>
-          <Link to="/"> Memoir</Link>
-        </div>
-        <div className="navbar__menu">
-          <button
-            className="navbar__menu-btn-login submit__img-btn"
-            onClick={() => navigate("/login")}
-          >
-            Log in
-          </button>
-        </div>
-      </div> */}
 
       <section className="home_intro">
          <Navbar />

@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../index.css";
 import Navbar from "../components/Navbar";
 
 export default function Upload() {
   const navigate = useNavigate();
-
   const [file, setFile] = useState();
   const [msg, setMsg] = useState(null);
+
+  // category name
+  const name = useParams()
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -47,7 +49,7 @@ export default function Upload() {
       setMsg("Uploading...");
 
       const response = await fetch(
-        "https://image-uploader-backend-yzqj.onrender.com/image/upload",
+        `https://image-uploader-backend-yzqj.onrender.com/image/upload/${name}`,
         {
           method: "POST",
           body: formData,

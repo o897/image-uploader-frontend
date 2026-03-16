@@ -2,20 +2,26 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { FaRegThumbsUp } from "react-icons/fa";
 import ChallengeIntro from "../components/ChallengeIntro";
-import CommentSection from "../components/CommentSection";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Challenge = () => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { category } = useParams();
+  const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://api.pexels.com/v1/search?query={category}&per_page=1`
+          `https://api.pexels.com/v1/search?query=${category}&per_page=20`,
+          {
+            headers: {
+              Authorization: API_KEY, 
+            },
+          }
         );
 
         if (!response.ok) {
@@ -23,8 +29,8 @@ const Challenge = () => {
         }
 
         const result = await response.json();
-        console.log("result photos", result);
-        setPhotos(result.photos); // ✅ photos only
+
+        setPhotos(result.photos);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -36,104 +42,88 @@ const Challenge = () => {
     fetchData();
   }, []);
 
+  console.log("photos", photos);
+
   return (
     <div className="challenge">
-      {/* Take it off the param  */}
       <Navbar />
 
-      {/* top 5 liked pictures */}
       <ChallengeIntro />
 
-      <div className="challenge-photos">
-        <div className="challenge-photos-pic">
-          <div className="challenge-photo">
-            <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-          </div>
-          <div className="challenge-photo-items">
-            <div>Like</div>
-            <div>Download</div>
-            <div>Share</div>
-          </div>
-          <div className="challenge-photos-comments">
-            <CommentSection />
-          </div>
-        </div>
+      <section className="submission">
+        <div className="submissions">
+          <div className="user-submission">
 
-        <div className="challenge-users">
-          <div className="chlng-usr-sugtn">
-            {/* map here */}
-            <div className="chlng-usr-sugtn-title">More like this</div>
-            <div className="chlng-usr-sugtn">
-              <div className="chlng-usr-sugtn-item">
-                {photos.slice(0, 2).map((photo) => (
-                  <div className="hero__images-image" key={photo.id}>
-                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <div className="chlng-usr-sugtn-item">
-                {photos.slice(3, 5).map((photo) => (
-                  <div className="hero__images-image" key={photo.id}>
-                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-              <div className="chlng-usr-sugtn-item">
-                {photos.slice(6, 8).map((photo) => (
-                  <div className="hero__images-image" key={photo.id}>
-                    <img src={photo.src.small} alt={photo.alt} loading="lazy" />
-                  </div>
-                ))}
-              </div>
+            <div className="user-submissions">
+              <img className="submission-img" alt="" srcSet="" src="https://a.storyblok.com/f/178900/960x540/f8a7314e6a/demon-slayer-infinity-castle.JPG/m/filters:quality(95)format(webp)" />
+              <img className="submission-img" alt="" srcSet="" src="https://a.storyblok.com/f/178900/960x540/f8a7314e6a/demon-slayer-infinity-castle.JPG/m/filters:quality(95)format(webp)" />
+              <img className="submission-img" alt="" srcSet="" src="https://a.storyblok.com/f/178900/960x540/f8a7314e6a/demon-slayer-infinity-castle.JPG/m/filters:quality(95)format(webp)" />
+              <img className="submission-img" alt="" srcSet="" src="https://a.storyblok.com/f/178900/960x540/f8a7314e6a/demon-slayer-infinity-castle.JPG/m/filters:quality(95)format(webp)" />
+              <img className="submission-img" alt="" srcSet="" src="https://a.storyblok.com/f/178900/960x540/f8a7314e6a/demon-slayer-infinity-castle.JPG/m/filters:quality(95)format(webp)" />
             </div>
-          </div>
+            <div className="user-submission-keyinfo">
+              <div className="user-submission-abt">
+                <h3>About my anime challenge</h3>
 
-          <div className="chalng-user-uploads">
-            <div className="chlng-usr-sugtn">
-              {/* map here */}
-              <div className="chlng-usr-sugtn">
-                <div className="chlng-user-icon">
-                  <div className="chlng-user-pic">
-                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
-                    <p>Orapeleng Mathebula</p>
-                  </div>
-
-                  <div className="chlng-usr-sugtn-item">
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                  </div>
-                </div>
-
-                <div className="chlng-user-icon">
-                  <div className="chlng-user-pic">
-                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
-                    <p>Orapeleng Mathebula</p>
-                  </div>
-
-                  <div className="chlng-usr-sugtn-item">
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                  </div>
-                </div>
-                <div className="chlng-user-icon">
-                  <div className="chlng-user-pic">
-                    <img src="https://decider.com/wp-content/uploads/2017/06/gilfoyle.jpg?quality=80&strip=all&w=1156" />
-                    <p>Orapeleng Mathebula</p>
-                  </div>
-
-                  <div className="chlng-usr-sugtn-item">
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                    <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-                  </div>
+                <span className="abt-txt">industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</span>
+              </div>
+              <div className="user-submission-info">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocIiZTOLXu74pAuZU0ih2qIv-Net4IKoqiNtWKO-qRzXGTwSaG_5=s288-c-no" />
+                <div className="user-submission-info-key">
+                  <span>Orapeleng Mathebula</span>
+                  <span>Anime : Demons Slayer</span>
+                  <span>Netflix</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
+      </section>
+      <section className="home_hero" id="challenge">
+        <h2 className="home_hero-title">Challenge Submission</h2>
+        <div className="hero">
+          <div className="hero__images">
+            {photos.slice(0, 5).map((photo) => (
+              <div className="hero__images-image" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="hero__images">
+            {photos.slice(6, 11).map((photo) => (
+              <div className="hero__images-image" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="hero__images">
+            {photos.slice(12, 17).map((photo) => (
+              <div className="hero__images-image s" key={photo.id}>
+                <img
+                  src={photo.src.large}
+                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
+                  sizes="(max-width: 500px) 100vw, 410px"
+                  alt={photo.alt}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
