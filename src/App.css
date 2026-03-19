@@ -1,22 +1,32 @@
 /* navbar */
 .navbar {
-  margin-bottom: 20px;
   padding: 10px 20px;
   height: 50px;
   display: flex;
   align-items: center;
+  position: sticky;
 }
 
 .navbar__menu {
   display: flex;
   gap: 20px;
-  padding-right: 10px;
   align-items: center;
   color: #909696;
   font-size: 1.4rem;
   font-weight: 500;
-  width: -webkit-fill-available;
   margin-left: 50px;
+  justify-content: flex-end;
+  flex: 1;
+  padding-right: 25px;
+
+}
+
+.navbar__menu-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 50px;
+
 }
 
 .navbar__menu-btn-login {
@@ -87,6 +97,15 @@
 .options-item {
   border-bottom: 2px solid #000;
   cursor: pointer;
+}
+
+
+.user-icon {
+  cursor: pointer;
+}
+
+.user-icon:hover {
+  color: #0a0a0a;
 }
 
 /* end navbar */

@@ -69,7 +69,7 @@ const Profile = () => {
           />
         </div>
         <Collection />
-        <Anime />
+       
       </div>
     </>
   );

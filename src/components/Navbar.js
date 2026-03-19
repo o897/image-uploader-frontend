@@ -3,7 +3,7 @@ import "../../src/App.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { CiSearch } from "react-icons/ci";
+import { FaUser } from "react-icons/fa";
 
 
 
@@ -55,7 +55,7 @@ const Navbar = () => {
         <div className="navbar__menu">
         
           {user ? (
-            <div>
+            <div className="navbar__menu-items">
               <button
                 className="navbar__menu-btn-login submit__img-btn"
                 onClick={handleLogout}
@@ -69,6 +69,10 @@ const Navbar = () => {
               >
                 Upload
               </button>
+
+              <div><FaUser className="user-icon" onClick={() => navigate("/profile")}/></div>
+                
+            
             </div>
           ) : (
             // after user logs in log btn changes into user profile icon
