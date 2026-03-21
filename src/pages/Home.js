@@ -58,6 +58,7 @@ function Home() {
       </section>
     
 
+      {/* pop us when user clicks a photos */}
       <section className="home_hero">
         <div className="hero">
           <div className="hero__images">
