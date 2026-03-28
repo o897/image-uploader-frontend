@@ -1,11 +1,38 @@
+/* layout */
+
+.layout {
+
+}
+.layout-main {
+  
+}
+
+.layout-main--content {
+
+}
+
+/* end layout */
+
+/* main */
+
+
+/* end main */
 /* navbar */
 .navbar {
   padding: 10px 20px;
   height: 50px;
   display: flex;
   align-items: center;
-  position: sticky;
+  border: 1px solid #000;
+  z-index: 10;
+  width:80%;
+  position: fixed;
+  left: 7vw;
+  width: calc(100vw - 9.2vw);
+  /* width: calc(100vw - 10vw); */
 }
+
+
 
 .navbar__menu {
   display: flex;
@@ -110,14 +137,29 @@
 
 /* end navbar */
 
+/* sidenavbar */
+.sidenav {
+  position: fixed;
+  left: 0;
+  flex-direction: column;
+  background-color: #5a4bd1;
+  width: 7vw;
+  height: 100vh;
+  flex: 1;
+  
+ 
+
+
+}
+
+/* end sidenavbar */
+
 /* hero */
 
-
-
 #challenge {
-  background-color: #000;
-  border-radius: 90px;
-  padding: 30px 0;
+  background-color: #000;  
+  padding: 5px 0;
+
 
 }
 
@@ -131,7 +173,7 @@
 .hero {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 21px;
   align-items: flex-start;
   padding: 20px;
   margin: 0 15vw;

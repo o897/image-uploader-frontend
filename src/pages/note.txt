@@ -1,56 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import { FaRegThumbsUp } from "react-icons/fa";
-import ChallengeIntro from "../components/ChallengeIntro";
-import { useNavigate, useParams } from "react-router-dom";
-import Collection from "../components/Collection";
-import Layout from "../layouts/Layout";
-
-const Challenge = () => {
-  const [photos, setPhotos] = useState([]);
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState();
-  const { category } = useParams();
-  const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.pexels.com/v1/search?query=${category}&per_page=20`,
-          {
-            headers: {
-              Authorization: API_KEY, 
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const result = await response.json();
-
-        setPhotos(result.photos);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    console.log(category);
-    fetchData();
-  }, []);
-
-  console.log("photos", photos);
-
-  return (
-
-  <Layout>
-
-     <div className="challenge">
+ <div className="challenge">
       <ChallengeIntro />
       <section className="submission">
         <div className="submissions">
@@ -126,9 +74,3 @@ const Challenge = () => {
         </div>
       </section>
     </div>
-  </Layout>
-    
-  );
-};
-
-export default Challenge;

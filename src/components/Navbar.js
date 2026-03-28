@@ -85,22 +85,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
-      {/* <div className="options">
-        <div className="options-item">
-          <Link to="/collection/{}">Anime</Link>
-        </div>
-        <div className="options-item">
-          <Link to="/afcon" /> Sports
-        </div>
-        <div className="options-item">
-          <Link to="/memories" /> Year Memories
-        </div>
-        <div className="options-item">
-          <Link to="/2026" />
-          Netflix 👀
-        </div>
-      </div> */}
     </>
   );
 };

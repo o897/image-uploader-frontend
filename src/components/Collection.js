@@ -5,6 +5,7 @@ function Collection() {
 
   // render the collection that the user picked
   //  I already  set the set for the collection already
+  // a user can create their own collcitions
   return (
     <>
       <div className="collections collections__menu">
@@ -12,6 +13,7 @@ function Collection() {
         <div className="colections__menu-item">Daily</div>
         <div className="colections__menu-item">Throwback</div>
         <div className="colections__menu-item">Scenery</div>
+        <div>+</div>
       </div>
       {/* Here we will render, each component of its kind eg {anime, cringe, throwback etc} */}
       {/* if a user hasnt posted anything we show nothing */}
