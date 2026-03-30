@@ -19,7 +19,7 @@ export default function Complete() {
       try {
         // if it returns null look for it in the db
         const response = await fetch(
-          `https://image-uploader-backend-yzqj.onrender.com/image/api/${
+          `https://oraserver.online/image/api/${
             image || filename
           }`
         );
