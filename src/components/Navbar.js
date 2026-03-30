@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { FaUser } from "react-icons/fa";
+import { FaDoorOpen } from "react-icons/fa";
 
 
 
 const Navbar = () => {
   const API_URL =
     process.env.REACT_APP_API_URL ||
-    "https://image-uploader-backend-yzqj.onrender.com";
+    "https://oraserver.online";
 
   const navigate = useNavigate();
 
@@ -53,15 +54,10 @@ const Navbar = () => {
           <Link to="/"> Memoir</Link>
         </div>
         <div className="navbar__menu">
-        
+
           {user ? (
             <div className="navbar__menu-items">
-              <button
-                className="navbar__menu-btn-login submit__img-btn"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
+
 
               <button
                 className="submit__img-btn"
@@ -70,9 +66,15 @@ const Navbar = () => {
                 Upload
               </button>
 
-              <div><FaUser className="user-icon" onClick={() => navigate("/profile")}/></div>
-                
-            
+              <div><FaUser className="user-icon" onClick={() => navigate("/profile")} /></div>
+              {/* <button
+                className="navbar__menu-btn-login submit__img-btn"
+                onClick={handleLogout}
+              >
+                Logout
+              </button> */}
+              <div><FaDoorOpen className="user-icon" onClick={handleLogout}/></div>
+
             </div>
           ) : (
             // after user logs in log btn changes into user profile icon

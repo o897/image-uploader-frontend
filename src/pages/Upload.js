@@ -49,7 +49,7 @@ export default function Upload() {
       setMsg("Uploading...");
 
       const response = await fetch(
-        `https://image-uploader-backend-yzqj.onrender.com/image/upload/${name}`,
+        `https://oraserver.online/image/upload/${name}`,
         {
           method: "POST",
           body: formData,

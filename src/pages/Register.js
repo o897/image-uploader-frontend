@@ -7,7 +7,7 @@ const Register = () => {
     const {login} = useAuth();
     const API_URL =
         process.env.REACT_APP_API_URL ||
-        "https://image-uploader-backend-yzqj.onrender.com";
+        "https://oraserver.online";
 
     const LOCAL_URL = "http://localhost:3001";
 

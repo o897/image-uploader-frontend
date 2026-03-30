@@ -14,22 +14,24 @@
 /* end layout */
 
 /* main */
-
-
 /* end main */
+
 /* navbar */
 .navbar {
   padding: 10px 20px;
   height: 50px;
   display: flex;
   align-items: center;
-  border: 1px solid #000;
+  border: 1px solid #dfdddd;
   z-index: 10;
-  width:80%;
   position: fixed;
-  left: 7vw;
-  width: calc(100vw - 9.2vw);
-  /* width: calc(100vw - 10vw); */
+  left: 6vw;;
+  top: 0;
+  margin: 0 auto;
+  width: calc(100vw - 14vw);
+  background-color: #fff;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
 
@@ -38,7 +40,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  color: #909696;
+  color: #fff;
   font-size: 1.4rem;
   font-weight: 500;
   margin-left: 50px;
@@ -129,6 +131,7 @@
 
 .user-icon {
   cursor: pointer;
+  color: #000000;
 }
 
 .user-icon:hover {
@@ -176,7 +179,8 @@
   gap: 21px;
   align-items: flex-start;
   padding: 20px;
-  margin: 0 15vw;
+  position: relative;
+  top: 10vh;
 }
 
 .hero__images {
@@ -199,6 +203,8 @@
   display: flex;
   gap: 15px;
   flex-direction: column;
+   position: relative;
+    top: 10vh;
 }
 
 .collection-intro {
@@ -247,13 +253,13 @@
 
 /* --- Collections Grid Layout --- */
 .collections-grid {
-  display: flex;
-  /* Creates a responsive grid that fits as many columns as possible */
-  gap: 24px;
-  padding: 40px 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-  align-items: center;
+    display: flex;
+    gap: 24px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+   
 }
 
 /* --- The Card Container --- */
