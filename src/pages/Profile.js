@@ -2,9 +2,7 @@
 import Collection from "../components/Collection";
 import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import Anime from "./Anime";
 import Navbar from "../components/Navbar";
-import UpdateProfile from "./UpdateProfile";
 import { useState } from "react";
 
 const Profile = () => {
@@ -61,12 +59,7 @@ const Profile = () => {
           <div>
             <button onClick={() => setOpen(true)}>Edit Profile</button>
           </div>
-          <UpdateProfile
-            isOpen={open}
-            onClose={() => setOpen(false)}
-            user={user}
-            onSave={handleSave}
-          />
+        
         </div>
         <Collection />
        

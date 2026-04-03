@@ -5,6 +5,8 @@ import ChallengeIntro from "../components/ChallengeIntro";
 import { useNavigate, useParams } from "react-router-dom";
 import Collection from "../components/Collection";
 import Layout from "../layouts/Layout";
+import { FaClock } from "react-icons/fa";
+
 
 const Challenge = () => {
   const [photos, setPhotos] = useState([]);
@@ -78,7 +80,15 @@ const Challenge = () => {
                 </div>
               </div>
             </div>
-          </div>   
+            <div className="submission-stat">
+            <div className="submission-stat-card">
+              Your favourite
+            </div>
+            <div className="submission-stat-card">
+              <FaClock className="stat-clock-icon" size={25}/> 01/12/2026
+            </div>
+          </div>
+          </div>          
         </div>
       </section>
       <section className="home_hero" id="challenge">
@@ -124,6 +134,7 @@ const Challenge = () => {
             ))}
           </div>
         </div>
+        
       </section>
     </div>
   </Layout>

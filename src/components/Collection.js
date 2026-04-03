@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Anime from "../pages/Anime";
 function Collection() {
   const [photos, setPhotos] = useState([]);
 

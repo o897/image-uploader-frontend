@@ -36,8 +36,8 @@ export default function ChallengeIntro() {
 
   return (
     <div className="challenge-background">
-      <div className="challenge__title">Anime Challenge</div>
-      <div className="challenge__title-sub">Explore the intersection of reality and animation. Capture scenes with high-contrast cel-shaded lighting, vibrant pastel skies, or compositions that feel like a frame from a Studio Ghibli or Makoto Shinkai film.</div>
+      <div className="challenge__title">{category}</div>
+      <div className="challenge__title-sub">{data.description}</div>
       {/* place the button at the center */}
       <button onClick={() => navigate(`/upload/${category}`)}>Join the Challenge</button>
     </div>

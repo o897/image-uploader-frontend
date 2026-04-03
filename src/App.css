@@ -76,6 +76,13 @@
   width: 450px;
 }
 
+.search-collection-container {
+  width: 470px;
+  height: 200px;
+  position: relative;
+  border: 1px solid #bdb4b4;
+}
+
 .navbar__menu-input {
   width: 80%;
   height: 38px;
@@ -145,10 +152,10 @@
   position: fixed;
   left: 0;
   flex-direction: column;
-  background-color: #5a4bd1;
-  width: 7vw;
+  width: 6vw;
   height: 100vh;
-  flex: 1;
+  z-index: 1;
+  border: 1px solid #e7e5e5;
   
  
 
@@ -160,16 +167,19 @@
 /* hero */
 
 #challenge {
-  background-color: #000;  
-  padding: 5px 0;
-
-
+    border-top-right-radius: 31px;
+    margin: 0 auto;
+    width: 80%;
+    background-color: #000;
+    padding: 5px 0;
+    border-top-left-radius: 29px;
+    height: max-content;
 }
 
 .home_hero-title {
   text-align: center;
   color: #fff;
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 1.9rem;
 }
 
@@ -216,6 +226,47 @@
   margin-bottom: 15px;
 }
 
+
+.collection-card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e3dcdc;
+    padding: 2px 7px;
+    height: 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #bfaeae;
+    cursor: pointer;
+}
+
+.collection-card-title:hover {
+
+    background-color: #e7af5c;
+    transition: ease-in;
+    color: #fff;
+}
+
+
+
+#collection-card-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-content: start;
+  padding: 0 12px;
+
+
+}
+
+#collection-img {
+  height: 200px;
+  width: 290px;
+  object-fit: contain;
+  display: flex;
+  margin: 0 auto;
+}
+
 .collection-card-front {
   justify-content: center;
   font-size: 1.7rem;
@@ -227,13 +278,7 @@
   margin: 0 auto;
 }
 
-/* .collection-card-item {
-  cursor: pointer;
-}
 
-.collection-card-item.s {
-  text-decoration: underline;
-} */
 
 .collection-card-front-head {
   display: flex;
@@ -265,7 +310,7 @@
 /* --- The Card Container --- */
 .collection-card {
   position: relative;
-  height: 400px;
+  height: 340px;
   width: 350px;
   overflow: hidden;
   cursor: pointer;
@@ -461,14 +506,18 @@
 }
 
 .challenge-background button {
-  background-color: #000;
-  color: #fff;
-  width: 170px;
-  height: 35px;
-  border: none;
-  cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    width: 180px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
 }
 
+.challenge {
+  top: 20vh;
+    position: relative;
+}
 
 /* End Challenge */
 
@@ -622,6 +671,24 @@
 .submission {
   margin: 20px 0;
 }
+
+.submission-stat {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.submission-stat-card {
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    border: 1px solid #868484;
+    height: 70px;
+}
+
+
+
 
 .submissions {
   width: min-content;

@@ -1,8 +1,11 @@
-import React from "react";
+import {React,useState} from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
-const data = [
+export default function Community() {
+
+  // data containing all the images
+   const data = [
   {
     title: "Anime",
     count: "124 Photos",
@@ -12,16 +15,38 @@ const data = [
     title: "Daily",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Favourite moments",
+    count: "89 Photos",
+    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Cringe",
+    count: "89 Photos",
+    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Funny",
+    count: "89 Photos",
+    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   }
 ];
+  const [query, setQuery] = useState("");
 
-export default function Community() {
+
+ const filtered = data.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+ 
+
   return (
     <div className="collections-grid">
 
       <div className="search">
-         <h3 className="collection-intro">
-            The best free stock photos, royalty free images & videos shared by creators.
+        <h3 className="collection-intro">
+          The best free stock photos, royalty free images & videos shared by creators.
         </h3>
         <div className="search-wrapper">
           <FaSearch className="search-icon" />
@@ -31,26 +56,40 @@ export default function Community() {
             placeholder="Search photos using keywords or a description"
           />
         </div>
+        <div className="search-collection-container">
+          <div className="search-collection-card-title">
+
+          </div>
+
+        </div>
       </div>
 
 
-      {data.map((item, index) => (
-        <Link to={`/challenge/${item.title.toLowerCase()}`} key={index}>
-          <div key={index} className="collection-card">
-            {/* Optional Badge */}
-            <div className="collection-badge">Challenge</div>
 
-            <img src={item.img} alt={item.title} />
+      <Link to="/challenge/anime">
+        <div className="collection-card">
 
-            <div className="collection-overlay">
-              <h3 className="collection-title">{item.title}</h3>
-              <span className="collection-meta">
-                {item.count} — Created by You
-              </span>
-            </div>
+          <div className="collection-badge">Challenge</div>
+
+          <img src="https://www.lingualift.com/wp-content/uploads/2020/03/anime.png" alt="anime" />
+
+          <div className="collection-overlay">
+            <h3 className="collection-title">Title</h3>
+            <span className="collection-meta">
+              — Created by You
+            </span>
           </div>
-        </Link>
-      ))}
+        </div>
+      </Link>
+      <div className="collection-card" id="collection-card-menu">
+
+        <img src="https://www.lingualift.com/wp-content/uploads/2020/03/anime.png" alt="anime" id="collection-img" />
+
+        {data.map((item, index) => (
+          <div className="collection-card-title">{item.title}</div>
+        ))}
+      </div>
+
     </div>
   );
 }
