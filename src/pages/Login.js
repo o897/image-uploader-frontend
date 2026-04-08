@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const API_SERVER_URL =
-  process.env.REACT_APP_API_SERVER_URL ||
+  process.env.REACT_APP_SERVER_API ||
   "https://oraserver.online";
 
 const LOCAL_URL =  "http://localhost:3001";
@@ -28,35 +28,35 @@ const Login = () => {
   };
 
   // handle traditional login, FUNCTION CAN CARRY THE FORMDATA
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
     
-    try {
-      // traditional login #the dinosaur way
-      const response = await fetch(`${API_SERVER_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(formData),
-      });
+  //   try {
+  //     // traditional login #the dinosaur way
+  //     const response = await fetch(`${API_SERVER_URL}/auth/login`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       credentials: "include",
+  //       body: JSON.stringify(formData),
+  //     });
 
-      // our response came with some data, possibly some data from 
-      const data = await response.json();
+  //     // our response came with some data, possibly some data from 
+  //     const data = await response.json();
 
-      if (response.ok) {
-        // Save user to LocalStorage
-        login(data); //direct traffic to Auth context
-        console.log("Login successful:", data);
-        navigate("/upload");
-      } else {
-        console.error("Login failed:", data?.message || data);
-      }
-    } catch (error) {
-      console.error("An error occurred during login:", error);
-    }
-  };
+  //     if (response.ok) {
+  //       // Save user to LocalStorage
+  //       login(data); //direct traffic to Auth context
+  //       console.log("Login successful:", data);
+  //       navigate("/upload");
+  //     } else {
+  //       console.error("Login failed:", data?.message || data);
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred during login:", error);
+  //   }
+  // };
 
   const handleLogin = async (e,formData) => {
     e.preventDefault();

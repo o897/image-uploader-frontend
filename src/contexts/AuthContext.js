@@ -36,6 +36,9 @@ export const AuthProvider = ({ children }) => {
         const data = await res.json();
         setUser(data.user);
       } else {
+        //user not logged in yet
+        console.log(`user not logged in yet.`);
+        
         setUser(null);
       }
     } catch {
@@ -78,8 +81,9 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
   };
+
 
   return (
     <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading }}>
