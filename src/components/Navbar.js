@@ -6,16 +6,14 @@ import { useAuth } from "../contexts/AuthContext";
 import { FaUser } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
 
-
-
 const Navbar = () => {
   const API_URL =
     process.env.REACT_APP_API_URL ||
     "https://oraserver.online";
-
+    
   const navigate = useNavigate();
 
-  const { user, logout, login } = useAuth();
+  const { user, logout, checkAuth } = useAuth();
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -30,23 +28,10 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await fetch(`${API_URL}/auth/success`, {
-          credentials: "include",
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          login(data);
-        }
-      } catch (e) {
-        console.log("Auth check skipped:", e.message);
-      }
-    };
     checkAuth();
   }, []);
-
+  
+  
   return (
     <>
       <div className="navbar">

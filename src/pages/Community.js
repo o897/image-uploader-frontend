@@ -12,22 +12,22 @@ export default function Community() {
     img: "https://www.lingualift.com/wp-content/uploads/2020/03/anime.png",
   },
   {
-    title: "Daily",
+    title: "Tiktok",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Favourite moments",
+    title: "Youtube",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Cringe",
+    title: "Facebook",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Funny",
+    title: "Other",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   }

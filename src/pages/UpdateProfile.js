@@ -5,9 +5,12 @@ const UpdateProfile = () => {
     <div className='updt_prof-wrapper'>
 
             <div className='updt-prof-intro'>
-                <img alt="user" />
+                <div className='updt-prof-user'>
+                     <img alt="user" />
+                </div>
+               
                 <div className='updat-prof-user'>
-
+                    
                 </div>
             </div>
     </div>
