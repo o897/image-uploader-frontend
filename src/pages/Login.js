@@ -58,9 +58,11 @@ const Login = () => {
   //   }
   // };
 
-  const handleLogin = async (e,formData) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     login(formData);
+    console.log(`formData in login page`, formData);
+    
   }
 
   return (

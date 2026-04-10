@@ -7,9 +7,6 @@ import { FaUser } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
 
 const Navbar = () => {
-  const API_URL =
-    process.env.REACT_APP_API_URL ||
-    "https://oraserver.online";
     
   const navigate = useNavigate();
 
@@ -17,21 +14,9 @@ const Navbar = () => {
 
   const handleLogout = async (e) => {
     e.preventDefault();
-
-    try {
-      await fetch(`${API_URL}/auth/logout`);
-      logout();
-      navigate("/");
-    } catch (e) {
-      console.log("logout failed", e);
-    }
+    logout();
   };
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
-  
-  
+   
   return (
     <>
       <div className="navbar">

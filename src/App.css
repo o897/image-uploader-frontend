@@ -165,6 +165,41 @@
 /* end sidenavbar */
 
 /* hero */
+.hero__images-image:hover .img-icon {
+  opacity: 1;
+  pointer-events: auto; /* clickable now */
+}
+
+img.icon:hover {
+  color: #7c1010;
+}
+
+.img-icon {
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  font-size: 21px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.like-icon {
+  left: 20px;
+}
+
+.bookmark-icon  {
+  left: 60px;
+}
+
+.img-icon-user {
+  height: 50px;
+  width: 50px;
+}
+.media-icon  {
+ right: 20px;
+}
 
 #challenge {
     border-top-right-radius: 31px;
@@ -174,6 +209,7 @@
     padding: 5px 0;
     border-top-left-radius: 29px;
     height: max-content;
+    padding: 20px 0;
 }
 
 .home_hero-title {
@@ -201,12 +237,24 @@
   max-width: 410px;
 }
 
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
 .hero__images-image img {
   width: 410px;
   height: auto;
   display: block;
   cursor: pointer;
   object-fit: contain;
+  display: block;
+}
+
+.hero__images-image {
+  position: relative;
 }
 
 .collection {

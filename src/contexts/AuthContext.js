@@ -1,10 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const SERVER_API = process.env.REACT_APP_SERVER_API;
-  const navigate = useNavigate();
 
 
   const [user, setUser] = useState(null);
@@ -14,16 +12,6 @@ export const AuthProvider = ({ children }) => {
     password: "",
 
   });
-
-  // useEffect(() => {
-
-  //   // save logged in user
-  //   const savedUser = localStorage.getItem("user");
-  //   if (savedUser) {
-  //     setUser(JSON.parse(savedUser));
-  //   }
-  //   setLoading(false);
-  // }, []);
 
 
   const checkAuth = async () => {
@@ -55,6 +43,8 @@ export const AuthProvider = ({ children }) => {
   // };
 
   const login = async (userData) => {
+    console.log(`userData in login function AuthProvider`,userData);
+    
     try {
       // traditional login #the dinosaur way
       const response = await fetch(`${SERVER_API}/auth/login`, {
@@ -70,7 +60,8 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        navigate("/");
+        console.log("user logged in");
+        setUser(data)
       } else {
         console.error("Login failed:", data?.message || data);
       }
@@ -79,11 +70,21 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const logout = () => {
-    setUser(null);
-    // localStorage.removeItem("user");
+  const logout = async () => {
+   
+    
+    try {
+      await fetch(`${SERVER_API}/auth/logout`);
+      logout();
+      setUser(null);
+    } catch (e) {
+      console.log("logout failed", e);
+    }
   };
 
+   useEffect(() => {
+    checkAuth();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading }}>
