@@ -3,7 +3,7 @@ import Complete from "./pages/Complete";
 import Upload from "./pages/Upload";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Challenge from "./pages/Challenge";
@@ -11,7 +11,6 @@ import Community from "./pages/Community";
 
 const App = () => {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -22,7 +21,6 @@ const App = () => {
         <Route path="/complete/:image" element={<Complete />} />
         <Route path="/challenge/:category" element={<Challenge />} />
       </Routes>
-    </BrowserRouter>
   );
 };
 

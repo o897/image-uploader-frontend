@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const SERVER_API = process.env.REACT_APP_SERVER_API;
+
 
 
   const [user, setUser] = useState(null);
@@ -23,11 +26,13 @@ export const AuthProvider = ({ children }) => {
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
+        navigate("/");
       } else {
         //user not logged in yet
+        // Flash errors on the login page
         console.log(`user not logged in yet.`);
-        
         setUser(null);
+        navigate("/"); 
       }
     } catch {
       setUser(null);
@@ -35,12 +40,6 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
-  // const login = (userData) => {
-  //   console.log("login function from useContext: ", userData);
-  //   setUser(userData); //the data exists already after this /success
-  //   localStorage.setItem("user", JSON.stringify(userData));
-  // };
 
   const login = async (userData) => {
     console.log(`userData in login function AuthProvider`,userData);
@@ -61,7 +60,8 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         console.log("user logged in");
-        setUser(data)
+        setUser(data);
+        navigate("/");
       } else {
         console.error("Login failed:", data?.message || data);
       }

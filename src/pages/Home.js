@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaTiktok } from "react-icons/fa";
 import { GoHeart } from "react-icons/go";
+import { FiExternalLink } from "react-icons/fi";
 import { CiBookmark } from "react-icons/ci";
 import Community from "./Community";
 import Navbar from "../components/Navbar";
@@ -92,9 +93,11 @@ function Home() {
         </div>
       </section>
 
+      
 
       {/* pop us when user clicks a photos */}
       <section className="home_hero">
+        <h2 className="home_hero-title">Community Uploads</h2>
 
         <div className="hero" id="challenge">
           {[col1, col2, col3].map((column, idx) => (
@@ -106,6 +109,8 @@ function Home() {
                   <CiBookmark className="bookmark-icon img-icon"/>
                   <FaTiktok className="media-icon img-icon"/>
                   <img className="img-icon-user" src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="/>
+                  <span className="img-icon-username">Orapeleng Mathebulauewiwiuyewiuy</span>
+                  <FiExternalLink className="img-icon-link"/>
                 </div>
               ))}
             </div>

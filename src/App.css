@@ -167,7 +167,8 @@
 /* hero */
 .hero__images-image:hover .img-icon {
   opacity: 1;
-  pointer-events: auto; /* clickable now */
+  pointer-events: auto; 
+  transition: ease .5s;
 }
 
 img.icon:hover {
@@ -194,9 +195,62 @@ img.icon:hover {
 }
 
 .img-icon-user {
-  height: 50px;
-  width: 50px;
+  position: absolute;
+  bottom: 35px;
+  left: 10px;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  object-fit: cover !important;
+  opacity: 0;
 }
+
+.hero__images-image:hover .img-icon-user{
+  opacity: 1;
+  pointer-events: auto; 
+  transition: ease-in 0.8s;
+}
+
+.hero__images-image:hover .img-icon-username {
+  opacity: 1;
+  pointer-events: auto; 
+  transition: ease .5s;
+
+}
+
+
+.img-icon-username {
+  color: #fff;
+  font-size: 1rem;
+  bottom: 55px;
+  position: absolute;
+  left: 80px;
+  font-weight: 600;
+  width: 100;
+  display: inline-block;   /* important */
+  max-width: 180px;        /* adjust based on your layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+
+}
+
+.hero__images-image:hover .img-icon-link {
+  opacity: 1;
+  pointer-events: auto;
+  transition: ease .5s;
+} 
+.img-icon-link {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0;
+}
+
+
 .media-icon  {
  right: 20px;
 }
@@ -209,14 +263,17 @@ img.icon:hover {
     padding: 5px 0;
     border-top-left-radius: 29px;
     height: max-content;
-    padding: 20px 0;
+    padding: 95px 0;
 }
 
 .home_hero-title {
-  text-align: center;
-  color: #fff;
-  padding: 10px 0;
-  font-size: 1.9rem;
+    z-index: 90;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 1.9rem;
+    top: 18vh;
 }
 
 .hero {

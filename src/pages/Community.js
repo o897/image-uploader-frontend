@@ -74,7 +74,7 @@ export default function Community() {
           <img src="https://www.lingualift.com/wp-content/uploads/2020/03/anime.png" alt="anime" />
 
           <div className="collection-overlay">
-            <h3 className="collection-title">Title</h3>
+            <h3 className="collection-title">Favourites</h3>
             <span className="collection-meta">
               — Created by You
             </span>

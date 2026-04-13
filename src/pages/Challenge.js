@@ -92,7 +92,7 @@ const Challenge = () => {
         </div>
       </section>
       <section className="home_hero" id="challenge">
-        <h2 className="home_hero-title">Challenge Submission</h2>
+        <h2 className="home_hero-title-chlng">Challenge Submission</h2>
         <div className="hero">
           <div className="hero__images">
             {photos.slice(0, 5).map((photo) => (
