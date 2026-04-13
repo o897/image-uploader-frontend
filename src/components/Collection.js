@@ -16,7 +16,7 @@ function Collection() {
       </div>
       {/* Here we will render, each component of its kind eg {anime, cringe, throwback etc} */}
       {/* if a user hasnt posted anything we show nothing */}
-      <div className="collections__photos">
+      <div className="">
         {photos ? (
           // fill this space with what the user already posted across all collections
           <div>hi</div>

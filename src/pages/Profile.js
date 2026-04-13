@@ -4,40 +4,13 @@ import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { MdAdd } from "react-icons/md";
+
 
 const Profile = () => {
-  const [open, setOpen] = useState(false);
 
-  const handleSave = (updatedData) => {
-    console.log("Updated User:", updatedData);
-  };
-
-  const API_URL =
-    process.env.REACT_APP_API_URL ||
-    "https://image-uploader-backend-yzqj.onrender.com";
-  const { user, login } = useAuth();
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(`${API_URL}/auth/success`, {
-          credentials: "include", // include cookies if you are using sessions
-        });
-        const data = await response.json();
-
-        if (response.ok) {
-          login(data);
-        } else {
-          console.error("Login failed:", data?.message || data);
-        }
-      } catch (e) {
-        console.error("Fetch error:", e);
-      }
-    };
-
-    fetchUser();
-  }, []);
-
-  // console.log("user :", user.user.firstName);
+  const { user } = useAuth();
+  
   return (
     <>
       <Navbar />
@@ -52,16 +25,47 @@ const Profile = () => {
           </div>
           <div className="profile_details">
             <h2>
-              {/* {user.user?.firstName} {user.user?.lastName} */}
+              {user.user?.firstName} {user.user?.lastName}
             </h2>
             <p>User Bio or Description</p>
           </div>
-          <div>
-            <button onClick={() => setOpen(true)}>Edit Profile</button>
+          <div className="profile_user-btns">
+            <li>Share</li>
+            <li>Edit Profile</li>
           </div>
-        
         </div>
-        <Collection />
+        <div className="profile_user_pins">
+          <li>Likes</li>
+          <li>Favourite</li>
+          <li>Memoir</li>
+        </div>
+        <div className="profile_coll-icon">
+            <MdAdd/>
+        </div>
+        <div className="profile_collection">
+          <div className="prof-card-container">
+            <div className="profile_collection-card">
+            
+              <img src="https://sf-static.tiktokcdn.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png"/>
+              <h3>Tiktok</h3>
+              <p>11 posts</p>
+          </div>
+            </div>
+
+           <div className="profile_collection-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" />
+              <h3>Youtube</h3>
+              <p>9 posts</p>
+          </div>
+           <div className="profile_collection-card">
+              <img src="https://static.designboom.com/wp-content/uploads/2023/09/facebook-new-logo-change-designboom-02.jpg" />
+              <h3>Facebook</h3>
+              <p>4 Posts</p>
+              
+          </div>
+
+
+        </div>
        
       </div>
     </>

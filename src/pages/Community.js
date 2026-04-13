@@ -7,22 +7,22 @@ export default function Community() {
   // data containing all the images
    const data = [
   {
-    title: "Anime",
+    title: "Cringe",
     count: "124 Photos",
     img: "https://www.lingualift.com/wp-content/uploads/2020/03/anime.png",
   },
   {
-    title: "Tiktok",
+    title: "Meme",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Youtube",
+    title: "Funny",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    title: "Facebook",
+    title: "Daily Highlight",
     count: "89 Photos",
     img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
   },

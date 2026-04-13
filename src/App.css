@@ -1,15 +1,10 @@
 /* layout */
 
-.layout {
+.layout {}
 
-}
-.layout-main {
-  
-}
+.layout-main {}
 
-.layout-main--content {
-
-}
+.layout-main--content {}
 
 /* end layout */
 
@@ -25,7 +20,8 @@
   border: 1px solid #dfdddd;
   z-index: 10;
   position: fixed;
-  left: 6vw;;
+  left: 6vw;
+  ;
   top: 0;
   margin: 0 auto;
   width: calc(100vw - 14vw);
@@ -156,10 +152,6 @@
   height: 100vh;
   z-index: 1;
   border: 1px solid #e7e5e5;
-  
- 
-
-
 }
 
 /* end sidenavbar */
@@ -167,7 +159,7 @@
 /* hero */
 .hero__images-image:hover .img-icon {
   opacity: 1;
-  pointer-events: auto; 
+  pointer-events: auto;
   transition: ease .5s;
 }
 
@@ -186,11 +178,12 @@ img.icon:hover {
   pointer-events: none;
   transition: 0.3s ease;
 }
+
 .like-icon {
   left: 20px;
 }
 
-.bookmark-icon  {
+.bookmark-icon {
   left: 60px;
 }
 
@@ -205,15 +198,15 @@ img.icon:hover {
   opacity: 0;
 }
 
-.hero__images-image:hover .img-icon-user{
+.hero__images-image:hover .img-icon-user {
   opacity: 1;
-  pointer-events: auto; 
+  pointer-events: auto;
   transition: ease-in 0.8s;
 }
 
 .hero__images-image:hover .img-icon-username {
   opacity: 1;
-  pointer-events: auto; 
+  pointer-events: auto;
   transition: ease .5s;
 
 }
@@ -227,8 +220,10 @@ img.icon:hover {
   left: 80px;
   font-weight: 600;
   width: 100;
-  display: inline-block;   /* important */
-  max-width: 180px;        /* adjust based on your layout */
+  display: inline-block;
+  /* important */
+  max-width: 180px;
+  /* adjust based on your layout */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -240,7 +235,8 @@ img.icon:hover {
   opacity: 1;
   pointer-events: auto;
   transition: ease .5s;
-} 
+}
+
 .img-icon-link {
   position: absolute;
   bottom: 60px;
@@ -251,29 +247,29 @@ img.icon:hover {
 }
 
 
-.media-icon  {
- right: 20px;
+.media-icon {
+  right: 20px;
 }
 
 #challenge {
-    border-top-right-radius: 31px;
-    margin: 0 auto;
-    width: 80%;
-    background-color: #000;
-    padding: 5px 0;
-    border-top-left-radius: 29px;
-    height: max-content;
-    padding: 95px 0;
+  border-top-right-radius: 31px;
+  margin: 0 auto;
+  width: 80%;
+  background-color: #000;
+  padding: 5px 0;
+  border-top-left-radius: 29px;
+  height: max-content;
+  padding: 95px 0;
 }
 
 .home_hero-title {
-    z-index: 90;
-    position: relative;
-    text-align: center;
-    color: #ffffff;
-    padding: 10px 0;
-    font-size: 1.9rem;
-    top: 18vh;
+  z-index: 90;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 1.9rem;
+  top: 18vh;
 }
 
 .hero {
@@ -318,8 +314,8 @@ img.icon:hover {
   display: flex;
   gap: 15px;
   flex-direction: column;
-   position: relative;
-    top: 10vh;
+  position: relative;
+  top: 10vh;
 }
 
 .collection-intro {
@@ -333,23 +329,23 @@ img.icon:hover {
 
 
 .collection-card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #e3dcdc;
-    padding: 2px 7px;
-    height: 30px;
-    border-radius: 4px;
-    font-weight: 700;
-    color: #bfaeae;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e3dcdc;
+  padding: 2px 7px;
+  height: 30px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #bfaeae;
+  cursor: pointer;
 }
 
 .collection-card-title:hover {
 
-    background-color: #e7af5c;
-    transition: ease-in;
-    color: #fff;
+  background-color: #e7af5c;
+  transition: ease-in;
+  color: #fff;
 }
 
 
@@ -390,12 +386,7 @@ img.icon:hover {
   gap: 70px;
 }
 
-.colection__photos-show img {
-  height: 400px;
-  width: 400px;
-  display: block;
-  margin: auto;
-}
+
 
 /* end hero */
 
@@ -403,13 +394,13 @@ img.icon:hover {
 
 /* --- Collections Grid Layout --- */
 .collections-grid {
-    display: flex;
-    gap: 24px;
-    padding: 40px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-    align-items: center;
-   
+  display: flex;
+  gap: 24px;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+
 }
 
 /* --- The Card Container --- */
@@ -611,17 +602,17 @@ img.icon:hover {
 }
 
 .challenge-background button {
-    background-color: #000;
-    color: #fff;
-    width: 180px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  width: 180px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
 }
 
 .challenge {
   top: 20vh;
-    position: relative;
+  position: relative;
 }
 
 /* End Challenge */
@@ -629,44 +620,87 @@ img.icon:hover {
 /* profile */
 
 .profile_container {
-  margin: 10vh 12vw;
+  margin: 9vh 12vw;
   padding: 20px;
+  font-family: Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif;
+}
+
+.profile_user_pins li {
+    display: flex;
+    color: #000000;
+    width: 115px;
+    height: 37px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile_collection-card img {
+    height: 280px;
+    width: 330px;
+    cursor: pointer;
+}
+
+.prof-card-container {
+    height: 280px;
+    width: 330px;
+    border-radius: 12px;
+
+
 }
 
 .profile_user {
   display: flex;
-  gap: 90px;
   align-items: center;
+  flex-direction: column;
 }
 
 .profile_icon img {
   object-fit: contain;
-  height: 260px;
-  width: 260px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
 }
+
+.profile_user-btns {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.profile_user-btns li {
+  border-radius: 10px;
+    font-size: 0.9rem;
+    background-color: #bdb4b4;
+    color: #ffffff;
+    width: 110px;
+    height: 35px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.profile_collection {
+  display: flex;
+  gap: 20px;
+}
+
+.profile_user_pins {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.profile_collection-card {}
 
 /* end profile */
 
 /* collection__menu */
-.collections__menu {
-  display: flex;
-  gap: 30px;
-  border-bottom: 1px solid #a8a3a3;
-  padding: 20px 0;
-}
 
-.colections__menu-item {
-  border-radius: 12px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 130px;
-  color: #fff;
-  background-color: #000;
-  cursor: pointer;
-}
 
 /* end */
 
@@ -778,18 +812,18 @@ img.icon:hover {
 }
 
 .submission-stat {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
 .submission-stat-card {
-    border-radius: 20px;
-    align-items: center;
-    display: flex;
-    padding: 10px;
-    border: 1px solid #868484;
-    height: 70px;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  padding: 10px;
+  border: 1px solid #868484;
+  height: 70px;
 }
 
 

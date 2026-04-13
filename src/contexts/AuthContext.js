@@ -17,7 +17,8 @@ export const AuthProvider = ({ children }) => {
   });
 
 
-  const checkAuth = async () => {
+  const checkAuth = async (e) => {
+    
     try {
       const res = await fetch("https://oraserver.online/auth/success", {
         credentials: "include",

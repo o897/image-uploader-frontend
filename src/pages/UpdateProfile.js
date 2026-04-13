@@ -6,6 +6,7 @@ const UpdateProfile = () => {
 
             <div className='updt-prof-intro'>
                 <div className='updt-prof-user'>
+                    
                      <img alt="user" />
                 </div>
                

@@ -30,9 +30,7 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // ❌ Don't show loading on first load
       if (page > 1) setLoading(true);
-
       try {
         const response = await fetch(
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
@@ -44,13 +42,10 @@ function Home() {
         );
 
         const data = await response.json();
-
-        // ⏳ ONLY delay for page 2+
         if (page > 1) {
             setPhotos((prev) => [...prev, ...data.photos]);
             setLoading(false);
         } else {
-          // page 1 loads instantly
           setPhotos(data.photos);
         }
 
@@ -59,7 +54,6 @@ function Home() {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [page]);
 
@@ -91,17 +85,17 @@ function Home() {
         <div className="collection">
           <Community />
         </div>
+        
       </section>
-
-      
-
-      {/* pop us when user clicks a photos */}
+      <section>
+        
+      </section>      {/* pop us when user clicks a photos */}
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 
         <div className="hero" id="challenge">
-          {[col1, col2, col3].map((column, idx) => (
-            <div className="hero__images" key={idx}>
+          {[col1, col2, col3].map((column, index) => (
+            <div className="hero__images" key={index}>
               {column.map((photo) => (
                 <div className="hero__images-image" key={photo.id}>
                   <img src={photo.src.large} alt={photo.alt} />

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../index.css";
 
-
 function Loading() {
 
  const [progress,setProgress] = useState(0)
