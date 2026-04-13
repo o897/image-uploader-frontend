@@ -27,13 +27,12 @@ export const AuthProvider = ({ children }) => {
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
-        navigate("/");
+     
       } else {
         //user not logged in yet
         // Flash errors on the login page
         console.log(`user not logged in yet.`);
         setUser(null);
-        navigate("/"); 
       }
     } catch {
       setUser(null);

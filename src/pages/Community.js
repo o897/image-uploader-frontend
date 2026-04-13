@@ -86,7 +86,7 @@ export default function Community() {
         <img src="https://www.lingualift.com/wp-content/uploads/2020/03/anime.png" alt="anime" id="collection-img" />
 
         {data.map((item, index) => (
-          <div className="collection-card-title">{item.title}</div>
+          <div className="collection-card-title" key={index}>{item.title}</div>
         ))}
       </div>
 
