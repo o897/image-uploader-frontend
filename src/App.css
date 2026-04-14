@@ -647,8 +647,13 @@ img.icon:hover {
     height: 280px;
     width: 330px;
     border-radius: 12px;
+}
 
-
+.updt-img {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 20px 0;
 }
 
 .profile_user {
@@ -697,6 +702,32 @@ img.icon:hover {
 
 .profile_collection-card {}
 
+.updat-form-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10vh;
+
+}
+
+.prof-row {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.prof-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prof-input {
+
+  border: 1px solid #9e9d9d;
+  height: 30px;
+  padding: 2px 10px;
+}
 /* end profile */
 
 /* collection__menu */

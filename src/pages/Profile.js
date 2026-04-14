@@ -15,6 +15,7 @@ const Profile = () => {
     <>
       <Navbar />
       <div className="profile_container">
+        <h1>Profile Settings</h1>
         <div className="profile_user">
           <div className="profile_icon">
             {/* Added a placeholder image and closed the tag */}
