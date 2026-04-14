@@ -10,11 +10,12 @@ const Navbar = () => {
     
   const navigate = useNavigate();
 
-  const { user, logout, checkAuth } = useAuth();
+  const { user, logout } = useAuth();
 
   const handleLogout = async (e) => {
     e.preventDefault();
-    logout();
+    await logout();
+    navigate("/")
   };
    
   return (

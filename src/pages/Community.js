@@ -45,9 +45,7 @@ export default function Community() {
     <div className="collections-grid">
 
       <div className="search">
-        <h3 className="collection-intro">
-          The best free stock photos, royalty free images & videos shared by creators.
-        </h3>
+        <h3 className="collection-intro">A platform for sharing meaningful moments from videos, posts, and memories not just content.</h3>
         <div className="search-wrapper">
           <FaSearch className="search-icon" />
           <input

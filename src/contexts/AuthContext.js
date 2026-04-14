@@ -71,11 +71,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   const logout = async () => {
-   
-    
     try {
-      await fetch(`${SERVER_API}/auth/logout`);
-      logout();
+      await fetch(`${SERVER_API}/auth/logout`,{
+        method: "GET",
+        credentials: "include",
+      });
       setUser(null);
     } catch (e) {
       console.log("logout failed", e);

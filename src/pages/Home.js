@@ -87,8 +87,26 @@ function Home() {
         </div>
         
       </section>
-      <section>
-        
+      <section className="home_platforms">
+        <div className="row"> 
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png"/>
+          <p>Tiktok Memories</p>
+          <span className="med-count">900</span>
+        </div>
+        <div className="row"> 
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/476/small_2x/facebook-logo-facebook-icon-transparent-free-png.png"/>
+          <p>Facebook Memories</p>
+          <span className="med-count">920</span>
+        </div>
+        <div className="row"> 
+          <img src="https://img.freepik.com/premium-vector/youtube-icon-illustration-youtube-app-logo-social-media-icon_561158-3674.jpg"/>
+          <p>Youtube Memories</p><span className="med-count">90k</span>
+        </div>
+        <div className="row"> 
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/042/387/654/small/instagram-button-icon-set-instagram-screen-social-media-and-social-network-interface-template-stories-user-button-symbol-sign-logo-stories-liked-editorial-free-png.png"/>
+          <p>Instagram Memories</p>
+          <span className="med-count">120k</span>
+        </div>
       </section>      {/* pop us when user clicks a photos */}
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
@@ -103,7 +121,7 @@ function Home() {
                   <CiBookmark className="bookmark-icon img-icon"/>
                   <FaTiktok className="media-icon img-icon"/>
                   <img className="img-icon-user" src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="/>
-                  <span className="img-icon-username">Orapeleng Mathebulauewiwiuyewiuy</span>
+                  <span className="img-icon-username">Orapeleng Mathebula</span>
                   <FiExternalLink className="img-icon-link"/>
                 </div>
               ))}

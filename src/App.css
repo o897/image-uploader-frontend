@@ -272,6 +272,42 @@ img.icon:hover {
   top: 18vh;
 }
 
+.row {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.home_platforms {
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+}
+
+.home_platforms .row {
+  border:none;
+  border-radius: 8px;
+  padding-right: 20px;
+  background-color: #f0f0ef;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #3a3a3a;
+  font-size: .9rem;
+}
+
+.med-count {
+  color: #c9c9c4;
+  font-size: .8rem;
+}
+.home_platforms img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .hero {
   display: flex;
   justify-content: center;

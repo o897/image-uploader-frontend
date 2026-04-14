@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 * {
   /* background-color:#FAFAFB; */
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+
 
 li {
   list-style-type: none;
@@ -276,6 +277,14 @@ a {
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: 0.5px solid #e7e5e5;
+  display: flex;
+  align-items: center;
+}
+
+.form__signin-btns img {
+  height: 22px;
+  width: 50px;
+  object-fit: contain;
 }
 
 .form__signin-input {

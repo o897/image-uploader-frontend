@@ -76,14 +76,15 @@ const Login = () => {
             href={`${API_SERVER_URL}/auth/google`}
             rel="noopener noreferrer"
           >
-            Sign in with Google
+            <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-icon-PNG.png"/> Sign in with Google 
           </a>
+          
           <a
             className="form__signin-btn"
             href={`${API_SERVER_URL}/auth/facebook`}
             rel="noopener noreferrer"
           >
-            Sign in with Facebook
+            <img src="https://static.xx.fbcdn.net/rsrc.php/y-/r/yhD4cqC_Wzs.webp"/>Sign in with Facebook
           </a>
         </div>
 
