@@ -88,6 +88,9 @@ function Home() {
         
       </section>
       <section className="home_platforms">
+        <a className="home-all-med">
+          All
+        </a>
         <div className="row"> 
           <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png"/>
           <p>Tiktok Memories</p>
@@ -103,8 +106,8 @@ function Home() {
           <p>Youtube Memories</p><span className="med-count">90k</span>
         </div>
         <div className="row"> 
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/042/387/654/small/instagram-button-icon-set-instagram-screen-social-media-and-social-network-interface-template-stories-user-button-symbol-sign-logo-stories-liked-editorial-free-png.png"/>
-          <p>Instagram Memories</p>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qA65lbq7b6F7V-uQXDfHnTtyCLC4M_Zj1Q&s"/>
+          <p>Netflix Moments</p>
           <span className="med-count">120k</span>
         </div>
       </section>      {/* pop us when user clicks a photos */}

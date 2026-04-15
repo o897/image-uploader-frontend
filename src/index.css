@@ -250,6 +250,12 @@ a {
 /* App styling */
 
 /* Form login page */
+
+label {
+  font-weight: 500;
+  word-spacing: 2px;
+}
+
 .form__signin h1 {
   margin-bottom: 40px;
   text-align: center;

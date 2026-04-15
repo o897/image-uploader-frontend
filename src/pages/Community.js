@@ -1,65 +1,83 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 export default function Community() {
 
+  const data = [
+    {
+      title: "Cringe",
+      count: "124 Photos",
+      img: "https://www.lingualift.com/wp-content/uploads/2020/03/anime.png",
+    },
+    {
+      title: "Meme",
+      count: "89 Photos",
+      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+    },
+    {
+      title: "Funny",
+      count: "89 Photos",
+      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+    },
+    {
+      title: "Daily Highlight",
+      count: "89 Photos",
+      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+    },
+    {
+      title: "Other",
+      count: "89 Photos",
+      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+    }
+  ];
+  const [search, setSearch] = useState("");
+  const filtered = data.filter(item => item.title.toLowerCase().includes(search.toLocaleLowerCase()));
   // data containing all the images
-   const data = [
-  {
-    title: "Cringe",
-    count: "124 Photos",
-    img: "https://www.lingualift.com/wp-content/uploads/2020/03/anime.png",
-  },
-  {
-    title: "Meme",
-    count: "89 Photos",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Funny",
-    count: "89 Photos",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Daily Highlight",
-    count: "89 Photos",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    title: "Other",
-    count: "89 Photos",
-    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-  }
-];
-  const [query, setQuery] = useState("");
-
-
- const filtered = data.filter(item =>
-    item.title.toLowerCase().includes(query.toLowerCase())
-  );
 
  
+
+
 
   return (
     <div className="collections-grid">
 
       <div className="search">
-        <h3 className="collection-intro">A platform for sharing meaningful moments from videos, posts, and memories not just content.</h3>
+        <h3 className="collection-intro">Discover and share the moments that matter most.</h3>
         <div className="search-wrapper">
           <FaSearch className="search-icon" />
           <input
             name="search"
             className="navbar__menu-input"
             placeholder="Search photos using keywords or a description"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="search-collection-container">
-          <div className="search-collection-card-title">
+        { search && (
+          <div className="search-collection-container">
+              {filtered.length > 0 ? (
+                filtered.map((item,index) => (
+                  <div className="search-collection-card-title">
+                   {/* a list of suggested items */}
+                   <li key={index}>{item.title}</li>
+                </div>
+                ))
+              ) : (
+                <p>No results</p>
+              )}
+            
+            <div className="search-highlights">
+              <li>Funny</li>
+              <li>Video</li>
+              <li>Today</li>
+            </div>
 
           </div>
+        )
+          
+        }
 
-        </div>
       </div>
 
 

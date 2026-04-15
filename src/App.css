@@ -49,7 +49,7 @@
 .navbar__menu-items {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   padding-left: 50px;
 
 }
@@ -60,34 +60,48 @@
   background-color: #fff !important;
 }
 
+.search {
+  width: 55%;
+}
+
 .search-wrapper {
-  display: flex;
-  align-items: center;
-  height: max-content;
-  background-color: #c9c9c4;
-  border-radius: 20px;
-  padding: 2px 18px;
-  align-self: flex-end;
-  margin-bottom: 30px;
-  width: 450px;
+    display: flex;
+    align-items: center;
+    height: max-content;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 2px 18px;
+    align-self: flex-end;
+    margin-bottom: 30px;
+    width: 473px;
 }
 
 .search-collection-container {
-  width: 470px;
-  height: 200px;
+  width: 466px;
+  height: 400px;
   position: relative;
-  border: 1px solid #bdb4b4;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 50;
+  background-color: #fff;
+  color: #000;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  padding: 20px;
+
 }
 
 .navbar__menu-input {
   width: 80%;
-  height: 38px;
+  height: 50px;
   padding-left: 17px;
   border: none;
   font-size: 0.8em;
   background-color: transparent;
   outline: none;
 }
+
 
 .navbar__menu input:focus {
   border-color: none;
@@ -103,7 +117,7 @@
 }
 
 .submit__img-btn {
-  border: 1px solid #bfaeae;
+  border: none;
   cursor: pointer;
   background-color: #dfdbdb;
   color: #fff;
@@ -112,11 +126,13 @@
   width: 100px;
   transition: all 0.4s ease;
   margin-right: 10px;
+  letter-spacing: 1px;
 }
 
 .submit__img-btn:hover {
-  background-color: #ac2323;
-  border-color: yellow;
+  background-color: #2e2e2e;
+  color: #ffffff;
+  
 }
 
 .options {
@@ -260,17 +276,22 @@ img.icon:hover {
   border-top-left-radius: 29px;
   height: max-content;
   padding: 95px 0;
+  position : relative;
+  top: -10vh;;
 }
 
+
 .home_hero-title {
-  z-index: 90;
+  z-index: 1; /* Keep it below platforms if you want it to slide under */
   position: relative;
   text-align: center;
   color: #ffffff;
   padding: 10px 0;
   font-size: 1.9rem;
-  top: 18vh;
+  /* Change top: 18vh to margin-top */
+  margin-top: 10vh; 
 }
+
 
 .row {
   display: flex;
@@ -279,11 +300,38 @@ img.icon:hover {
 }
 
 .home_platforms {
-    gap: 30px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 100px;
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+  position: sticky; 
+  
+  /* 1. This is the 'Stopping Point' (stays at bottom of navbar) */
+  top: 50px; 
+  
+  /* 2. This creates the gap you want at the start */
+  margin-top: 55px; 
+  
+  align-items: center;
+  background-color: #fff; 
+  z-index: 5;
+  padding: 20px 0;
+}
+
+.home-all-med {
+  border-bottom: 1px solid #979696;
+  padding-bottom: 2px;
+  cursor: pointer;
+  letter-spacing: 2px;
+    position: sticky;
+  top: 0; /* Stays at the top of the viewport */
+ 
+
+}
+
+.home-all-med:hover {
+  color: #a8a8a8;
+  border: none;
+  transition: ease-in .2s;
 }
 
 .home_platforms .row {
@@ -301,6 +349,7 @@ img.icon:hover {
 .med-count {
   color: #c9c9c4;
   font-size: .8rem;
+
 }
 .home_platforms img {
   height: 50px;
@@ -315,7 +364,7 @@ img.icon:hover {
   align-items: flex-start;
   padding: 20px;
   position: relative;
-  top: 10vh;
+
 }
 
 .hero__images {
@@ -355,12 +404,13 @@ img.icon:hover {
 }
 
 .collection-intro {
-  font-size: 1.3rem;
-  font-family: "Poppins";
-  font-weight: 400;
-  text-align: left;
-  margin: 0px auto;
-  margin-bottom: 15px;
+    line-height: 48px;
+    font-size: 48px;
+    font-family: "Poppins";
+    text-align: left;
+    margin: 0px auto;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 
@@ -434,7 +484,7 @@ img.icon:hover {
   gap: 24px;
   padding: 40px 20px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 20px auto;
   align-items: center;
 
 }
