@@ -286,10 +286,8 @@ img.icon:hover {
   position: relative;
   text-align: center;
   color: #ffffff;
-  padding: 10px 0;
+  padding: 20px 0;
   font-size: 1.9rem;
-  /* Change top: 18vh to margin-top */
-  margin-top: 10vh; 
 }
 
 
@@ -303,18 +301,20 @@ img.icon:hover {
   gap: 30px;
   display: flex;
   justify-content: center;
-  position: sticky; 
-  
-  /* 1. This is the 'Stopping Point' (stays at bottom of navbar) */
+  position: sticky;   
   top: 50px; 
-  
-  /* 2. This creates the gap you want at the start */
-  margin-top: 55px; 
-  
+  margin: 70px; 
   align-items: center;
   background-color: #fff; 
   z-index: 5;
   padding: 20px 0;
+}
+
+.media-icon {
+  
+  width: 24px;
+  height: 40px !important;
+
 }
 
 .home-all-med {
@@ -336,14 +336,23 @@ img.icon:hover {
 
 .home_platforms .row {
   border:none;
-  border-radius: 8px;
+  border-radius: 30px;
   padding-right: 20px;
-  background-color: #f0f0ef;
+  background-color: #cfcfcf;
   cursor: pointer;
   font-weight: 700;
   letter-spacing: 1px;
   color: #3a3a3a;
   font-size: .9rem;
+}
+
+.home_platforms .row:hover {
+  background-color: #dbdbdb;
+}
+
+#hm-pt-prof {
+    position: relative;
+    top: -14vh;
 }
 
 .med-count {
@@ -476,6 +485,25 @@ img.icon:hover {
 
 /* end hero */
 
+
+.view-wrapper {
+  position: fixed;
+
+  width: 85%;
+  height: 70vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  top: 120px;
+  border: 1px solid ;
+}
+
+.view-wrapper img {
+  height: 600px;
+  width: 700px;
+}
 /* community */
 
 /* --- Collections Grid Layout --- */

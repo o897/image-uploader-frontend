@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../../src/App.css";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { FaUser } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";

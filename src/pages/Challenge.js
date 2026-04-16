@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import { FaRegThumbsUp } from "react-icons/fa";
+import { useState, useEffect } from "react";
 import ChallengeIntro from "../components/ChallengeIntro";
-import { useNavigate, useParams } from "react-router-dom";
-import Collection from "../components/Collection";
+import { useParams } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import { FaClock } from "react-icons/fa";
 
@@ -14,7 +11,6 @@ const Challenge = () => {
   const [loading, setLoading] = useState();
   const { category } = useParams();
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {

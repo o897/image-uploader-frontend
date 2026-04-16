@@ -10,12 +10,11 @@ import { MdAdd } from "react-icons/md";
 const Profile = () => {
 
   const { user } = useAuth();
-  
+
   return (
     <>
       <Navbar />
       <div className="profile_container">
-        <h1>Profile Settings</h1>
         <div className="profile_user">
           <div className="profile_icon">
             {/* Added a placeholder image and closed the tag */}
@@ -41,9 +40,33 @@ const Profile = () => {
           <li>Memoir</li>
         </div>
         <div className="profile_coll-icon">
-            <MdAdd/>
+          <MdAdd />
         </div>
-        <div className="profile_collection">
+        <section className="home_platforms" id="hm-pt-prof">
+          <a className="home-all-med">
+            All
+          </a>
+          <div className="row">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png" />
+            <p>Tiktok Memories</p>
+            <span className="med-count">900</span>
+          </div>
+          <div className="row">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/476/small_2x/facebook-logo-facebook-icon-transparent-free-png.png" />
+            <p>Facebook Memories</p>
+            <span className="med-count">920</span>
+          </div>
+          <div className="row">
+            <img src="https://img.freepik.com/premium-vector/youtube-icon-illustration-youtube-app-logo-social-media-icon_561158-3674.jpg" />
+            <p>Youtube Memories</p><span className="med-count">90k</span>
+          </div>
+          <div className="row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qA65lbq7b6F7V-uQXDfHnTtyCLC4M_Zj1Q&s" />
+            <p>Netflix Moments</p>
+            <span className="med-count">120k</span>
+          </div>
+        </section>
+        {/* <div className="profile_collection">
           <div className="prof-card-container">
             <div className="profile_collection-card">
             
@@ -66,8 +89,8 @@ const Profile = () => {
           </div>
 
 
-        </div>
-       
+        </div> */}
+
       </div>
     </>
   );

@@ -10,13 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-
-  });
-
-
+ 
   const checkAuth = async (e) => {
     
     try {

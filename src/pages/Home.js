@@ -8,6 +8,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { CiBookmark } from "react-icons/ci";
 import Community from "./Community";
 import Navbar from "../components/Navbar";
+import ImagesGrid from "../components/ImagesGrid";
 
 
 function Home() {
@@ -19,7 +20,6 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
@@ -42,11 +42,13 @@ function Home() {
         );
 
         const data = await response.json();
+        console.log(data);
         if (page > 1) {
-            setPhotos((prev) => [...prev, ...data.photos]);
-            setLoading(false);
+          setPhotos((prev) => [...prev, ...data.photos]);
+          setLoading(false);
         } else {
           setPhotos(data.photos);
+
         }
 
       } catch (err) {
@@ -83,30 +85,30 @@ function Home() {
       <section className="home_intro">
         <Navbar />
         <div className="collection">
-          <Community />
+        <Community />
         </div>
-        
+
       </section>
       <section className="home_platforms">
         <a className="home-all-med">
           All
         </a>
-        <div className="row"> 
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png"/>
+        <div className="row">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png" />
           <p>Tiktok Memories</p>
           <span className="med-count">900</span>
         </div>
-        <div className="row"> 
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/476/small_2x/facebook-logo-facebook-icon-transparent-free-png.png"/>
+        <div className="row">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/476/small_2x/facebook-logo-facebook-icon-transparent-free-png.png" />
           <p>Facebook Memories</p>
           <span className="med-count">920</span>
         </div>
-        <div className="row"> 
-          <img src="https://img.freepik.com/premium-vector/youtube-icon-illustration-youtube-app-logo-social-media-icon_561158-3674.jpg"/>
+        <div className="row">
+          <img src="https://img.freepik.com/premium-vector/youtube-icon-illustration-youtube-app-logo-social-media-icon_561158-3674.jpg" />
           <p>Youtube Memories</p><span className="med-count">90k</span>
         </div>
-        <div className="row"> 
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qA65lbq7b6F7V-uQXDfHnTtyCLC4M_Zj1Q&s"/>
+        <div className="row">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qA65lbq7b6F7V-uQXDfHnTtyCLC4M_Zj1Q&s" />
           <p>Netflix Moments</p>
           <span className="med-count">120k</span>
         </div>
@@ -114,23 +116,8 @@ function Home() {
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 
-        <div className="hero" id="challenge">
-          {[col1, col2, col3].map((column, index) => (
-            <div className="hero__images" key={index}>
-              {column.map((photo) => (
-                <div className="hero__images-image" key={photo.id}>
-                  <img src={photo.src.large} alt={photo.alt} />
-                  <GoHeart className="like-icon img-icon"/>
-                  <CiBookmark className="bookmark-icon img-icon"/>
-                  <FaTiktok className="media-icon img-icon"/>
-                  <img className="img-icon-user" src="https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ="/>
-                  <span className="img-icon-username">Orapeleng Mathebula</span>
-                  <FiExternalLink className="img-icon-link"/>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        <ImagesGrid columns={[col1,col2,col3]}/>
+
         {loading && (
           <div className="">
             Loading more images...
