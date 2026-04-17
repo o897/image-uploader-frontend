@@ -9,7 +9,7 @@ import { CiBookmark } from "react-icons/ci";
 import Community from "./Community";
 import Navbar from "../components/Navbar";
 import ImagesGrid from "../components/ImagesGrid";
-
+import PlatformFilter from "../components/PlatformFilter";
 
 function Home() {
   // fetch images from cloudinary api
@@ -85,38 +85,14 @@ function Home() {
       <section className="home_intro">
         <Navbar />
         <div className="collection">
-        <Community />
+          <Community />
         </div>
-
       </section>
-      <section className="home_platforms">
-        <a className="home-all-med">
-          All
-        </a>
-        <div className="row">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/561/small/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png" />
-          <p>Tiktok Memories</p>
-          <span className="med-count">900</span>
-        </div>
-        <div className="row">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/476/small_2x/facebook-logo-facebook-icon-transparent-free-png.png" />
-          <p>Facebook Memories</p>
-          <span className="med-count">920</span>
-        </div>
-        <div className="row">
-          <img src="https://img.freepik.com/premium-vector/youtube-icon-illustration-youtube-app-logo-social-media-icon_561158-3674.jpg" />
-          <p>Youtube Memories</p><span className="med-count">90k</span>
-        </div>
-        <div className="row">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qA65lbq7b6F7V-uQXDfHnTtyCLC4M_Zj1Q&s" />
-          <p>Netflix Moments</p>
-          <span className="med-count">120k</span>
-        </div>
-      </section>      {/* pop us when user clicks a photos */}
+      <PlatformFilter />
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 
-        <ImagesGrid columns={[col1,col2,col3]}/>
+        <ImagesGrid columns={[col1, col2, col3]} />
 
         {loading && (
           <div className="">

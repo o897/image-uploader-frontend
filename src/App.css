@@ -55,10 +55,11 @@
 }
 
 .navbar__menu-btn-login {
-  color: #0a0a0a !important;
+  color: #444444 !important;
   font-weight: 600 !important;
   background-color: #fff !important;
 }
+
 
 .search {
   width: 55%;
@@ -120,18 +121,18 @@
   border: none;
   cursor: pointer;
   background-color: #dfdbdb;
-  color: #fff;
+  color: #424242;
   height: 40px;
   border-radius: 7px;
   width: 100px;
   transition: all 0.4s ease;
   margin-right: 10px;
   letter-spacing: 1px;
+  font-size: 14px;
 }
 
 .submit__img-btn:hover {
-  background-color: #2e2e2e;
-  color: #ffffff;
+  color: #000000;
   
 }
 
@@ -335,19 +336,18 @@ img.icon:hover {
 }
 
 .home_platforms .row {
-  border:none;
-  border-radius: 30px;
-  padding-right: 20px;
-  background-color: #cfcfcf;
-  cursor: pointer;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #3a3a3a;
-  font-size: .9rem;
+    border: 1px solid #dfe2df;
+    border-radius: 30px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #3a3a3a;
+    font-size: .9rem;
 }
 
 .home_platforms .row:hover {
-  background-color: #dbdbdb;
+  border: 1px solid #000;
 }
 
 #hm-pt-prof {

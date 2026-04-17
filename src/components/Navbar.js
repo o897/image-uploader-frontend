@@ -37,17 +37,10 @@ const Navbar = () => {
               </button>
 
               <div><FaUser className="user-icon" onClick={() => navigate("/profile")} /></div>
-              {/* <button
-                className="navbar__menu-btn-login submit__img-btn"
-                onClick={handleLogout}
-              >
-                Logout
-              </button> */}
               <div><FaDoorOpen className="user-icon" onClick={handleLogout}/></div>
 
             </div>
           ) : (
-            // after user logs in log btn changes into user profile icon
             <button
               className="navbar__menu-btn-login submit__img-btn"
               onClick={() => navigate("/login")}
