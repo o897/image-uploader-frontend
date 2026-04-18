@@ -188,7 +188,7 @@ img.icon:hover {
   position: absolute;
   top: 20px;
   cursor: pointer;
-  font-size: 21px;
+  font-size: 25px;
   color: #fff;
   font-weight: 600;
   opacity: 0;
@@ -303,7 +303,7 @@ img.icon:hover {
   display: flex;
   justify-content: center;
   position: sticky;   
-  top: 50px; 
+  top: 58px; 
   margin: 70px; 
   align-items: center;
   background-color: #fff; 
@@ -484,26 +484,64 @@ img.icon:hover {
 
 
 /* end hero */
+.view-content-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
-
+.view-icon {
+  height: 50px !important;
+  display: flex;
+  position: relative;
+  width: min-content !important;
+  justify-content: space-between;
+  border-radius: 50%;
+}
 .view-wrapper {
   position: fixed;
-
   width: 85%;
-  height: 70vh;
-  background: #fff;
+  height: 75vh;
+  background: #faf8f8;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   top: 120px;
-  border: 1px solid ;
+  border:1px solid #d1d1d1;
 }
 
 .view-wrapper img {
   height: 600px;
   width: 700px;
 }
+
+.view-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.view-btn {
+  border: 1px solid #aaaaaa;
+  padding: 10px;
+  border-radius:  8px;
+  color: #868686;
+}
+
+.view-dwn-btn {
+    letter-spacing: 1px;
+    font-family: inherit;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #479c00;
+    border: none;
+    width: 100px;
+    height: 35px;
+}
+
 /* community */
 
 /* --- Collections Grid Layout --- */

@@ -11,6 +11,8 @@ const Navbar = () => {
 
   const { user, logout } = useAuth();
 
+  console.log("user navbar",user);
+  
   const handleLogout = async (e) => {
     e.preventDefault();
     await logout();

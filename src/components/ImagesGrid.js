@@ -20,7 +20,6 @@ function ImagesGrid({ columns }) {
               <img src={photo.src.large} alt={photo.alt} />
 
               <GoHeart className="like-icon img-icon" />
-              <CiBookmark className="bookmark-icon img-icon" />
 
               <img
                 className="media-icon img-icon"

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const API_SERVER_URL =
@@ -9,7 +8,6 @@ const API_SERVER_URL =
 const LOCAL_URL =  "http://localhost:3001";
 
 const Login = () => {
-  const navigate = useNavigate();
   const { login } = useAuth(); // 2. Grab the login function from context
 
   const [formData, setFormData] = useState({

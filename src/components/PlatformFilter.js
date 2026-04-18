@@ -10,6 +10,8 @@ function PlatformFilter() {
         const data = await response.json()
         console.log(data)
     }
+
+    // when user clicks specific platform ion
     return (
 
         <section className="home_platforms">
