@@ -2,10 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-import { FaTiktok } from "react-icons/fa";
-import { GoHeart } from "react-icons/go";
-import { FiExternalLink } from "react-icons/fi";
-import { CiBookmark } from "react-icons/ci";
 import Community from "./Community";
 import Navbar from "../components/Navbar";
 import ImagesGrid from "../components/ImagesGrid";
@@ -27,6 +23,28 @@ function Home() {
   const col1 = photos.filter((_, i) => i % 3 === 0);
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
+
+
+  const onYoutube = async (e) => {
+    e.preventDefault()
+    const res = await fetch("https://oraserver.online/media/youtube/likes", {
+      credentials: "include",
+    });
+
+    const data = await res.json();
+
+    if (!res) {
+      console.log("login first")
+    }
+    const youtubePhotos = data.map((item) => ({
+      id: item.id,
+      image: item.snippet.thumbnails.high.url, // 🔥 THIS is all you need
+    }));
+
+    setPhotos(youtubePhotos);
+
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,7 +106,7 @@ function Home() {
           <Community />
         </div>
       </section>
-      <PlatformFilter />
+      <PlatformFilter onYoutube={onYoutube} />
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 

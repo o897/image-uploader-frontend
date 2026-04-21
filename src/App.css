@@ -777,6 +777,7 @@ img.icon:hover {
   font-family: Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif;
 }
 
+
 .profile_user_pins li {
     display: flex;
     color: #000000;
@@ -838,6 +839,7 @@ img.icon:hover {
     display: flex;
     align-items: center;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .profile_collection {

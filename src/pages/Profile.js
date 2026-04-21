@@ -1,12 +1,25 @@
 // import Navbar from "../components/Navbar";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdAdd } from "react-icons/md";
 import PlatformFilter from "../components/PlatformFilter";
+import ImagesGrid from "../components/ImagesGrid";
 
 const Profile = () => {
+  const [userPhotos, setUserPhotos] = useState([]);
+  useEffect(() => {
+    try {
+      // we reading images stored in the db
+      const query = fetch("https://oraserver.online/images/me");
+      const res = query.json()
+      console.log(res)
+    } catch (error) {
 
+    }
+
+
+  }, []);
   const { user } = useAuth();
 
   return (
@@ -41,32 +54,7 @@ const Profile = () => {
           <MdAdd />
         </div>
 
-          <PlatformFilter />
-        {/* <div className="profile_collection">
-          <div className="prof-card-container">
-            <div className="profile_collection-card">
-            
-              <img src="https://sf-static.tiktokcdn.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png"/>
-              <h3>Tiktok</h3>
-              <p>11 posts</p>
-          </div>
-            </div>
-
-           <div className="profile_collection-card">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" />
-              <h3>Youtube</h3>
-              <p>9 posts</p>
-          </div>
-           <div className="profile_collection-card">
-              <img src="https://static.designboom.com/wp-content/uploads/2023/09/facebook-new-logo-change-designboom-02.jpg" />
-              <h3>Facebook</h3>
-              <p>4 Posts</p>
-              
-          </div>
-
-
-        </div> */}
-
+        <ImagesGrid />
       </div>
     </>
   );
