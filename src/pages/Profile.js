@@ -11,7 +11,7 @@ const Profile = () => {
   useEffect(() => {
     try {
       // we reading images stored in the db
-      const query = fetch("https://oraserver.online/images/me");
+      const query = fetch("https://oraserver.online/image/me");
       const res = query.json()
       console.log(res)
     } catch (error) {
@@ -53,8 +53,7 @@ const Profile = () => {
         <div className="profile_coll-icon">
           <MdAdd />
         </div>
-
-        <ImagesGrid />
+        <p></p>
       </div>
     </>
   );

@@ -49,11 +49,13 @@ export default function Upload() {
       setMsg("Uploading...");
 
       const response = await fetch(
-        `https://oraserver.online/image/upload/${name}`,
+        `https://oraserver.online/image/upload/${name}`, //filename {name}
         {
           method: "POST",
           body: formData,
-        }
+          credentials : "include"
+        },
+       
       );
 
       if (response.ok) {
