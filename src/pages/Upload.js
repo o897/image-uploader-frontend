@@ -49,7 +49,7 @@ export default function Upload() {
       setMsg("Uploading...");
 
       const response = await fetch(
-        `https://oraserver.online/image/upload/${name}`, //filename {name}
+        `https://oraserver.online/image/upload`, //filename {name}
         {
           method: "POST",
           body: formData,
@@ -86,7 +86,6 @@ export default function Upload() {
               draggable="true"
               onDragStart={handleDragStart}
             >
-              {/* if file not uploaded show svg if true show progress and after file and  link on same page */}
               <img src="image.svg" alt="" />
             </div>
           </div>
@@ -111,15 +110,6 @@ export default function Upload() {
           {msg && <span>{msg}</span>}
           {file && <span className="filename">{file.name}</span>}
         </div>
-        <p
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "50px",
-          }}
-        >
-          refresh page if results not showing
-        </p>
       </div>
     </>
   );

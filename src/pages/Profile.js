@@ -7,15 +7,26 @@ import PlatformFilter from "../components/PlatformFilter";
 import ImagesGrid from "../components/ImagesGrid";
 
 const Profile = () => {
-  const [userPhotos, setUserPhotos] = useState([]);
+  const [photos, setPhotos] = useState([]);
+
+
+  const col1 = photos.filter((_, i) => i % 3 === 0);
+  const col2 = photos.filter((_, i) => i % 3 === 1);
+  const col3 = photos.filter((_, i) => i % 3 === 2);
+
+
   useEffect(() => {
     try {
       // we reading images stored in the db
-      const query = fetch("https://oraserver.online/image/me");
-      const res = query.json()
-      console.log(res)
-    } catch (error) {
+      const query = fetch("https://oraserver.online/image/all", {
+        method : "GET",
+        credentials : "include"
+      });
 
+      const res = query.json()
+      setPhotos(res)
+    } catch (error) {
+      console.log(error);
     }
 
 
@@ -55,6 +66,7 @@ const Profile = () => {
         </div>
         <p></p>
       </div>
+      <ImagesGrid columns={[col1,col2,col3]}/>
     </>
   );
 };
