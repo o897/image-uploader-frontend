@@ -9,7 +9,8 @@ export default function Complete() {
   const { image } = useParams();
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [errorMsg,setErrorMsg] = useState("");
+  
   // `http://localhost:3004/api/${image || filename}`
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import ChallengeIntro from "../components/ChallengeIntro";
 import { useParams } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import { FaClock } from "react-icons/fa";
+import ImagesGrid from "../components/ImagesGrid";
 
 
 const Challenge = () => {
@@ -11,6 +12,10 @@ const Challenge = () => {
   const [loading, setLoading] = useState();
   const { category } = useParams();
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
+
+  const col1 = photos.filter((_, i) => i % 3 === 0);
+  const col2 = photos.filter((_, i) => i % 3 === 1);
+  const col3 = photos.filter((_, i) => i % 3 === 2);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,48 +93,7 @@ const Challenge = () => {
         </div>
       </section>
       <section className="home_hero" id="challenge">
-        <h2 className="home_hero-title-chlng">Challenge Submission</h2>
-        <div className="hero">
-          <div className="hero__images">
-            {photos.slice(0, 5).map((photo) => (
-              <div className="hero__images-image" key={photo.id}>
-                <img
-                  src={photo.src.large}
-                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                  sizes="(max-width: 500px) 100vw, 410px"
-                  alt={photo.alt}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="hero__images">
-            {photos.slice(6, 11).map((photo) => (
-              <div className="hero__images-image" key={photo.id}>
-                <img
-                  src={photo.src.large}
-                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                  sizes="(max-width: 500px) 100vw, 410px"
-                  alt={photo.alt}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="hero__images">
-            {photos.slice(12, 17).map((photo) => (
-              <div className="hero__images-image s" key={photo.id}>
-                <img
-                  src={photo.src.large}
-                  srcSet={`${photo.src.medium} 350w, ${photo.src.large} 940w, ${photo.src.large2x} 1880w`}
-                  sizes="(max-width: 500px) 100vw, 410px"
-                  alt={photo.alt}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <ImagesGrid columns={[col1,col2,col3]}/>
         
       </section>
     </div>

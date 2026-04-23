@@ -19,13 +19,13 @@ function ImagesGrid({ columns }) {
         <div className="hero__images" key={index}>
           {column.map((photo) => (
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
-              <img src={photo.src?.large || photo?.image || photo?.filename} alt={photo?.alt || photo?.image || photo?.filename} />
+              <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
 
               <GoHeart className="like-icon img-icon" />
 
               <img
                 className="img-icon-user"
-                src={`https://ui-avatars.com/api/?name=${photo?.photographer || photo?.image || photo.filename}`}
+                src={`https://ui-avatars.com/api/?name=${photo?.photographer || photo?.image || photo.url}`}
                 alt={photo?.photographer || photo?.image}
               />
 

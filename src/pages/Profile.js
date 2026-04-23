@@ -2,12 +2,13 @@
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
-import { MdAdd } from "react-icons/md";
-import PlatformFilter from "../components/PlatformFilter";
 import ImagesGrid from "../components/ImagesGrid";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [photos, setPhotos] = useState([]);
+
+  const { user } = useAuth();
 
 
   const col1 = photos.filter((_, i) => i % 3 === 0);
@@ -16,7 +17,6 @@ const Profile = () => {
 
 
   useEffect(() => {
-
     const fetchPhotos = async () => {
       try {
         // we reading images stored in the db
@@ -27,49 +27,54 @@ const Profile = () => {
 
         const res = await query.json()
         setPhotos(res)
+        console.log(photos);
+        
       } catch (error) {
         console.log(error);
       }
     }
-
-
-
+    fetchPhotos();
   }, []);
-  const { user } = useAuth();
 
   return (
     <>
       <Navbar />
       <div className="profile_container">
         <div className="profile_user">
-          <div className="profile_icon">
+          <div className="profile_icon row">
             {/* Added a placeholder image and closed the tag */}
             <img
               src="https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"
               alt="profile image"
             />
+            <button>Change picture</button>
           </div>
           <div className="profile_details">
             <h2>
-              {user?.user?.firstName} {user?.user?.lastName}
+             {user?.user?.firstName} {user?.user?.lastName}
             </h2>
-            <p>User Bio or Description</p>
+            <p>Full-stack web developer building practical, real-world applications using React, Node.js, Express, and MongoDB. Focused on clean UI, solid backend systems, and working APIs.</p>
           </div>
-          <div className="profile_user-btns">
-            <li>Share</li>
-            <li>Edit Profile</li>
+          <div className="row">
+
+            <li className="profile_user-btns">Share</li>
+            <Link className="profile_user-btns" to="/profile/edit">Edit Profile</Link>
           </div>
+          <h2 className="profile-title">My Uploads</h2>
+
         </div>
-        <div className="profile_user_pins">
+
+        {/* <div className="profile_user_pins row">
           <li>Likes</li>
           <li>Favourite</li>
           <li>Memoir</li>
-        </div>
-        <div className="profile_coll-icon">
+        </div> */}
+        {/* <div className="profile_coll-icon">
           <MdAdd />
-        </div>
-        <p></p>
+        </div> */}
+       
       </div>
+   
       <ImagesGrid columns={[col1, col2, col3]} />
     </>
   );

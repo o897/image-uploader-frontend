@@ -6,11 +6,10 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const SERVER_API = process.env.REACT_APP_SERVER_API;
 
-
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
- 
+  const [errorMsg,setErrorMsg] = useState("");
+
   const checkAuth = async (e) => {
     
     try {
@@ -57,6 +56,7 @@ export const AuthProvider = ({ children }) => {
         setUser(data);
         navigate("/");
       } else {
+        setErrorMsg(data?.message)
         console.error("Login failed:", data?.message || data);
       }
     } catch (error) {
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading }}>
+    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading, errorMsg }}>
       {!loading && children}
     </AuthContext.Provider>
   );

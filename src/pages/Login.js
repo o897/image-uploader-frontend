@@ -8,7 +8,7 @@ const API_SERVER_URL =
 const LOCAL_URL =  "http://localhost:3001";
 
 const Login = () => {
-  const { login } = useAuth(); // 2. Grab the login function from context
+  const { login,errorMsg } = useAuth(); // 2. Grab the login function from context
 
   const [formData, setFormData] = useState({
     email: "",
@@ -58,9 +58,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    login(formData);
-    console.log(`formData in login page`, formData);
-    
+    login(formData);    
   }
 
   return (
@@ -112,7 +110,10 @@ const Login = () => {
         <p>
           Don't have an account? <a href="/register">Sign up</a>
         </p>
+        <p className="error-txt">{ errorMsg}</p>
+
       </form>
+
     </div>
   );
 };

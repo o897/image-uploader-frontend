@@ -26,6 +26,8 @@ function Home() {
 
 
   const onYoutube = async (e) => {
+    // if user not logged in show error
+    
     e.preventDefault()
     const res = await fetch("https://oraserver.online/media/youtube/likes", {
       credentials: "include",
@@ -38,7 +40,7 @@ function Home() {
     }
     const youtubePhotos = data.map((item) => ({
       id: item.id,
-      image: item.snippet.thumbnails.high.url, // 🔥 THIS is all you need
+      image: item.snippet.thumbnails.high.url,
     }));
 
     setPhotos(youtubePhotos);
