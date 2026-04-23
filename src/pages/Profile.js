@@ -16,20 +16,22 @@ const Profile = () => {
 
 
   useEffect(() => {
-    try {
-      // we reading images stored in the db
-      const query = fetch("https://oraserver.online/image/mine", {
-        method : "GET",
-        credentials : "include"
-      });
 
-      const res = query.json()
-      console.log(res);
-      
-      setPhotos(res)
-    } catch (error) {
-      console.log(error);
+    const fetchPhotos = async () => {
+      try {
+        // we reading images stored in the db
+        const query = await fetch("https://oraserver.online/image/mine", {
+          method: "GET",
+          credentials: "include"
+        });
+
+        const res = await query.json()
+        setPhotos(res)
+      } catch (error) {
+        console.log(error);
+      }
     }
+
 
 
   }, []);
@@ -68,7 +70,7 @@ const Profile = () => {
         </div>
         <p></p>
       </div>
-      <ImagesGrid columns={[col1,col2,col3]}/>
+      <ImagesGrid columns={[col1, col2, col3]} />
     </>
   );
 };
