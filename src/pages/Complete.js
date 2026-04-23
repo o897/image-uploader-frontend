@@ -9,9 +9,7 @@ export default function Complete() {
   const { image } = useParams();
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(image);
-  // `http://localhost:3004/api/acrylic.jpg`
-  // `http://localhost:3004/api/${filename || imgId}`
+
   // `http://localhost:3004/api/${image || filename}`
 
   useEffect(() => {

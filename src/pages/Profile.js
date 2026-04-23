@@ -18,12 +18,14 @@ const Profile = () => {
   useEffect(() => {
     try {
       // we reading images stored in the db
-      const query = fetch("https://oraserver.online/image/all", {
+      const query = fetch("https://oraserver.online/image/mine", {
         method : "GET",
         credentials : "include"
       });
 
       const res = query.json()
+      console.log(res);
+      
       setPhotos(res)
     } catch (error) {
       console.log(error);
@@ -47,7 +49,7 @@ const Profile = () => {
           </div>
           <div className="profile_details">
             <h2>
-              {user.user?.firstName} {user.user?.lastName}
+              {user?.user?.firstName} {user?.user?.lastName}
             </h2>
             <p>User Bio or Description</p>
           </div>
