@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 
 
 * {
@@ -9,6 +10,41 @@
   padding: 0;
 }
 
+/* scrollbar width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+  background: #c7c7c7;
+}
+
+/* thumb */
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* hide arrows */
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.logo {
+  font-family: "Changa One", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+}
 
 
 li {

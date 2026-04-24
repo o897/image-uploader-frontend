@@ -14,11 +14,18 @@ const ViewImage = ({ photo, onClose }) => {
                         <p className="">{photo.photographer}</p>
                     </div>
 
-                    <button className="view-dwn-btn">Download</button>
+                    {/* <button className="view-dwn-btn">Download</button> */}
+                    <button
+                        className="view-dwn-btn"
+                        onClick={() => window.open(photo.src.original, "_blank")}
+                    >
+                        Download
+                    </button>
                 </div>
                 <img src={photo.src.large} alt={photo.alt} />
                 <div className="view-info">
                     <p>Free to use by pexels</p>
+                    <p>Click anywhere wthin to close</p>
                     <FiExternalLink className="view-btn"
                         onClick={() =>
                             /* open a new page */

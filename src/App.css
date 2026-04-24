@@ -102,8 +102,8 @@
 }
 
 .search-highlights {
-  position: relative;
-  bottom: -300px; 
+  position: absolute;
+  bottom: 10px; 
 }
 
 .search-highlights li {
@@ -129,7 +129,6 @@
 .search-collection-container {
   width: 466px;
   height: 400px;
-  position: relative;
   border: 1px solid #dbdbdb;
   margin-bottom: 20px;
   position: absolute;
@@ -139,6 +138,10 @@
   letter-spacing: 2px;
   border-radius: 12px;
   padding: 20px;
+  height: 225px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
 
 }
 
@@ -578,6 +581,10 @@ img.icon:hover {
   justify-content: space-between;
 }
 
+.view-info p {
+  color: #d1d1d1;
+  font-weight: 500;
+}
 .view-btn {
   border: 1px solid #aaaaaa;
   padding: 10px;

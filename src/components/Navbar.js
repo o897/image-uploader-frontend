@@ -23,7 +23,7 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <div>
-          <Link to="/"> Memoir</Link>
+          <Link to="/" className="logo"> Memoir</Link>
         </div>
         <div className="navbar__menu">
 
