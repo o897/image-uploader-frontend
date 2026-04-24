@@ -59,7 +59,7 @@ export default function Upload() {
       );
 
       if (response.ok) {
-        navigate(`/complete/${file.name}`, { state: { filename: file.name } });
+        navigate(`/profile`);
       } else {
         setMsg("Upload failed on server.");
       }
