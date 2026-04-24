@@ -83,7 +83,7 @@ export default function Community() {
                 filtered.map((item) => (
                   <div className="search-collection-card-title">
                    {/* a list of suggested items */}
-                   <Link key={item._id} className="searched-item" to={`/complete/${encodeURIComponent(item.filename)}`}>{item.filename}</Link>
+                   <Link key={item._id} className="searched-item" to={`/complete/${item._id}`}>{item.filename}</Link>
                 </div>
                 ))
               ) : (

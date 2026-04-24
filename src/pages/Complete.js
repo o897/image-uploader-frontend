@@ -17,7 +17,7 @@ export default function Complete() {
         // if it returns null look for it in the db
         const response = await fetch(
           `https://oraserver.online/image/api/${
-            decodeURIComponent(image)
+            decodeURIComponent(image).trim()
           }`
         );
         if (!response.ok) throw new Error("Image not found");
