@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useEffect } from "react";
 
 export default function Community() {
 
@@ -31,12 +32,34 @@ export default function Community() {
       img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
     }
   ];
-  const [search, setSearch] = useState("");
-  const filtered = data.filter(item => item.title.toLowerCase().includes(search.toLocaleLowerCase()));
+
+  const [search,setSearch] = useState("");
+  const [photos, setPhotos] = useState([]);
+
+  const filtered = photos.filter(item => item.filename.toLowerCase().includes(search.toLocaleLowerCase()));
+  
   // data containing all the images
 
+
+  const fetchImages = async () => {
+    try {
+      const data = await fetch("https://oraserver.online/image/all", {
+        method : "GET"
+      })
+      if (!data.ok) {
+        throw new Error("Failed to fetch");
+      }
+      const response = await data.json();
+      setPhotos(response);
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
  
 
+    useEffect(() => {
+      fetchImages();
+    },[])
 
 
   return (
@@ -57,20 +80,20 @@ export default function Community() {
         { search && (
           <div className="search-collection-container">
               {filtered.length > 0 ? (
-                filtered.map((item,index) => (
+                filtered.map((item) => (
                   <div className="search-collection-card-title">
                    {/* a list of suggested items */}
-                   <li key={index}>{item.title}</li>
+                   <Link key={item._id} className="searched-item" to={`/complete/${encodeURIComponent(item.filename)}`}>{item.filename}</Link>
                 </div>
                 ))
               ) : (
                 <p>No results</p>
               )}
             
-            <div className="search-highlights">
-              <li>Funny</li>
-              <li>Video</li>
-              <li>Today</li>
+            <div className="search-highlights row">
+              <li>#Funny</li>
+              <li>#Video</li>
+              <li>#Today</li>
             </div>
 
           </div>

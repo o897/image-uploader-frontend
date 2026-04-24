@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
+
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
@@ -8,7 +10,6 @@ export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [errorMsg,setErrorMsg] = useState("");
 
   const checkAuth = async (e) => {
     
@@ -22,10 +23,8 @@ export const AuthProvider = ({ children }) => {
         setUser(data.user);
      
       } else {
-        //user not logged in yet
-        // Flash errors on the login page
-        console.log(`user not logged in yet.`);
         setUser(null);
+        return toast.error(`user not logged in yet.`)
       }
     } catch {
       setUser(null);
@@ -35,10 +34,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (userData) => {
-    console.log(`userData in login function AuthProvider`,userData);
+    // console.log(`userData in login function AuthProvider`,userData);
     
     try {
-      // traditional login #the dinosaur way
+      // traditional login # the dinosaur way
       const response = await fetch(`${SERVER_API}/auth/login`, {
         method: "POST",
         headers: {
@@ -48,7 +47,6 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify(userData),
       });
 
-      // our response came with some data, possibly some data from 
       const data = await response.json();
 
       if (response.ok) {
@@ -56,11 +54,13 @@ export const AuthProvider = ({ children }) => {
         setUser(data);
         navigate("/");
       } else {
-        setErrorMsg(data?.message)
-        console.error("Login failed:", data?.message || data);
+        // console.error("Login failed:", data?.message || data);
+        return toast.error(data?.message)
       }
     } catch (error) {
-      console.error("An error occurred during login:", error);
+      // console.error("An error occurred during login:", error);
+      return toast.error(error)
+
     }
   }
 
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading, errorMsg }}>
+    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading }}>
       {!loading && children}
     </AuthContext.Provider>
   );

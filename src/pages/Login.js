@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 const API_SERVER_URL =
   process.env.REACT_APP_SERVER_API ||
@@ -8,7 +9,7 @@ const API_SERVER_URL =
 const LOCAL_URL =  "http://localhost:3001";
 
 const Login = () => {
-  const { login,errorMsg } = useAuth(); // 2. Grab the login function from context
+  const { login } = useAuth(); 
 
   const [formData, setFormData] = useState({
     email: "",
@@ -62,7 +63,10 @@ const Login = () => {
   }
 
   return (
+    
     <div className="login__pg">
+      <div><Toaster/></div>
+
       <form className="form__signin" onSubmit={handleLogin}>
         <h1>Welcome back</h1>
 
@@ -110,8 +114,6 @@ const Login = () => {
         <p>
           Don't have an account? <a href="/register">Sign up</a>
         </p>
-        <p className="error-txt">{ errorMsg}</p>
-
       </form>
 
     </div>

@@ -1,16 +1,14 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Navbar from "../components/Navbar";
 
 export default function Complete() {
-  const location = useLocation();
-  const filename = location.state?.filename;
   const { image } = useParams();
   const [imageData, setImageData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [errorMsg,setErrorMsg] = useState("");
-  
+
   // `http://localhost:3004/api/${image || filename}`
 
   useEffect(() => {
@@ -19,7 +17,7 @@ export default function Complete() {
         // if it returns null look for it in the db
         const response = await fetch(
           `https://oraserver.online/image/api/${
-            image || filename
+            decodeURIComponent(image)
           }`
         );
         if (!response.ok) throw new Error("Image not found");
@@ -32,7 +30,7 @@ export default function Complete() {
       }
     };
     fetchData();
-  }, [image, filename]); // Add filename to dependency array
+  }, [image]); // Add filename to dependency array
 
   return (
     <>

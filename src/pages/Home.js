@@ -1,22 +1,17 @@
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import { Link } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 import Community from "./Community";
 import Navbar from "../components/Navbar";
 import ImagesGrid from "../components/ImagesGrid";
 import PlatformFilter from "../components/PlatformFilter";
 
 function Home() {
-  // fetch images from cloudinary api
-
-  // depending on which site the user uploaded from we can take the icon, so we should have a an object
+  // depending on which site the user uploaded from we can take the icon, so we should have an object
   // Ill be using pexels api to fill the home page
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
@@ -27,16 +22,16 @@ function Home() {
 
   const onYoutube = async (e) => {
     // if user not logged in show error
-    
+
     e.preventDefault()
-    const res = await fetch("https://oraserver.online/media/youtube/likes", {
+    const response = await fetch("https://oraserver.online/media/youtube/likes", {
       credentials: "include",
     });
 
-    const data = await res.json();
+    const data = await response.json();
 
-    if (!res) {
-      console.log("login first")
+    if (!response.ok) {
+      return toast.error('Login to your google account first');
     }
     const youtubePhotos = data.map((item) => ({
       id: item.id,
@@ -46,7 +41,6 @@ function Home() {
     setPhotos(youtubePhotos);
 
   };
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,7 +66,8 @@ function Home() {
         }
 
       } catch (err) {
-        setError(err.message);
+        // setErrorMsg(err.message);
+        toast.error(err.message)
         setLoading(false);
       }
     };
@@ -101,13 +96,14 @@ function Home() {
 
   return (
     <>
-
+      <div><Toaster/></div>
       <section className="home_intro">
         <Navbar />
         <div className="collection">
           <Community />
         </div>
       </section>
+      <p className="error-txt">{errorMsg}</p>
       <PlatformFilter onYoutube={onYoutube} />
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
@@ -115,9 +111,7 @@ function Home() {
         <ImagesGrid columns={[col1, col2, col3]} />
 
         {loading && (
-          <div className="">
-            Loading more images...
-          </div>
+          <div className="loader"></div>
         )}
 
       </section>
@@ -125,5 +119,9 @@ function Home() {
     </>
   );
 }
+
+
+/* HTML: <div class="loader"></div> */
+
 
 export default Home;
