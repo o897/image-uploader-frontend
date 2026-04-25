@@ -2,10 +2,17 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { useEffect } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Community() {
 
-  const data = [
+  const [search,setSearch] = useState("");
+  const [photos, setPhotos] = useState([]);
+
+  const filtered = photos.filter(item => item.filename.toLowerCase().includes(search.toLocaleLowerCase()));
+  
+  // data containing all the images
+ const data = [
     {
       title: "Cringe",
       count: "124 Photos",
@@ -33,14 +40,6 @@ export default function Community() {
     }
   ];
 
-  const [search,setSearch] = useState("");
-  const [photos, setPhotos] = useState([]);
-
-  const filtered = photos.filter(item => item.filename.toLowerCase().includes(search.toLocaleLowerCase()));
-  
-  // data containing all the images
-
-
   const fetchImages = async () => {
     try {
       const data = await fetch("https://oraserver.online/image/all", {
@@ -64,6 +63,7 @@ export default function Community() {
 
   return (
     <div className="collections-grid">
+      <Toaster/>
 
       <div className="search">
         <h3 className="collection-intro">Discover and share the moments that matter most.</h3>
@@ -102,8 +102,9 @@ export default function Community() {
 
 
 
-      <Link to="/challenge/anime">
-        <div className="collection-card">
+      {/* <Link to="/challenge/anime"> */}
+      <Link to="/">
+        <div className="collection-card" onClick={() => toast("feature coming soon")}>
 
           <div className="collection-badge">Challenge</div>
 

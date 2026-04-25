@@ -9,10 +9,6 @@ const UpdateProfile = () => {
 
         <div className='updt-prof-intro'>
 
-          <div className='updt-prof-user'>
-            <img alt="user" />
-          </div>
-
           <div className='updat-form-container'>
 
             <div className='updat-prof-user-info'> {/*make column */}
@@ -31,14 +27,11 @@ const UpdateProfile = () => {
                   <input className='prof-input' />
                 </div>
                 <div className='prof-col'>
-                  <label>Last name Name</label>
-                  <input className="prof-input" />
+                  <label>Last name</label>
+                  <input className="prof-input" placeholder=''/>
                 </div>
               </div>
-              <div className='prof-col'>
-                <label>Email</label>
-                <input className='prof-input' />
-              </div>
+            
               <div className='prof-col'>
                 <label>Username</label>
                 <input className='prof-input' />
@@ -55,7 +48,7 @@ const UpdateProfile = () => {
                 </div>
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input className="prof-input" />
+                  <input className="prof-input" placeholder=''/>
                 </div>
               </div>
                <div className='prof-row'>
@@ -69,7 +62,7 @@ const UpdateProfile = () => {
                 </div>
               </div>
               
-              <button>Submit</button>
+              <button className='submit__img-btn'>Submit</button>
 
 
             </div>
