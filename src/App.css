@@ -61,7 +61,6 @@
   z-index: 10;
   position: fixed;
   left: 6vw;
-  ;
   top: 0;
   margin: 0 auto;
   width: calc(100vw - 14vw);
@@ -70,7 +69,11 @@
   border-bottom-right-radius: 18px;
 }
 
-
+.navbar__menu-btn-login {
+  border-bottom: 1px solid blac;
+  padding-bottom: 2px;
+  color: #000;
+}
 
 .navbar__menu {
   display: flex;
@@ -192,8 +195,7 @@
 .submit__img-btn {
   border: none;
   cursor: pointer;
-  background-color: #000000;
-  color: #ffffff;
+  color: #424242;
   height: 40px;
   border-radius: 7px;
   width: 100px;
@@ -997,12 +999,21 @@ img.icon:hover {
   border-radius: 5px;
   letter-spacing: 1.4px;
   font-size: .9em;
+  
+}
+
+.prof-input:focus {
+    border: 1px solid #9e9d9d;
+
+}
+
+.prof-input.select {
+    padding-right: 8px;
+    height: 36px;
+
 }
 
 /* end profile */
-
-/* collection__menu */
-
 
 /* end */
 

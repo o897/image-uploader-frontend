@@ -44,7 +44,8 @@ const Navbar = () => {
             </div>
           ) : (
             <button
-              className="navbar__menu-btn-login submit__img-btn"
+            // navbar__menu-btn-login
+              className=" submit__img-btn"
               onClick={() => navigate("/login")}
             >
               Log in

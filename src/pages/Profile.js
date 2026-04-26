@@ -48,7 +48,6 @@ const Profile = () => {
               src={user?.user?.photo || "https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"}
               alt="user"
             />
-            <button className="profile-chg-pic">Change picture</button>
           </div>
           <div className="profile_details">
             <h2>

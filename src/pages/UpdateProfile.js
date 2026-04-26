@@ -1,7 +1,42 @@
-import React from 'react'
+import {useState} from 'react'
 import Navbar from '../components/Navbar';
 
 const UpdateProfile = () => {
+
+  const [formData,setFormData] = useState({
+    fname : "",
+    lname : "",
+    about : "",
+    tiktokuname : "",
+    fcbkuname : "",
+    ytb : "",
+    privacy : "",
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    // from this target we are targetting this variables
+    const {name,value} = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+     [ name ] : value //where name match our input attach value
+    })
+  )}
+
+  const handleSubmit = async (e) => {
+
+    const response = await fetch("https://oraserver.online/auth/update", {
+      method : "PUT",
+      credentials : 'include'
+    })
+
+    if (!response.ok) {
+        console.log("something wrong with your data")
+    }
+
+  }
+
   return (
     <>
       <Navbar />
@@ -19,46 +54,47 @@ const UpdateProfile = () => {
                   src="https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"
                   alt="profile image"
                 />
-                <li>Change profile image</li>
+                <button className='submit__img-btn'>Change</button>
               </div>
               <div className='prof-row'>
                 <div className='prof-col'>
                   <label>First Name</label>
-                  <input className='prof-input' />
+                  <input name='fname' className='prof-input' placeholder='Enter your firstname'/>
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
-                  <input className="prof-input" placeholder=''/>
+                  <input name='lname' className="prof-input" placeholder='Enter your lastname'/>
                 </div>
               </div>
             
               <div className='prof-col'>
                 <label>Username</label>
-                <input className='prof-input' />
+                <input name='uname' className='prof-input' placeholder='Enter your username'/>
               </div>
               <div className='prof-col'>
                 <label>About</label>
-                <textarea rows="4" cols="50">
+                <textarea name="about" rows="4" cols="50" placeholder='Fun fact about you...'>
                 </textarea>
               </div>
                <div className='prof-row'>
-                <div className='prof-col'>
-                  <label>Tiktok</label>
-                  <input className='prof-input' placeholder='@username'/>
-                </div>
+                
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input className="prof-input" placeholder=''/>
+                  <input name="yname" className="prof-input" placeholder='Enter your Youtube username'/>
+                </div>
+                 <div className='prof-col'>
+                  <label>Facebook</label>
+                  <input name="fcbkuname" className='prof-input' placeholder='facebook username'/>
                 </div>
               </div>
                <div className='prof-row'>
+               
                 <div className='prof-col'>
-                  <label>Facebook</label>
-                  <input className='prof-input' />
-                </div>
-                <div className='prof-col'>
-                  <label>Other</label>
-                  <input className="prof-input" />
+                  <label>Privacy</label>
+                  <select className='prof-input select'>
+                      <option value="public">Public</option>
+                      <option value="private">Private</option>
+                  </select>
                 </div>
               </div>
               
