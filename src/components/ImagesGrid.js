@@ -15,20 +15,34 @@ function ImagesGrid({ columns }) {
   // fetch user uploaded images
 
   
-  const likeImage = async (photoId) => {
-    let response = fetch (`https://oraserver.online/image/like/${photoId}`, {
-        method : "POST",
-        credentials : "include"
-    })
+const likeImage = async (e, photoId) => {
+  e.preventDefault();
 
-    if(!response.ok) {
+  console.log(photoId);
+
+  try {
+    const response = await fetch(
+      `https://oraserver.online/image/like/${photoId}`,
+      {
+        method: "POST",
+        credentials: "include"
+      }
+    );
+
+    if (!response.ok) {
       toast("cant like image");
+      return;
     }
 
     const data = await response.json();
 
-    console.log(data)
+    console.log(data);
+
+  } catch (err) {
+    console.error(err);
+    toast("Something went wrong");
   }
+};
 
   return (
     <div className="hero">
@@ -38,7 +52,7 @@ function ImagesGrid({ columns }) {
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
               <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
 
-              <GoHeart className="like-icon img-icon" onClick={() => likeImage(photo.id)}/>
+              <GoHeart className="like-icon img-icon" onClick={(e) => likeImage(photo.id)}/>
 
               <img
                 className="img-icon-user"
