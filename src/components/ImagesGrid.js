@@ -15,8 +15,7 @@ function ImagesGrid({ columns }) {
   // fetch user uploaded images
 
   
-const likeImage = async (e, photoId) => {
-  e.preventDefault();
+const likeImage = async (photoId) => {
 
   console.log(photoId);
 
