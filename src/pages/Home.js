@@ -104,7 +104,7 @@ function Home() {
         </div>
       </section>
       <p className="error-txt">{errorMsg}</p>
-      <PlatformFilter onYoutube={onYoutube} />
+      <PlatformFilter onYoutube={onYoutube} onNetflix={() => toast("feature coming soon")}/>
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 

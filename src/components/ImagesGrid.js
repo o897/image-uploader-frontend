@@ -3,6 +3,7 @@ import { GoHeart } from "react-icons/go";
 import { CiBookmark } from "react-icons/ci";
 import { FiExternalLink } from "react-icons/fi";
 import ViewImage from './ViewImage';
+import toast from 'react-hot-toast';
 
 
 // columns responsible for taking in each column
@@ -13,6 +14,22 @@ function ImagesGrid({ columns }) {
 
   // fetch user uploaded images
 
+  
+  const likeImage = async (photoId) => {
+    let response = fetch (`https://oraserver.online/image/like/${photoId}`, {
+        method : "POST",
+        credentials : "include"
+    })
+
+    if(!response.ok) {
+      toast("cant like image");
+    }
+
+    const data = await response.json();
+
+    console.log(data)
+  }
+
   return (
     <div className="hero">
       {columns && columns.map((column, index) => (
@@ -21,7 +38,7 @@ function ImagesGrid({ columns }) {
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
               <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
 
-              <GoHeart className="like-icon img-icon" />
+              <GoHeart className="like-icon img-icon" onClick={() => likeImage(photo.id)}/>
 
               <img
                 className="img-icon-user"
