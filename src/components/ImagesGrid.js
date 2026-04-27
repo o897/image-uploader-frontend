@@ -51,7 +51,7 @@ const likeImage = async (photoId) => {
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
               <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
 
-              <GoHeart className="like-icon img-icon" onClick={(e) => likeImage(photo.id)}/>
+              <GoHeart className="like-icon img-icon" onClick={() => likeImage(photo.id)}/>
 
               <img
                 className="img-icon-user"
