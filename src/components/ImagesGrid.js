@@ -21,6 +21,7 @@ const likeImage = async (photoId) => {
 
   try {
     const response = await fetch(
+      // `http://localhost:3000/image/like/${photoId}`,
       `https://oraserver.online/image/like/${photoId}`,
       {
         method: "POST",
