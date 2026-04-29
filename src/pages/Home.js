@@ -73,14 +73,17 @@ function Home() {
 
   };
 
-  const loadlikes = async () => {
-    const response = await fetch(`https://oraserver.online/image/likes/me`, {
-      credentials : "include"
-    });
-    const data = await response.json();
+ const loadlikes = async () => {
+  const response = await fetch(`https://oraserver.online/image/likes/me`, {
+    credentials: "include"
+  });
 
-return new Set(data.imageIds || []);  
-}
+  const data = await response.json();
+
+  const ids = data.imageIds.map(item => item.photoId);
+
+  return new Set(ids);
+};
 
   
 
@@ -103,7 +106,8 @@ return new Set(data.imageIds || []);
 
         const photosWithLikes = data.photos.map(photo => (
           {
-            ...photo, liked : likedSet.has(photo.id)
+            ...photo, 
+            liked: likedSet.has(String(photo.id))
           }
         ))
        
