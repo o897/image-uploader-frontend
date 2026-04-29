@@ -73,18 +73,32 @@ function Home() {
 
   };
 
- const loadlikes = async () => {
-  const response = await fetch(`https://oraserver.online/image/likes/me`, {
-    credentials: "include"
-  });
 
-  const data = await response.json();
+const loadlikes = async () => {
+  try {
+    const response = await fetch(`https://oraserver.online/image/likes/me`, {
+      credentials: "include"
+    });
 
-  const ids = data.imageIds.map(item => item.photoId);
+    if (!response.ok) {
+      return new Set(); 
+    }
 
-  return new Set(ids);
+    const data = await response.json();
+
+    if (!data.imageIds || !Array.isArray(data.imageIds)) {
+      return new Set();
+    }
+
+    const ids = data.imageIds.map(item => item.photoId);
+
+    return new Set(ids);
+
+  } catch (err) {
+    console.error("loadlikes error:", err);
+    return new Set(); 
+  }
 };
-
   
 
   const fetchData = async () => {
