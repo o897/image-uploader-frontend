@@ -19,6 +19,36 @@ function Home() {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
+  const likeImage = async (photoId) => {
+  try {
+    const response = await fetch(
+      `https://oraserver.online/image/like/${photoId}`,
+      {
+        method: "POST",
+        credentials: "include"
+      }
+    );
+
+    if (!response.ok) {
+      toast("cant like image");
+      return;
+    }
+
+    const data = await response.json(); // { like: true/false }
+
+    setPhotos(prev =>
+      prev.map(photo =>
+          photo.id === photoId
+            ? { ...photo, liked: data.like }
+            : photo       
+      )
+    );
+
+  } catch (err) {
+    console.error(err);
+    toast("Something went wrong");
+  }
+};
 
   const onYoutube = async (e) => {
     // if user not logged in show error
@@ -43,9 +73,19 @@ function Home() {
 
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (page > 1) setLoading(true);
+  const loadlikes = async () => {
+    const response = await fetch(`https://oraserver.online/image/likes/me`, {
+      credentials : "include"
+    });
+    const data = await response.json();
+
+return new Set(data.imageIds || []);  
+}
+
+  
+
+  const fetchData = async () => {
+      setLoading(true);
       try {
         const response = await fetch(
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
@@ -56,22 +96,29 @@ function Home() {
           }
         );
 
+        // pexels data
         const data = await response.json();
-        console.log(data);
-        if (page > 1) {
-          setPhotos((prev) => [...prev, ...data.photos]);
-          setLoading(false);
-        } else {
-          setPhotos(data.photos);
 
-        }
+        const likedSet = await loadlikes();
+
+        const photosWithLikes = data.photos.map(photo => (
+          {
+            ...photo, liked : likedSet.has(photo.id)
+          }
+        ))
+       
+          setPhotos((prev) => [...prev, ...photosWithLikes]);
 
       } catch (err) {
-        // setErrorMsg(err.message);
-        toast.error(err.message)
+        console.log(err.message)
         setLoading(false);
-      }
-    };
+      } finally {
+          setLoading(false);
+
+      } 
+  };
+
+  useEffect(() => {
     fetchData();
   }, [page]);
 
@@ -85,7 +132,7 @@ function Home() {
         scrollTop + windowHeight >= fullHeight - 100;
 
       if (reachedBottom && !loading) {
-        setLoading(true); // 🔥 lock scrolling trigger
+        setLoading(true); 
         setPage((prev) => prev + 1);
       }
     };
@@ -109,7 +156,7 @@ function Home() {
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 
-        <ImagesGrid columns={[col1, col2, col3]} />
+        <ImagesGrid columns={[col1, col2, col3]} likes={likeImage}/>
 
         {loading && (
           <div className="loader"></div>
@@ -120,9 +167,5 @@ function Home() {
     </>
   );
 }
-
-
-/* HTML: <div class="loader"></div> */
-
 
 export default Home;

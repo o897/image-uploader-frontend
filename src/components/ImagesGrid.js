@@ -7,42 +7,42 @@ import toast from 'react-hot-toast';
 
 
 // columns responsible for taking in each column
-function ImagesGrid({ columns }) {
+function ImagesGrid({ columns, likes }) {
   const [view, setView] = useState(false);
   //  selected photo
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  // fetch user uploaded images
 
-  
-const likeImage = async (photoId) => {
+  // const likeImage = async (photoId) => {
 
-  console.log(photoId);
+  //   console.log(photoId);
 
-  try {
-    const response = await fetch(
-      // `http://localhost:3000/image/like/${photoId}`,
-      `https://oraserver.online/image/like/${photoId}`,
-      {
-        method: "POST",
-        credentials: "include"
-      }
-    );
+  //   try {
+  //     const response = await fetch(
+  //       // `http://localhost:3000/image/like/${photoId}`,
+  //       `https://oraserver.online/image/like/${photoId}`,
+  //       {
+  //         method: "POST",
+  //         credentials: "include"
+  //       }
+  //     );
 
-    if (!response.ok) {
-      toast("cant like image");
-      return;
-    }
+  //     if (!response.ok) {
+  //       toast("cant like image");
+  //       return;
+  //     }
 
-    const data = await response.json();
+  //     const data = await response.json();
 
-    console.log(data);
+  //     const likedIds = data.imageIds;
 
-  } catch (err) {
-    console.error(err);
-    toast("Something went wrong");
-  }
-};
+  //     const likedSet = new Set(likedIds);
+
+  //   } catch (err) {
+  //     console.error(err);
+  //     toast("Something went wrong");
+  //   }
+  // };
 
   return (
     <div className="hero">
@@ -52,7 +52,14 @@ const likeImage = async (photoId) => {
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
               <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
 
-              <GoHeart className="like-icon img-icon" onClick={() => likeImage(photo.id)}/>
+              {/* <GoHeart key={photo.id} className="like-icon img-icon" onClick={() => likes(photo.id)} /> */}
+              <GoHeart
+                className={`like-icon img-icon ${photo.liked ? "liked" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  likes(photo.id);
+                }}
+              />
 
               <img
                 className="img-icon-user"

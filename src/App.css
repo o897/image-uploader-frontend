@@ -1007,6 +1007,10 @@ img.icon:hover {
 
 }
 
+.liked {
+  color: red;
+}
+
 .prof-input.select {
     padding-right: 8px;
     height: 36px;
