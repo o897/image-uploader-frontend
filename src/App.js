@@ -6,10 +6,10 @@ import Register from "./pages/Register";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Challenge from "./pages/Challenge";
 import Community from "./pages/Community";
 import UpdateProfile from "./pages/UpdateProfile";
-
+import Favourite from "./pages/Favourite";
+       
 const App = () => {
   return (
       <Routes>
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
-        <Route path="/challenge/:category" element={<Challenge />} />
+        <Route path="/challenge/:category" element={<Favourite />} />
       </Routes>
   );
 };

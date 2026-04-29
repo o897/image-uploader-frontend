@@ -4,6 +4,8 @@ import Community from "./Community";
 import Navbar from "../components/Navbar";
 import ImagesGrid from "../components/ImagesGrid";
 import PlatformFilter from "../components/PlatformFilter";
+import { useAuth } from "../contexts/AuthContext";
+
 
 function Home() {
   // depending on which site the user uploaded from we can take the icon, so we should have an object
@@ -12,6 +14,18 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [errorMsg, setErrorMsg] = useState(null);
+  const {user} = useAuth();
+
+  const [likedSet, setLikedSet] = useState(new Set());
+
+  useEffect(() => {
+  const fetchLikes = async () => {
+    const set = await loadlikes();
+    setLikedSet(set);
+  };
+
+  fetchLikes();
+}, []);
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
@@ -19,13 +33,25 @@ function Home() {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
-  const likeImage = async (photoId) => {
+  const likeImage = async (photo) => {
+  if (!user) {
+    toast("login first");
+    return;
+  }
+
   try {
     const response = await fetch(
-      `https://oraserver.online/image/like/${photoId}`,
+      `https://oraserver.online/image/like/${photo.id}`,
       {
         method: "POST",
-        credentials: "include"
+        credentials: "include",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+          imageUrl : photo.src?.large || photo.image,
+          photographer : photo.photographer  
+        })
       }
     );
 
@@ -37,12 +63,24 @@ function Home() {
     const data = await response.json(); // { like: true/false }
 
     setPhotos(prev =>
-      prev.map(photo =>
-          photo.id === photoId
-            ? { ...photo, liked: data.like }
-            : photo       
+      prev.map(pic =>
+          pic.id === photo.id
+            ? { ...pic, liked: data.like }
+            : pic       
       )
     );
+
+    setLikedSet(prev => {
+      const newSet = new Set(prev);
+
+      if(data.like) {
+        newSet.add(String(photo.id));
+      } else {
+        newSet.delete(String(photo.id))
+      }
+
+      return newSet;
+    })
 
   } catch (err) {
     console.error(err);
@@ -80,26 +118,29 @@ const loadlikes = async () => {
       credentials: "include"
     });
 
-    if (!response.ok) {
-      return new Set(); 
-    }
+    if (!response.ok) return new Set(); 
+
 
     const data = await response.json();
 
-    if (!data.imageIds || !Array.isArray(data.imageIds)) {
-      return new Set();
-    }
+    if(!data.imageIds) return new Set();
 
-    const ids = data.imageIds.map(item => item.photoId);
-
-    return new Set(ids);
-
+    return new Set(data.imageIds.map(item => item.photoId));
+  
   } catch (err) {
     console.error("loadlikes error:", err);
     return new Set(); 
   }
 };
   
+useEffect(() => {
+  const initLikes = async () => {
+    const set = await loadlikes();
+    setLikedSet(set);
+  };
+
+  initLikes();
+}, [])
 
   const fetchData = async () => {
       setLoading(true);
@@ -115,8 +156,8 @@ const loadlikes = async () => {
 
         // pexels data
         const data = await response.json();
-
-        const likedSet = await loadlikes();
+          
+        // const likedSet = await loadlikes();
 
         const photosWithLikes = data.photos.map(photo => (
           {
@@ -129,7 +170,6 @@ const loadlikes = async () => {
 
       } catch (err) {
         console.log(err.message)
-        setLoading(false);
       } finally {
           setLoading(false);
 
@@ -137,8 +177,10 @@ const loadlikes = async () => {
   };
 
   useEffect(() => {
+    if (likedSet.size === 0 && page === 1) return;
+
     fetchData();
-  }, [page]);
+  }, [page,likedSet]);
 
   useEffect(() => {
     const handleScroll = () => {

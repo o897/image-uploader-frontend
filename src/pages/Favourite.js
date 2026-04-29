@@ -6,7 +6,7 @@ import { FaClock } from "react-icons/fa";
 import ImagesGrid from "../components/ImagesGrid";
 
 
-const Challenge = () => {
+const Favourite = () => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
@@ -18,33 +18,8 @@ const Challenge = () => {
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.pexels.com/v1/search?query=${category}&per_page=20`,
-          {
-            headers: {
-              Authorization: API_KEY, 
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const result = await response.json();
-
-        setPhotos(result.photos);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    console.log(category);
-    fetchData();
+    // fetch liked pictures
+    // the functionality already works only thing left 
   }, []);
 
   console.log("photos", photos);
@@ -102,4 +77,4 @@ const Challenge = () => {
   );
 };
 
-export default Challenge;
+export default Favourite;
