@@ -71,7 +71,6 @@ function Home() {
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
           {
             headers: { Authorization: API_KEY },
-            credentials : "include"
           }
         ),
         loadlikes(),
