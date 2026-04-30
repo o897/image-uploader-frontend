@@ -139,7 +139,7 @@ function Home() {
       setPhotos(prev =>
         prev.map(p =>
           p.id === photo.id
-            ? { ...p, liked: data.like }
+            ? { ...p, liked: data.like } //we attaching this like to the photos arr
             : p
         )
       );
