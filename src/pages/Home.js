@@ -15,6 +15,7 @@ function Home() {
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
+
   const col1 = photos.filter((_, i) => i % 3 === 0);
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
@@ -49,6 +50,7 @@ function Home() {
     initLikes();
   }, []);
 
+
   const fetchData = async () => {
     setLoading(true);
 
@@ -69,7 +71,7 @@ function Home() {
         liked: likedSet.has(String(photo.id)),
       }));
 
-  
+    
       setPhotos(prev => {
         const existingIds = new Set(prev.map(p => p.id));
 
@@ -88,7 +90,7 @@ function Home() {
     }
   };
 
-
+  // fetch when page changes
   useEffect(() => {
     fetchData();
   }, [page]);
@@ -133,7 +135,7 @@ function Home() {
 
       const data = await response.json();
 
-    
+   
       setPhotos(prev =>
         prev.map(pic =>
           pic.id === photo.id
@@ -142,6 +144,7 @@ function Home() {
         )
       );
 
+     
       setLikedSet(prev => {
         const newSet = new Set(prev);
 
@@ -159,6 +162,7 @@ function Home() {
       toast("Something went wrong");
     }
   };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -178,7 +182,7 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading]);
 
- 
+
   return (
     <>
       <Toaster />
