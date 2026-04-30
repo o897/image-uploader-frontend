@@ -71,6 +71,7 @@ function Home() {
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
           {
             headers: { Authorization: API_KEY },
+            credentials : "include"
           }
         ),
         loadlikes(),
@@ -83,6 +84,7 @@ function Home() {
         return;
       }
 
+      // fetching photos from the pexels api
       const photosWithLikes = data.photos.map(photo => ({
         ...photo,
         liked: likedSet.has(String(photo.id)), //match this data with the liked ids
