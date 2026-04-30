@@ -11,6 +11,7 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const { user } = useAuth();
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
@@ -18,9 +19,29 @@ function Home() {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
-  // =========================
-  // 🔥 LOAD LIKES
-  // =========================
+   const onYoutube = async (e) => {
+    // if user not logged in show error
+
+    e.preventDefault()
+    
+    const response = await fetch("https://oraserver.online/media/youtube/likes", {
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return toast.error('Login to your google account first');
+    }
+    const youtubePhotos = data.map((item) => ({
+      id: item.id,
+      image: item.snippet.thumbnails.high.url,
+    }));
+
+    setPhotos(youtubePhotos);
+
+  };
+
   const loadlikes = async () => {
     try {
       const response = await fetch(
@@ -40,14 +61,11 @@ function Home() {
     }
   };
 
-  // =========================
-  // 🔥 FETCH DATA (FIXED)
-  // =========================
   const fetchData = async () => {
     setLoading(true);
 
     try {
-      // 👉 fetch both at same time
+  
       const [pexelsRes, likedSet] = await Promise.all([
         fetch(
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
@@ -67,10 +85,10 @@ function Home() {
 
       const photosWithLikes = data.photos.map(photo => ({
         ...photo,
-        liked: likedSet.has(String(photo.id)),
+        liked: likedSet.has(String(photo.id)), //match this data with the liked ids
       }));
 
-      // ✅ prevent duplicates
+      // this are the pexels images youre seeing on home
       setPhotos(prev => {
         const existingIds = new Set(prev.map(p => p.id));
         const newPhotos = photosWithLikes.filter(
@@ -91,9 +109,6 @@ function Home() {
     fetchData();
   }, [page]);
 
-  // =========================
-  // ❤️ LIKE IMAGE
-  // =========================
   const likeImage = async (photo) => {
     if (!user) {
       toast("login first");
@@ -134,9 +149,7 @@ function Home() {
     }
   };
 
-  // =========================
-  // 🔁 SCROLL
-  // =========================
+
   useEffect(() => {
     const handleScroll = () => {
       const reachedBottom =
@@ -152,30 +165,28 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading]);
 
-  return (
+   return (
     <>
-      <Toaster />
-
+      <div><Toaster/></div>
       <section className="home_intro">
         <Navbar />
-        <Community />
+        <div className="collection">
+          <Community />
+        </div>
       </section>
-
-      <PlatformFilter
-        onYoutube={() => toast("coming soon")}
-        onNetflix={() => toast("coming soon")}
-      />
-
+      <p className="error-txt">{errorMsg}</p>
+      <PlatformFilter onYoutube={onYoutube} onNetflix={() => toast("feature coming soon")}/>
       <section className="home_hero">
-        <h2>Community Uploads</h2>
+        <h2 className="home_hero-title">Community Uploads</h2>
 
-        <ImagesGrid
-          columns={[col1, col2, col3]}
-          likes={likeImage}
-        />
+        <ImagesGrid columns={[col1, col2, col3]} likes={likeImage}/>
 
-        {loading && <div className="loader"></div>}
+        {loading && (
+          <div className="loader"></div>
+        )}
+
       </section>
+
     </>
   );
 }
