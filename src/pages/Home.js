@@ -35,18 +35,21 @@ function Home() {
     }
 
 
-    const youtubePhotos = data.map((item) => ({
-      id: item.id,
-      src: {
-        large: item.snippet.thumbnails.high.url,
-        original: `https://www.youtube.com/watch?v=${item.id}`, // fallback
-      },
-      photographer: "YouTube",
-      photographer_url: `https://www.youtube.com/watch?v=${item.id}`, // fallback
-      alt: item.snippet.title,  // use video title as alt
-      link: `https://www.youtube.com/watch?v=${item.id}`,
-      type: "youtube",
-    }));
+    const youtubePhotos = data.map((item) => {
+      const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId || item.id;
+
+      return {
+        id: videoId,
+        src: {
+          large: item.snippet.thumbnails.high.url,
+        },
+        photographer: item.snippet.videoOwnerChannelTitle || "YouTube", // actual channel name
+        photographer_url: `https://www.youtube.com/channel/${item.snippet.videoOwnerChannelId}`,
+        alt: item.snippet.title,
+        link: `https://www.youtube.com/watch?v=${videoId}`, // now uses correct ID
+        type: "youtube",
+      };
+    });
 
     setPhotos(youtubePhotos);
 
