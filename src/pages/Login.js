@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import toast, { Toaster } from 'react-hot-toast';
 
 const API_SERVER_URL =
   process.env.REACT_APP_SERVER_API ||
@@ -65,7 +64,6 @@ const Login = () => {
   return (
     
     <div className="login__pg">
-      <div><Toaster/></div>
 
       <form className="form__signin" onSubmit={handleLogin}>
         <h1>Welcome back</h1>
@@ -96,6 +94,7 @@ const Login = () => {
             name="email"
             onChange={handleChange}
             value={formData.email}
+            placeholder="Enter your email"
           />
           <label htmlFor="password">Password</label>
           <input
@@ -104,6 +103,7 @@ const Login = () => {
             name="password"
             onChange={handleChange}
             value={formData.password}
+            placeholder="Enter your password"
           />
         </div>
 
@@ -112,7 +112,7 @@ const Login = () => {
         </button>
 
         <p>
-          Don't have an account? <a href="/register">Sign up</a>
+          Don't have an account? <a className="form__link" href="/register">Sign up</a>
         </p>
       </form>
 

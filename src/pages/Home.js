@@ -29,13 +29,15 @@ function Home() {
     });
 
     const data = await response.json();
-
+    
     if (!response.ok) {
       return toast.error('Login to your google account first');
     }
     const youtubePhotos = data.map((item) => ({
       id: item.id,
-      image: item.snippet.thumbnails.high.url,
+      image :  item.snippet.thumbnails.high.url,
+      link : `https://www.youtube.com/watch?v=${item.id}`,
+  
     }));
 
     setPhotos(youtubePhotos);

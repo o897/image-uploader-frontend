@@ -31,7 +31,7 @@ function ImagesGrid({ columns, likes }) {
 
               <img
                 className="img-icon-user"
-                src={`https://ui-avatars.com/api/?name=${photo?.photographer || photo?.image || photo.url}`}
+                src={`https://ui-avatars.com/api/?name=${photo?.photographer || photo?.image || photo.url || photo.link}`}
                 alt={photo?.photographer || photo?.image}
                 loading='lazy'
               />

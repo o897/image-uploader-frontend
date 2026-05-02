@@ -371,6 +371,10 @@ label {
   transition: all 0.3s ease;
 }
 
+.form__signin-btn.login {
+  margin-bottom: 10px;
+}
+
 .form__signin-btn[href*="google"] {
   background-color: #fff;
   color: #000;
@@ -390,6 +394,12 @@ label {
 .form__signin-btn[href*="facebook"]:hover {
   background-color: #0a66c2;
 }
+
+.form__link[href*="register"] {
+  border-bottom: 1px solid #4f4f4f;
+  margin: 10px;
+}
+
 
 .form__signin-btn:not([href]) {
   background-color: #000;

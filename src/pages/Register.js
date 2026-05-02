@@ -72,7 +72,6 @@ const Register = () => {
                     <input type="password" name="password" onChange={handleChange} value={formData.password} />
                 </div>
                 <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>Register</button>
-                <p>Create an account</p>
             </form>
         </div>
     )
