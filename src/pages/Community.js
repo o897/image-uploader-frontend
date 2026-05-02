@@ -113,7 +113,7 @@ export default function Community() {
           <div className="collection-overlay">
             <h3 className="collection-title">Favourites</h3>
             <span className="collection-meta">
-              — Created by You
+              — Liked by You
             </span>
           </div>
         </div>

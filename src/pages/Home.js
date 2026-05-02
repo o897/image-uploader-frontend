@@ -37,7 +37,6 @@ function Home() {
 
     const youtubePhotos = data.map((item) => {
       const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId || item.id;
-
       return {
         id: videoId,
         src: {

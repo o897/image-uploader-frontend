@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { GoHeart } from "react-icons/go";
-import { CiBookmark } from "react-icons/ci";
-import { FiExternalLink } from "react-icons/fi";
 import ViewImage from './ViewImage';
 import toast from 'react-hot-toast';
+import { FaHeart } from "react-icons/fa";
 
 
 // columns responsible for taking in each column
@@ -20,8 +19,7 @@ function ImagesGrid({ columns, likes }) {
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
               {/* <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} /> */}
               <img src={photo.src?.large} alt={photo.alt || "image"} />
-
-              <GoHeart
+                <FaHeart 
                 // if liked is true
                 className={`like-icon img-icon ${photo.liked ? "liked" : ""}`}
                 onClick={(e) => {
@@ -41,7 +39,6 @@ function ImagesGrid({ columns, likes }) {
                 {photo?.photographer || photo?.image || "username"}
               </span>
 
-              <FiExternalLink className="img-icon-link" />
             </div>
           ))}
         </div>

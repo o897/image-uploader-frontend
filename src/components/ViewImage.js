@@ -1,4 +1,7 @@
 import { FiExternalLink } from "react-icons/fi";
+import { IoLogoYoutube } from "react-icons/io5";
+import { IoIosDownload } from "react-icons/io";
+
 
 const ViewImage = ({ photo, onClose }) => {
     return (
@@ -16,13 +19,11 @@ const ViewImage = ({ photo, onClose }) => {
 
                     {/* <button className="view-dwn-btn">Download</button> */}
                     {photo.type === "youtube" ? (
-                        <button onClick={() => window.open(photo.link, "_blank")}>
-                            Watch on YouTube
-                        </button>
+                        <IoLogoYoutube onClick={() => window.open(photo.link, "_blank")} />
                     ) : (
-                        <button onClick={() => window.open(photo.src.original, "_blank")}>
-                            Download
-                        </button>
+
+                        <IoIosDownload size={30} onClick={() => window.open(photo.src.original, "_blank")} />
+
                     )}
                 </div>
                 <img src={photo.src.large} alt={photo.alt} />

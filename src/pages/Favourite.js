@@ -17,9 +17,22 @@ const Favourite = () => {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
+  const fetchLikedPost = async () => {
+    const response = await fetch("https://oraserver.online/image/liked");
+    
+    if(!response.ok) {
+        console.log("cant fetch liked posts")
+    } 
+
+    const data = response.json();
+
+    setPhotos(data);
+
+  }
   useEffect(() => {
     // fetch liked pictures
-    // the functionality already works only thing left 
+    
+  
   }, []);
 
   console.log("photos", photos);
@@ -43,7 +56,7 @@ const Favourite = () => {
             </div>
             <div className="user-submission-keyinfo">
               <div className="user-submission-abt">
-                <h3>About my anime challenge</h3>
+                <h3>About my Favourite</h3>
                 <span className="abt-txt">industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</span>
               </div>
               <div className="user-submission-info">
