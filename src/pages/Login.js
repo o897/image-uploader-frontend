@@ -5,10 +5,10 @@ const API_SERVER_URL =
   process.env.REACT_APP_SERVER_API ||
   "https://oraserver.online";
 
-const LOCAL_URL =  "http://localhost:3001";
+const LOCAL_URL = "http://localhost:3001";
 
 const Login = () => {
-  const { login } = useAuth(); 
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -28,7 +28,7 @@ const Login = () => {
   // handle traditional login, FUNCTION CAN CARRY THE FORMDATA
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
-    
+
   //   try {
   //     // traditional login #the dinosaur way
   //     const response = await fetch(`${API_SERVER_URL}/auth/login`, {
@@ -58,11 +58,11 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    login(formData);    
+    login(formData);
   }
 
   return (
-    
+
     <div className="login__pg">
 
       <form className="form__signin" onSubmit={handleLogin}>
@@ -74,15 +74,15 @@ const Login = () => {
             href={`${API_SERVER_URL}/auth/google`}
             rel="noopener noreferrer"
           >
-            <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-icon-PNG.png"/> Sign in with Google 
+            <img src="https://image.similarpng.com/file/similarpng/very-thumbnail/2020/06/Logo-google-icon-PNG.png" /> Sign in with Google
           </a>
-          
+
           <a
             className="form__signin-btn"
             href={`${API_SERVER_URL}/auth/facebook`}
             rel="noopener noreferrer"
           >
-            <img src="https://static.xx.fbcdn.net/rsrc.php/y-/r/yhD4cqC_Wzs.webp"/>Sign in with Facebook
+            <img src="https://static.xx.fbcdn.net/rsrc.php/y-/r/yhD4cqC_Wzs.webp" />Sign in with Facebook
           </a>
         </div>
 
@@ -112,7 +112,11 @@ const Login = () => {
         </button>
 
         <p>
-          Don't have an account? <a className="form__link" href="/register">Sign up</a>
+          Don't have an account ? <a className="form__link" href="/register">Sign up</a>
+        </p>
+        <p>
+          By continuing, you agree to our 
+          <a className="form__link" href="/privacy-policy" >Privacy Policy</a>
         </p>
       </form>
 

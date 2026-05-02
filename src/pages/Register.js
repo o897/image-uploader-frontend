@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 const Register = () => {
 
-    const {login} = useAuth();
+    const { login } = useAuth();
     const API_URL =
         process.env.REACT_APP_API_URL ||
         "https://oraserver.online";
@@ -72,6 +72,10 @@ const Register = () => {
                     <input type="password" name="password" onChange={handleChange} value={formData.password} />
                 </div>
                 <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>Register</button>
+                <p>
+                    By continuing, you agree to our{" "}
+                    <a href="/privacy-policy">Privacy Policy</a>
+                </p>
             </form>
         </div>
     )

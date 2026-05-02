@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Community from "./pages/Community";
 import UpdateProfile from "./pages/UpdateProfile";
 import Favourite from "./pages/Favourite";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
        
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
         <Route path="/challenge/:category" element={<Favourite />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
       </Routes>
   );
 };

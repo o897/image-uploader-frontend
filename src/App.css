@@ -1187,3 +1187,36 @@ img.icon:hover {
 }
 
 /* end submission */
+
+
+.policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.policy-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.effective-date {
+  font-size: 0.9rem;
+  color: gray;
+  margin-bottom: 1.5rem;
+}
+
+.policy-container h2 {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.policy-container p {
+  margin: 0.5rem 0;
+}
+
+.policy-container ul {
+  margin: 0.5rem 0 1rem 1.2rem;
+}

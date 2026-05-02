@@ -395,7 +395,7 @@ label {
   background-color: #0a66c2;
 }
 
-.form__link[href*="register"] {
+.form__link {
   border-bottom: 1px solid #4f4f4f;
   margin: 10px;
 }
