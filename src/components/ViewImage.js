@@ -29,12 +29,8 @@ const ViewImage = ({ photo, onClose }) => {
                 <div className="view-info">
                     <p>Free to use by pexels</p>
                     <p>Click anywhere wthin to close</p>
-                    <FiExternalLink className="view-btn"
-                        onClick={() =>
-                            /* open a new page */
-                            window.open(photo.photographer_url, "_blank")
-                        }
-                    />
+                    <FiExternalLink className="view-btn" onClick={() => photo.photographer_url && window.open(photo.photographer_url, "_blank")} />
+
                 </div>
 
             </div>

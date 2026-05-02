@@ -39,8 +39,11 @@ function Home() {
       id: item.id,
       src: {
         large: item.snippet.thumbnails.high.url,
+        original: `https://www.youtube.com/watch?v=${item.id}`, // fallback
       },
       photographer: "YouTube",
+      photographer_url: `https://www.youtube.com/watch?v=${item.id}`, // fallback
+      alt: item.snippet.title,  // use video title as alt
       link: `https://www.youtube.com/watch?v=${item.id}`,
       type: "youtube",
     }));
