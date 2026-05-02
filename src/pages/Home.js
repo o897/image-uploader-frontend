@@ -19,25 +19,30 @@ function Home() {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
-   const onYoutube = async (e) => {
+  const onYoutube = async (e) => {
     // if user not logged in show error
 
     e.preventDefault()
-    
+
     const response = await fetch("https://oraserver.online/media/youtube/likes", {
       credentials: "include",
     });
 
     const data = await response.json();
-    
+
     if (!response.ok) {
       return toast.error('Login to your google account first');
     }
+
+
     const youtubePhotos = data.map((item) => ({
       id: item.id,
-      image :  item.snippet.thumbnails.high.url,
-      link : `https://www.youtube.com/watch?v=${item.id}`,
-  
+      src: {
+        large: item.snippet.thumbnails.high.url,
+      },
+      photographer: "YouTube",
+      link: `https://www.youtube.com/watch?v=${item.id}`,
+      type: "youtube",
     }));
 
     setPhotos(youtubePhotos);
@@ -67,7 +72,7 @@ function Home() {
     setLoading(true);
 
     try {
-  
+
       const [pexelsRes, likedSet] = await Promise.all([
         fetch(
           `https://api.pexels.com/v1/curated?page=${page}&per_page=10`,
@@ -168,9 +173,9 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading]);
 
-   return (
+  return (
     <>
-      <div><Toaster/></div>
+      <div><Toaster /></div>
       <section className="home_intro">
         <Navbar />
         <div className="collection">
@@ -178,11 +183,11 @@ function Home() {
         </div>
       </section>
       <p className="error-txt">{errorMsg}</p>
-      <PlatformFilter onYoutube={onYoutube} onNetflix={() => toast("feature coming soon")}/>
+      <PlatformFilter onYoutube={onYoutube} onNetflix={() => toast("feature coming soon")} />
       <section className="home_hero">
         <h2 className="home_hero-title">Community Uploads</h2>
 
-        <ImagesGrid columns={[col1, col2, col3]} likes={likeImage}/>
+        <ImagesGrid columns={[col1, col2, col3]} likes={likeImage} />
 
         {loading && (
           <div className="loader"></div>

@@ -15,12 +15,15 @@ const ViewImage = ({ photo, onClose }) => {
                     </div>
 
                     {/* <button className="view-dwn-btn">Download</button> */}
-                    <button
-                        className="view-dwn-btn"
-                        onClick={() => window.open(photo.src.original, "_blank")}
-                    >
-                        Download
-                    </button>
+                    {photo.type === "youtube" ? (
+                        <button onClick={() => window.open(photo.link, "_blank")}>
+                            Watch on YouTube
+                        </button>
+                    ) : (
+                        <button onClick={() => window.open(photo.src.original, "_blank")}>
+                            Download
+                        </button>
+                    )}
                 </div>
                 <img src={photo.src.large} alt={photo.alt} />
                 <div className="view-info">
@@ -38,5 +41,7 @@ const ViewImage = ({ photo, onClose }) => {
         </div>
     );
 };
+
+
 
 export default ViewImage;

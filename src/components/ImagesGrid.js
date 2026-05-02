@@ -18,7 +18,8 @@ function ImagesGrid({ columns, likes }) {
         <div className="hero__images" key={index}>
           {column.map((photo) => (
             <div className="hero__images-image" key={photo.id} onClick={(e) => setSelectedPhoto(photo)}>
-              <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} />
+              {/* <img src={photo.src?.large || photo?.image || photo?.url} alt={photo?.alt || photo?.image || photo?.url} /> */}
+              <img src={photo.src?.large} alt={photo.alt || "image"} />
 
               <GoHeart
                 // if liked is true
