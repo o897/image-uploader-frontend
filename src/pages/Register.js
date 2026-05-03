@@ -9,7 +9,7 @@ const Register = () => {
         process.env.REACT_APP_API_URL ||
         "https://oraserver.online";
 
-    const LOCAL_URL = "http://localhost:3001";
+    // const LOCAL_URL = "http://localhost:3001";
 
     const navigate = useNavigate();
 
@@ -65,16 +65,18 @@ const Register = () => {
                 {/* make it a component */}
                 <div className="form__signin-input">
                     <label htmlFor="">Email</label>
-                    <input type="email" name="email" onChange={handleChange} value={formData.email} />
+                    <input type="email" placeholder="Enter your email" name="email" onChange={handleChange} value={formData.email} />
                 </div>
                 <div className="form__signin-input">
                     <label htmlFor="">Password</label>
-                    <input type="password" name="password" onChange={handleChange} value={formData.password} />
+                    <input type="password" name="password" placeholder="Enter our password" onChange={handleChange} value={formData.password} />
                 </div>
                 <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>Register</button>
                 <p>
-                    By continuing, you agree to our{" "}
-                    <a href="/privacy-policy">Privacy Policy</a>
+                    By continuing, you agree to our
+                    <a className="form__link" href="/privacy-policy">Privacy Policy</a>
+                    and{" "}
+                    <a className="form__link" href="/terms-of-service">Terms of Service</a>
                 </p>
             </form>
         </div>

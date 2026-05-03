@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const UpdateProfile = () => {
-  const { user, logout } = useAuth()
+  const { user, logout,checkAuth } = useAuth()
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -44,6 +44,7 @@ const UpdateProfile = () => {
       }
 
       logout();
+
       navigate("/login");
 
     } catch (err) {
@@ -68,7 +69,8 @@ const UpdateProfile = () => {
         return;
       }
 
-      navigate('/');
+      await checkAuth(); 
+      navigate('/profile');
 
     } catch (error) {
       console.log("network error:", error);
