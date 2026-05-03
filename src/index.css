@@ -338,6 +338,11 @@ label {
   flex-direction: column;
 }
 
+.login__pg p {
+
+  margin: 5px;
+}
+
 .login__pg .footer {
   margin-top: auto;
 }

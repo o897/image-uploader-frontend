@@ -66,7 +66,7 @@ const Login = () => {
   return (
 
     <div className="login__pg">
-      <Toaster/>
+      <Toaster />
 
       <form className="form__signin" onSubmit={handleLogin}>
         <h1>Welcome back</h1>
@@ -118,13 +118,15 @@ const Login = () => {
           Don't have an account ? <a className="form__link" href="/register">Sign up</a>
         </p>
         <p>
-          By continuing, you agree to our 
-          <a className="form__link" href="/privacy-policy" >Privacy Policy</a>
+          By continuing, you agree to our
+          <a className="form__link" href="/privacy-policy">Privacy Policy</a>
+          and{" "}
+          <a className="form__link" href="/terms-of-service">Terms of Service</a>
         </p>
       </form>
-      <Footer/>
-    </div>  
-    
+      <Footer />
+    </div>
+
   );
 };
 
