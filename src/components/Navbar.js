@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { FaUser } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
+import React from "react";
 
 const Navbar = () => {
     
@@ -57,4 +58,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

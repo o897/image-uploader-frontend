@@ -338,7 +338,7 @@ img.icon:hover {
   padding: 95px 0;
   position: relative;
   top: -10vh;
-  
+
 }
 
 
@@ -950,6 +950,14 @@ img.icon:hover {
   cursor: pointer;
 }
 
+
+.updt_prof-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .updat-form-container {
   display: flex;
   justify-content: center;
@@ -985,11 +993,11 @@ img.icon:hover {
   border-radius: 5px;
   letter-spacing: 1.4px;
   font-size: .9em;
-  
+
 }
 
 .prof-input:focus {
-    border: 1px solid #9e9d9d;
+  border: 1px solid #9e9d9d;
 
 }
 
@@ -998,8 +1006,8 @@ img.icon:hover {
 }
 
 .prof-input.select {
-    padding-right: 8px;
-    height: 36px;
+  padding-right: 8px;
+  height: 36px;
 
 }
 

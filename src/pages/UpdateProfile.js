@@ -19,7 +19,6 @@ const UpdateProfile = () => {
   });
 
   const handleChange = (e) => {
-    e.preventDefault();
 
     // from this target we are targetting this variables
     const { name, value } = e.target;
@@ -98,7 +97,7 @@ const handleSubmit = async (e) => {
 
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input name="yname" className="prof-input" onChange={handleChange} placeholder='Enter your Youtube username' />
+                  <input name="ytb" className="prof-input" onChange={handleChange} placeholder='Enter your Youtube username' />
                 </div>
                 <div className='prof-col'>
                   <label>Facebook</label>
