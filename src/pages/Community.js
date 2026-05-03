@@ -98,6 +98,8 @@ export default function Community() {
 
           </div>
         )}
+
+          
       </div>
 
 
@@ -126,7 +128,7 @@ export default function Community() {
           <div className="collection-card-title" key={index}>{item.title}</div>
         ))}
       </div>
-
+    
     </div>
   );
 }

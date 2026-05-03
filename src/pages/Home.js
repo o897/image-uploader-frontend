@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import ImagesGrid from "../components/ImagesGrid";
 import PlatformFilter from "../components/PlatformFilter";
 import { useAuth } from "../contexts/AuthContext";
+import Footer from "../components/Footer";
 
 function Home() {
   const [photos, setPhotos] = useState([]);
@@ -185,11 +186,15 @@ function Home() {
 
   return (
     <>
-      <div><Toaster /></div>
+      <Toaster />
+      <p className="home_purpose"> A media platform to upload your images, browse curated photos,
+        and sync your YouTube liked videos all in one place.</p>
+
       <section className="home_intro">
         <Navbar />
         <div className="collection">
           <Community />
+
         </div>
       </section>
       <p className="error-txt">{errorMsg}</p>
@@ -204,6 +209,7 @@ function Home() {
         )}
 
       </section>
+      <Footer/>
 
     </>
   );

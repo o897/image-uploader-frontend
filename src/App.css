@@ -341,6 +341,9 @@ img.icon:hover {
 
 }
 
+.home_purpose {
+  text-align: center;
+}
 
 .home_hero-title {
   z-index: 1;
