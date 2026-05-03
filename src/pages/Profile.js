@@ -18,7 +18,6 @@ const Profile = () => {
 
 
   useEffect(() => {
-    console.log(user)
     const fetchPhotos = async () => {
       try {
         // we reading images stored in the db
@@ -27,15 +26,27 @@ const Profile = () => {
           credentials: "include"
         });
 
-        const res = await query.json()
-        setPhotos(res)
-        console.log(photos);
+        const res = await query.json();
+
+
+        const normalized = res.map(photo => ({
+          id: photo._id,
+          src: {
+            large: photo.url, 
+          },
+          photographer: photo.filename,
+          alt: photo.imageTitle || photo.filename,
+          liked: false,
+        }));
+
+        setPhotos(normalized);
 
       } catch (error) {
         console.log(error);
       }
     }
     fetchPhotos();
+
   }, []);
 
   return (
@@ -80,7 +91,7 @@ const Profile = () => {
           <img className="no-img" src="https://sefuateurope.vtexassets.com/assets/vtex.file-manager-graphql/images/00d7afb6-4b37-4e22-8f4e-7ba1eb5f8d93___abcae94d543f1ddcc418317b979f6354.jpeg" alt="no photos" />
         )
       }
-    <Footer/>
+
 
     </>
   );

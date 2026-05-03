@@ -120,7 +120,8 @@ const Login = () => {
           <a className="form__link" href="/privacy-policy" >Privacy Policy</a>
         </p>
       </form>
-    </div>
+      <Footer/>
+    </div>  
     
   );
 };

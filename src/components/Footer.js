@@ -1,27 +1,18 @@
-import React from "react";
+// components/Footer.jsx
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        
-        <div className="footer-left">
-          <h3 className="footer-logo">Memoir</h3>
-          <p className="footer-tagline">
-            Capture and share your moments.
-          </p>
-        </div>
-
-        <div className="footer-right">
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="mailto:your@email.com">Contact</a>
-        </div>
-
-      </div>
-
-      <div className="footer-bottom">
-        © {new Date().getFullYear()} Memoir. All rights reserved.
+      <span className="footer-left">© 2026 Memoir</span>
+      <div className="footer-links">
+        <Link to="/privacy-policy">Privacy policy</Link>
+        <span className="footer-divider">·</span>
+        <Link to="/terms">Terms of service</Link>
+        <span className="footer-divider">·</span>
+        <a href="www.linkedin.com/in/orapeleng-mathebula-5ba891190" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span className="footer-divider">·</span>
+        <a href="mailto:your@email.com">orapalengdev23@gmail.com</a>
       </div>
     </footer>
   );

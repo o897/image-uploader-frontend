@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Complete() {
   const { image } = useParams();
@@ -73,6 +74,7 @@ export default function Complete() {
           </div>
         )
       )}
+      <Footer/>
     </>
   );
 }
