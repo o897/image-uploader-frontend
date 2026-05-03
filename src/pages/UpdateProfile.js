@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const UpdateProfile = () => {
 
@@ -59,7 +60,7 @@ const UpdateProfile = () => {
               <div className='prof-row'>
                 <div className='prof-col'>
                   <label>First Name</label>
-                  <input name='fname' className='prof-input' placeholder='Enter your firstname'/>
+                  <input name='fname' className='prof-input' onChange={setFormData} placeholder='Enter your firstname'/>
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
@@ -105,6 +106,7 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
 
 

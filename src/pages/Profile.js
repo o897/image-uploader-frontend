@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { useState, useEffect } from "react";
 import ImagesGrid from "../components/ImagesGrid";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Profile = () => {
   const [photos, setPhotos] = useState([]);
@@ -79,6 +80,7 @@ const Profile = () => {
           <img className="no-img" src="https://sefuateurope.vtexassets.com/assets/vtex.file-manager-graphql/images/00d7afb6-4b37-4e22-8f4e-7ba1eb5f8d93___abcae94d543f1ddcc418317b979f6354.jpeg" alt="no photos" />
         )
       }
+    <Footer/>
 
     </>
   );

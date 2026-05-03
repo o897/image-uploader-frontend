@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import Footer from "../components/Footer";
 
 const API_SERVER_URL =
   process.env.REACT_APP_SERVER_API ||
@@ -119,8 +120,8 @@ const Login = () => {
           <a className="form__link" href="/privacy-policy" >Privacy Policy</a>
         </p>
       </form>
-
     </div>
+    
   );
 };
 
