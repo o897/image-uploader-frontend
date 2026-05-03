@@ -22,7 +22,7 @@ const ViewImage = ({ photo, onClose }) => {
                         <IoLogoYoutube onClick={() => window.open(photo.link, "_blank")} />
                     ) : (
 
-                        <IoIosDownload size={30} onClick={() => window.open(photo.src.original, "_blank")} />
+                        <IoIosDownload size={30} className="icon" onClick={() => window.open(photo.src.original, "_blank")} />
 
                     )}
                 </div>

@@ -243,6 +243,10 @@ img.icon:hover {
   color: #7c1010;
 }
 
+.icon {
+  cursor: pointer;
+}
+
 .img-icon {
   position: absolute;
   top: 20px;
