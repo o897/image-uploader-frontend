@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const UpdateProfile = () => {
-  const {user} = useAuth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,30 +30,50 @@ const UpdateProfile = () => {
     )
   }
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleDelete = async () => {
+    try {
+      const response = await fetch("https://oraserver.online/auth/delete", {
+        method: "DELETE",
+        credentials: "include",
+      });
 
-  try {
-    const response = await fetch("https://oraserver.online/auth/update", {
-      // const response =  await fetch("http://localhost:3000/auth/update",{
-      method: "PUT",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" }, // ← you had "COntent-Type" typo
-      body: JSON.stringify(formData)
-    });
+      if (!response.ok) {
+        const err = await response.json();
+        console.log("error deleting account:", err);
+        return;
+      }
 
-    if (!response.ok) {
-      const err = await response.json();
-      console.log("server error:", err);
-      return;
+      logout();
+      navigate("/login");
+
+    } catch (err) {
+      console.log("network error:", err);
     }
+  };
 
-    navigate('/');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  } catch (error) {
-    console.log("network error:", error);
+    try {
+      const response = await fetch("https://oraserver.online/auth/update", {
+        method: "PUT",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" }, // ← you had "COntent-Type" typo
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        console.log("server error:", err);
+        return;
+      }
+
+      navigate('/');
+
+    } catch (error) {
+      console.log("network error:", error);
+    }
   }
-}
 
 
   return (
@@ -78,7 +98,7 @@ const handleSubmit = async (e) => {
               <div className='prof-row'>
                 <div className='prof-col'>
                   <label>First Name</label>
-                  <input name='fname' className='prof-input' onChange={handleChange} placeholder={user?.firstName || 'Enter your firstname'}/>
+                  <input name='fname' className='prof-input' onChange={handleChange} placeholder={user?.firstName || 'Enter your firstname'} />
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
@@ -88,18 +108,18 @@ const handleSubmit = async (e) => {
 
               <div className='prof-col'>
                 <label>Username</label>
-                <input name='uname' className='prof-input' onChange={handleChange} placeholder={user?.uname ||'Enter your username'} />
+                <input name='uname' className='prof-input' onChange={handleChange} placeholder={user?.uname || 'Enter your username'} />
               </div>
               <div className='prof-col'>
                 <label>About</label>
-                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder={user?.about ||'Fun fact about you...'}>
+                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder={user?.about || 'Fun fact about you...'}>
                 </textarea>
               </div>
               <div className='prof-row'>
 
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input name="ytb" className="prof-input" onChange={handleChange} placeholder={user?.ytb ||'Enter your Youtube username'} />
+                  <input name="ytb" className="prof-input" onChange={handleChange} placeholder={user?.ytb || 'Enter your Youtube username'} />
                 </div>
                 <div className='prof-col'>
                   <label>Facebook</label>
@@ -117,7 +137,11 @@ const handleSubmit = async (e) => {
                 </div> */}
               </div>
 
-              <button className='submit__img-btn' onClick={handleSubmit} >Submit</button>
+              <div className='row'>
+                <button className='submit__img-btn update' onClick={handleSubmit} >Update</button>
+                <button className='submit__img-btn delete' onClick={handleDelete} >Delete Account</button>
+
+              </div>
 
 
             </div>

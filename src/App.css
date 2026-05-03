@@ -178,6 +178,32 @@
   color: #909696;
 }
 
+.submit__img-btn.delete {
+  font-weight: 600;
+  width: 140px;
+
+}
+
+.submit__img-btn.delete:hover {
+  background-color: red;
+  border: none;
+  color: #f8e8e8;
+
+}
+
+.submit__img-btn.update:hover {
+  font-weight: 600;
+  color: #fff;
+  background-color: #82ac62;
+  border: none;
+
+}
+
+.submit__img-btn.update {
+  background-color: #479c00;
+  color: #fff;
+  font-weight: 600;
+}
 .submit__img-btn {
   border: none;
   cursor: pointer;
