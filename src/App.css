@@ -343,6 +343,8 @@ img.icon:hover {
 
 .home_purpose {
   text-align: center;
+  position: relative;
+  top: 100px;
 }
 
 .home_hero-title {
