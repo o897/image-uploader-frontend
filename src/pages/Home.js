@@ -187,7 +187,7 @@ function Home() {
   return (
     <>
       <Toaster />
-      <p className="home_purpose"> A media platform to upload your images, browse curated photos,
+      <p className="home_purpose">A media platform to upload your images, browse curated photos,
         and sync your YouTube liked videos all in one place.</p>
 
       <section className="home_intro">
