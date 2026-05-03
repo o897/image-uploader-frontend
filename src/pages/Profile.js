@@ -58,7 +58,7 @@ const Profile = () => {
           <div className="profile_icon row">
             {/* Added a placeholder image and closed the tag */}
             <img
-              src={user?.user?.photo || "https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"}
+              src={user?.photo || "https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"}
               alt="user"
             />
           </div>
@@ -74,7 +74,6 @@ const Profile = () => {
             <Link className="profile_user-btns" to="/profile/edit">Edit Profile</Link>
           </div>
           <h2 className="profile-title">Gallery</h2>
-
         </div>
 
         {/* <div className="profile_user_pins row">

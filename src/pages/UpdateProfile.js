@@ -82,7 +82,7 @@ const handleSubmit = async (e) => {
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
-                  <input name='lname' className="prof-input" onChange={handleChange} placeholder={user?.lastname || 'Enter your lastname'} />
+                  <input name='lname' className="prof-input" onChange={handleChange} placeholder={user?.lastName || 'Enter your lastname'} />
                 </div>
               </div>
 
