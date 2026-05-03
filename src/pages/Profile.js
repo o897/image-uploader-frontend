@@ -66,7 +66,7 @@ const Profile = () => {
             <h2>
               {user?.firstName} {user?.lastName}
             </h2>
-            <p>{user?.about || "Full-stack web developer building practical, real-world applications using React, Node.js, Express, and MongoDB. Focused on clean UI, solid backend systems, and working APIs."}</p>
+            <p>{user?.about || "Write your about, whats an interesting fact about you?"}</p>
           </div>
           <div className="row">
 
