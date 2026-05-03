@@ -77,32 +77,32 @@ const handleSubmit = async (e) => {
               <div className='prof-row'>
                 <div className='prof-col'>
                   <label>First Name</label>
-                  <input name='fname' className='prof-input' onChange={setFormData} placeholder='Enter your firstname' />
+                  <input name='fname' className='prof-input' onChange={handleChange} placeholder='Enter your firstname' />
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
-                  <input name='lname' className="prof-input" onChange={setFormData} placeholder='Enter your lastname' />
+                  <input name='lname' className="prof-input" onChange={handleChange} placeholder='Enter your lastname' />
                 </div>
               </div>
 
               <div className='prof-col'>
                 <label>Username</label>
-                <input name='uname' className='prof-input' onChange={setFormData} placeholder='Enter your username' />
+                <input name='uname' className='prof-input' onChange={handleChange} placeholder='Enter your username' />
               </div>
               <div className='prof-col'>
                 <label>About</label>
-                <textarea name="about" rows="4" cols="50" onChange={setFormData} placeholder='Fun fact about you...'>
+                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder='Fun fact about you...'>
                 </textarea>
               </div>
               <div className='prof-row'>
 
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input name="yname" className="prof-input" onChange={setFormData} placeholder='Enter your Youtube username' />
+                  <input name="yname" className="prof-input" onChange={handleChange} placeholder='Enter your Youtube username' />
                 </div>
                 <div className='prof-col'>
                   <label>Facebook</label>
-                  <input name="fcbkuname" className='prof-input' onChange={setFormData} placeholder='facebook username' />
+                  <input name="fcbkuname" className='prof-input' onChange={handleChange} placeholder='facebook username' />
                 </div>
               </div>
               <div className='prof-row'>

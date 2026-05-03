@@ -16,6 +16,7 @@ const Profile = () => {
   const col2 = photos.filter((_, i) => i % 3 === 1);
   const col3 = photos.filter((_, i) => i % 3 === 2);
 
+  
 
   useEffect(() => {
     const fetchPhotos = async () => {
