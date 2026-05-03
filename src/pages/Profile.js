@@ -64,9 +64,9 @@ const Profile = () => {
           </div>
           <div className="profile_details">
             <h2>
-              {user?.user?.firstName} {user?.user?.lastName}
+              {user?.firstName} {user?.lastName}
             </h2>
-            <p>Full-stack web developer building practical, real-world applications using React, Node.js, Express, and MongoDB. Focused on clean UI, solid backend systems, and working APIs.</p>
+            <p>{user?.about || "Full-stack web developer building practical, real-world applications using React, Node.js, Express, and MongoDB. Focused on clean UI, solid backend systems, and working APIs."}</p>
           </div>
           <div className="row">
 
