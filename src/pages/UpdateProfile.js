@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 const UpdateProfile = () => {
-
+  const {user} = useAuth()
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -34,6 +35,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch("https://oraserver.online/auth/update", {
+      // const response =  await fetch("http://localhost:3000/auth/update",{
       method: "PUT",
       credentials: "include",
       headers: { "Content-Type": "application/json" }, // ← you had "COntent-Type" typo
@@ -76,11 +78,11 @@ const handleSubmit = async (e) => {
               <div className='prof-row'>
                 <div className='prof-col'>
                   <label>First Name</label>
-                  <input name='fname' className='prof-input' onChange={handleChange} placeholder='Enter your firstname' />
+                  <input name='fname' className='prof-input' onChange={handleChange} placeholder={user?.firstName || 'Enter your firstname'}/>
                 </div>
                 <div className='prof-col'>
                   <label>Last name</label>
-                  <input name='lname' className="prof-input" onChange={handleChange} placeholder='Enter your lastname' />
+                  <input name='lname' className="prof-input" onChange={handleChange} placeholder={user?.lastname || 'Enter your lastname'} />
                 </div>
               </div>
 
