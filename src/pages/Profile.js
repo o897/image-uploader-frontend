@@ -58,7 +58,7 @@ const Profile = () => {
           <div className="profile_icon row">
             {/* Added a placeholder image and closed the tag */}
             <img
-              src={user?.photo || "https://images.pexels.com/users/avatars/2158460592/orapeleng-mathebula-233.jpg?auto=compress&fit=crop&h=140&w=140&dpr=1"}
+              src={user?.photo || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3408.jpg?w=360"}
               alt="user"
             />
           </div>
