@@ -10,21 +10,29 @@ import Community from "./pages/Community";
 import UpdateProfile from "./pages/UpdateProfile";
 import Favourite from "./pages/Favourite";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-       
+import TermsOfService from "./pages/Terms";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+
 const App = () => {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<TermsOfService />} />
+
+      {/* protected routes */}
+      <Route element={<ProtectedRoute />}>
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/edit" element={<UpdateProfile/>} />
+        <Route path="/profile/edit" element={<UpdateProfile />} />
         <Route path="/upload/:name?" element={<Upload />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/community" element={<Community />} />
         <Route path="/complete/:image" element={<Complete />} />
         <Route path="/challenge/:category" element={<Favourite />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-      </Routes>
+      </Route>
+    </Routes>
   );
 };
 

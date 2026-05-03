@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
      
       } else {
         setUser(null);
-        return toast.error(`user not logged in yet.`)
+        // return toast.error(`user not logged in yet.`)
       }
     } catch {
       setUser(null);
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading }}>
+    <AuthContext.Provider value={{ user, login, checkAuth, logout, setLoading, loading }}>
       {!loading && children}
     </AuthContext.Provider>
   );

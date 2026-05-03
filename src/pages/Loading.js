@@ -7,10 +7,13 @@ function Loading() {
 
   return (
     <>
-      <div className="progress-bar">
+      {/* <div className="progress-bar">
         <div className="progress-bar-title">Loading</div>
         <div className="progress" style={{ width: `${progress}%` }}></div>
-      </div>
+      </div> */}
+
+      return <div class="loader"></div> 
+
     </>
   );
 }

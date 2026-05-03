@@ -1194,7 +1194,8 @@ img.icon:hover {
   margin: 0 auto;
   padding: 2rem;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.7;
+  background: #fff;
 }
 
 .policy-container h1 {
@@ -1209,8 +1210,13 @@ img.icon:hover {
 }
 
 .policy-container h2 {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   font-size: 1.3rem;
+}
+
+.policy-container h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
 }
 
 .policy-container p {
@@ -1219,4 +1225,50 @@ img.icon:hover {
 
 .policy-container ul {
   margin: 0.5rem 0 1rem 1.2rem;
+}
+
+.policy-container li {
+  margin-bottom: 0.3rem;
+}
+
+.terms-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  line-height: 1.7;
+  background: #fff;
+}
+
+.terms-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.effective-date {
+  font-size: 0.9rem;
+  color: gray;
+  margin-bottom: 1.5rem;
+}
+
+.terms-container h2 {
+  margin-top: 1.8rem;
+  font-size: 1.3rem;
+}
+
+.terms-container h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.terms-container p {
+  margin: 0.5rem 0;
+}
+
+.terms-container ul {
+  margin: 0.5rem 0 1rem 1.2rem;
+}
+
+.terms-container li {
+  margin-bottom: 0.3rem;
 }

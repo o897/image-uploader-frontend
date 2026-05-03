@@ -10,8 +10,6 @@ const Favourite = () => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { category } = useParams();
-  const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
   const col1 = photos.filter((_, i) => i % 3 === 0);
   const col2 = photos.filter((_, i) => i % 3 === 1);
