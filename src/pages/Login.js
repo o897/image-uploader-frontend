@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const API_SERVER_URL =
   process.env.REACT_APP_SERVER_API ||
@@ -65,6 +66,7 @@ const Login = () => {
   return (
 
     <div className="login__pg">
+      <Toaster/>
 
       <form className="form__signin" onSubmit={handleLogin}>
         <h1>Welcome back</h1>
