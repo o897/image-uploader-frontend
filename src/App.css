@@ -912,11 +912,16 @@ img.icon:hover {
   cursor: pointer;
 }
 
+
 .profile_details {
   width: 50%;
   margin: 20px 0;
   text-align: center;
   margin: 15px;
+}
+
+.profile_details h2 {
+  margin: 10px;
 }
 
 .profile_collection {

@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer-links">
         <Link to="/privacy-policy">Privacy policy</Link>
         <span className="footer-divider">·</span>
-        <Link to="/terms">Terms of service</Link>
+        <Link to="/terms-of-service">Terms of service</Link>
         <span className="footer-divider">·</span>
         <a href="www.linkedin.com/in/orapeleng-mathebula-5ba891190" target="_blank" rel="noreferrer">LinkedIn</a>
         <span className="footer-divider">·</span>

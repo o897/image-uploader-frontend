@@ -63,7 +63,7 @@ const Profile = () => {
             />
           </div>
           <div className="profile_details">
-            <h2 className="row">
+            <h2 className="">
               {user?.firstName} {user?.lastName}
             </h2>
             <p>{user?.about || "Write your about, whats an interesting fact about you?"}</p>

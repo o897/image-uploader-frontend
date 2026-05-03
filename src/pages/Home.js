@@ -12,6 +12,9 @@ function Home() {
   const [page, setPage] = useState(1);
   const { user } = useAuth();
   const [errorMsg, setErrorMsg] = useState(null);
+  const MAX_PAGES = 3;
+
+
 
   const API_KEY = process.env.REACT_APP_PEXELS_API_KEY;
 
@@ -74,6 +77,8 @@ function Home() {
   };
 
   const fetchData = async () => {
+    if (page > MAX_PAGES) return; // ← stop here
+
     setLoading(true);
 
     try {
@@ -169,14 +174,14 @@ function Home() {
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 100;
 
-      if (reachedBottom && !loading) {
+      if (reachedBottom && !loading && page < MAX_PAGES) {
         setPage(prev => prev + 1);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading]);
+  }, [loading, page]);
 
   return (
     <>
