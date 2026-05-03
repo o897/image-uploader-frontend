@@ -88,22 +88,22 @@ const handleSubmit = async (e) => {
 
               <div className='prof-col'>
                 <label>Username</label>
-                <input name='uname' className='prof-input' onChange={handleChange} placeholder='Enter your username' />
+                <input name='uname' className='prof-input' onChange={handleChange} placeholder={user?.uname ||'Enter your username'} />
               </div>
               <div className='prof-col'>
                 <label>About</label>
-                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder='Fun fact about you...'>
+                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder={user?.about ||'Fun fact about you...'}>
                 </textarea>
               </div>
               <div className='prof-row'>
 
                 <div className='prof-col'>
                   <label>Youtube</label>
-                  <input name="ytb" className="prof-input" onChange={handleChange} placeholder='Enter your Youtube username' />
+                  <input name="ytb" className="prof-input" onChange={handleChange} placeholder={user?.ytb ||'Enter your Youtube username'} />
                 </div>
                 <div className='prof-col'>
                   <label>Facebook</label>
-                  <input name="fcbkuname" className='prof-input' onChange={handleChange} placeholder='facebook username' />
+                  <input name="fcbkuname" className='prof-input' onChange={handleChange} placeholder={user?.fcbk || 'facebook username'} />
                 </div>
               </div>
               <div className='prof-row'>
