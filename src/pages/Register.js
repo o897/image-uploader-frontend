@@ -50,7 +50,7 @@ const Register = () => {
 
             if (response.ok) {
                 login(data);
-                navigate('/upload');
+                // navigate('/upload');
             } else {
                 console.error("Login failed: ", data.message);
             }
