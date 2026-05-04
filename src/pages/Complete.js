@@ -74,7 +74,6 @@ export default function Complete() {
           </div>
         )
       )}
-      <Footer/>
     </>
   );
 }

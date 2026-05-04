@@ -92,7 +92,6 @@ const Profile = () => {
         )
       }
 
-      <Footer/>
     </>
   );
 };
