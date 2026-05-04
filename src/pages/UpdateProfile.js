@@ -63,7 +63,7 @@ const UpdateProfile = () => {
 
     try {
       // 1. upload photo first if selected
-      // the photo mudt go to cloudinary
+    
       if (formData.photo) {
         const photoForm = new FormData();
         photoForm.append("file", formData.photo);
@@ -105,8 +105,8 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     checkAuth();
-  })
-  
+  },[])
+
   return (
     <>
       <Navbar />
