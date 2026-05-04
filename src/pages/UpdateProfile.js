@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const UpdateProfile = () => {
-  const { user, logout,checkAuth } = useAuth()
+  const { user, logout, checkAuth } = useAuth()
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -76,6 +76,12 @@ const UpdateProfile = () => {
       console.log("network error:", error);
     }
   }
+
+  useEffect(() => {
+    return () => {
+      checkAuth();
+    };
+  }, []);
 
 
   return (

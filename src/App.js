@@ -12,6 +12,7 @@ import Favourite from "./pages/Favourite";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/Terms";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DeletionStatus from "./pages/DeletetionStatus";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/deletion-status" element={<DeletionStatus />} />
 
       {/* protected routes */}
       <Route element={<ProtectedRoute />}>
