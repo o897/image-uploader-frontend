@@ -98,8 +98,8 @@ const UpdateProfile = () => {
               <div className="profile_icon updt-img">
                 {/* Added a placeholder image and closed the tag */}
                 <img
-                  src='https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3408.jpg?w=360'
-                  alt="profile image"
+                  src={user?.photo || 'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3408.jpg?w=360'}
+                  alt="user"
                 />
                 <button className='submit__img-btn'>Change</button>
               </div>
