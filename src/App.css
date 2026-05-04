@@ -921,7 +921,7 @@ img.icon:hover {
 }
 
 .profile_icon img {
-  object-fit: contain;
+  object-fit: fill;
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -933,7 +933,12 @@ img.icon:hover {
   margin-top: 20px;
 } */
 
+.profile_user-btns.edit {
+  background-color: #479c00;
+}
+
 .profile_user-btns {
+  letter-spacing: 1px;
   border-radius: 10px;
   font-size: 0.9rem;
   background-color: #bdb4b4;
@@ -972,14 +977,13 @@ img.icon:hover {
 .profile_collection-card {}
 
 .profile-title {
-  text-align: center;
-  margin: 30px 0 80px;
-  letter-spacing: 1.2px;
-  font-family: Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif;
-  font-weight: 700;
-  color: #282626;
-
-
+    font-size: 4rem;
+    text-align: center;
+    margin: 30px 0 80px;
+    letter-spacing: 1.2px;
+    font-family: 'Changa One';
+    font-weight: 700;
+    color: #282626;
 }
 
 .profile.chg-pic {

@@ -86,9 +86,12 @@ textarea {
   padding : 7px;
 }
 
+p {
+  letter-spacing : 1px;
+}
 
 li {
-  list-style-type: none;
+  /* list-style-type: none; */
 }
 
 a {

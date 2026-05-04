@@ -71,7 +71,8 @@ const Profile = () => {
           <div className="row">
 
             <li className="profile_user-btns">Share</li>
-            <Link className="profile_user-btns" to="/profile/edit">Edit Profile</Link>
+            
+            <Link className="profile_user-btns edit" to="/profile/edit">Edit Profile</Link>
           </div>
           <h2 className="profile-title">Gallery</h2>
         </div>

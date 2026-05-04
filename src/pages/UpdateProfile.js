@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -7,27 +7,34 @@ import { useAuth } from '../contexts/AuthContext';
 const UpdateProfile = () => {
   const { user, logout, checkAuth } = useAuth()
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+  const [preview, setPreview] = useState(null);
 
   const [formData, setFormData] = useState({
-    fname: "",
-    lname: "",
-    uname: "",
-    about: "",
-    tiktokuname: "",
-    fcbkuname: "",
-    ytb: "",
-    privacy: "",
+    fname: null,
+    lname: null,
+    uname: null,
+    about: null,
+    tiktokuname: null,
+    fcbkuname: null,
+    ytb: null,
+    privacy: null,
+    photo: null
   });
 
-  const handleChange = (e) => {
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setPreview(URL.createObjectURL(file));
+    setFormData(prev => ({ ...prev, photo: file }));
+  };
 
-    // from this target we are targetting this variables
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value //where name match our input attach value
-    })
-    )
+      [name]: value
+    }))
   }
 
   const handleDelete = async () => {
@@ -44,7 +51,6 @@ const UpdateProfile = () => {
       }
 
       logout();
-
       navigate("/login");
 
     } catch (err) {
@@ -56,11 +62,19 @@ const UpdateProfile = () => {
     e.preventDefault();
 
     try {
+      const form = new FormData(); // ← moved inside handleSubmit
+
+      Object.keys(formData).forEach(key => {
+        if (formData[key]) { // ← simplified check since everything starts as null
+          form.append(key, formData[key]);
+        }
+      });
+
       const response = await fetch("https://oraserver.online/auth/update", {
         method: "PUT",
         credentials: "include",
-        headers: { "Content-Type": "application/json" }, // ← you had "COntent-Type" typo
-        body: JSON.stringify(formData)
+        // ← removed Content-Type header, FormData sets it automatically
+        body: form
       });
 
       if (!response.ok) {
@@ -69,7 +83,7 @@ const UpdateProfile = () => {
         return;
       }
 
-      await checkAuth(); 
+      await checkAuth();
       navigate('/profile');
 
     } catch (error) {
@@ -77,31 +91,27 @@ const UpdateProfile = () => {
     }
   }
 
-  useEffect(() => {
-    return () => {
-      checkAuth();
-    };
-  }, []);
-
-
   return (
     <>
       <Navbar />
       <div className='updt_prof-wrapper'>
-
         <div className='updt-prof-intro'>
-
           <div className='updat-form-container'>
-
-            <div className='updat-prof-user-info'> {/*make column */}
+            <div className='updat-prof-user-info'>
               <h1>Profile Settings</h1>
               <div className="profile_icon updt-img">
-                {/* Added a placeholder image and closed the tag */}
                 <img
-                  src={user?.photo || 'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3408.jpg?w=360'}
+                  src={preview || user?.photo || 'https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3408.jpg?w=360'}
                   alt="user"
                 />
-                <button className='submit__img-btn'>Change</button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  ref={fileInputRef}
+                  style={{ display: "none" }}
+                  onChange={handleImageChange}
+                />
+                <button className='submit__img-btn' onClick={() => fileInputRef.current.click()}>Change</button>
               </div>
               <div className='prof-row'>
                 <div className='prof-col'>
@@ -113,54 +123,34 @@ const UpdateProfile = () => {
                   <input name='lname' className="prof-input" onChange={handleChange} placeholder={user?.lastName || 'Enter your lastname'} />
                 </div>
               </div>
-
               <div className='prof-col'>
                 <label>Username</label>
                 <input name='uname' className='prof-input' onChange={handleChange} placeholder={user?.uname || 'Enter your username'} />
               </div>
               <div className='prof-col'>
                 <label>About</label>
-                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder={user?.about || 'Fun fact about you...'}>
-                </textarea>
+                <textarea name="about" rows="4" cols="50" onChange={handleChange} placeholder={user?.about || 'Fun fact about you...'} />
               </div>
               <div className='prof-row'>
-
                 <div className='prof-col'>
                   <label>Youtube</label>
                   <input name="ytb" className="prof-input" onChange={handleChange} placeholder={user?.ytb || 'Enter your Youtube username'} />
                 </div>
                 <div className='prof-col'>
                   <label>Facebook</label>
-                  <input name="fcbkuname" className='prof-input' onChange={handleChange} placeholder={user?.fcbk || 'facebook username'} />
+                  <input name="fcbkuname" className='prof-input' onChange={handleChange} placeholder={user?.fcbkuname || 'facebook username'} />
                 </div>
               </div>
-              <div className='prof-row'>
-
-                {/* <div className='prof-col'>
-                  <label>Privacy</label>
-                  <select className='prof-input select'>
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                  </select>
-                </div> */}
-              </div>
-
               <div className='row'>
-                <button className='submit__img-btn update' onClick={handleSubmit} >Update</button>
-                <button className='submit__img-btn delete' onClick={handleDelete} >Delete Account</button>
-
+                <button className='submit__img-btn update' onClick={handleSubmit}>Update</button>
+                <button className='submit__img-btn delete' onClick={handleDelete}>Delete Account</button>
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
-
-
-
   )
 }
 
