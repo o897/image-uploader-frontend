@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
 
-    const { login } = useAuth();
+    const { login, checkAuth } = useAuth();
     const API_URL =
         process.env.REACT_APP_API_URL ||
         "https://oraserver.online";
@@ -34,33 +34,28 @@ const Register = () => {
 
     // register user
     const handleSubmit = async (e) => {
-        console.log(formData);
-
         e.preventDefault();
 
         try {
             const response = await fetch(`${API_URL}/auth/register`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials : "include",
+                headers: { 'Content-Type': 'application/json' },
+                credentials: "include", // ← make sure this is here
                 body: JSON.stringify(formData)
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                login(data);
+                await checkAuth(); // ← fetch fresh user from server
                 navigate('/profile/edit');
             } else {
                 toast(data.message);
             }
         } catch (error) {
-            console.error("An error occurred during login:", error);
+            console.error("An error occurred during registration:", error);
         }
     }
-
     return (
         <div className="login__pg">
             <form className="form__signin" onSubmit={handleSubmit}>
@@ -82,7 +77,7 @@ const Register = () => {
                     <a className="form__link" href="/terms-of-service">Terms of Service</a>
                 </p>
             </form>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
