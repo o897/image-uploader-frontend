@@ -49,8 +49,8 @@ const Register = () => {
             const data = await response.json();
 
             if (response.ok) {
-                login(data);
-                // navigate('/upload');
+                // login(data);
+                navigate('/profile/edit');
             } else {
                 console.error("Login failed: ", data.message);
             }

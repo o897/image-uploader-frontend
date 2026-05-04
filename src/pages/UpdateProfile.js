@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -102,6 +102,11 @@ const UpdateProfile = () => {
       console.log("network error:", error);
     }
   }
+
+  useEffect(() => {
+    checkAuth();
+  })
+  
   return (
     <>
       <Navbar />

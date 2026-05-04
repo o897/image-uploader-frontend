@@ -50,11 +50,9 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("user logged in");
         setUser(data);
         navigate("/");
       } else {
-        // console.error("Login failed:", data?.message || data);
         return toast.error(data?.message)
       }
     } catch (error) {
