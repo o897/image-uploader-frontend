@@ -209,7 +209,7 @@ function Home() {
         )}
 
       </section>
-
+      <Footer/>
     </>
   );
 }

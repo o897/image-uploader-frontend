@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import Footer from "../components/Footer";
 
 const Register = () => {
 
@@ -79,6 +80,7 @@ const Register = () => {
                     <a className="form__link" href="/terms-of-service">Terms of Service</a>
                 </p>
             </form>
+            <Footer/>
         </div>
     )
 }

@@ -39,7 +39,7 @@ export default function Complete() {
         <Loading />
       ) : (
         imageData?.url && (
-          <div>
+          <div className="App">
             <Navbar />
             <div className="image">
               <div className="Upload__message">
@@ -74,6 +74,7 @@ export default function Complete() {
           </div>
         )
       )}
+      <Footer/>
     </>
   );
 }

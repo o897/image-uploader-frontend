@@ -124,7 +124,9 @@ const Login = () => {
           <a className="form__link" href="/terms-of-service">Terms of Service</a>
         </p>
       </form>
+      <Footer/>
     </div>
+
 
   );
 };

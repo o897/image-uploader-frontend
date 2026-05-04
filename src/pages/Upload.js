@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../index.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Upload() {
   const navigate = useNavigate();
@@ -111,6 +112,7 @@ export default function Upload() {
           {file && <span className="filename">{file.name}</span>}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

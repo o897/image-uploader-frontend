@@ -331,6 +331,13 @@ label {
   word-spacing: 2px;
 }
 
+.App {
+   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
 .login__pg {
   position: relative;
   min-height: 100vh;

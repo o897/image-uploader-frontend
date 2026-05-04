@@ -150,6 +150,7 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
 
 
