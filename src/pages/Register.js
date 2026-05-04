@@ -40,14 +40,14 @@ const Register = () => {
             const response = await fetch(`${API_URL}/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: "include", // ← make sure this is here
+                credentials: "include", 
                 body: JSON.stringify(formData)
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                await checkAuth(); // ← fetch fresh user from server
+                await checkAuth(); 
                 navigate('/profile/edit');
             } else {
                 toast(data.message);
