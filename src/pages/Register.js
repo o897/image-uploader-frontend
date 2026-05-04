@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Footer from "../components/Footer";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -43,16 +44,17 @@ const Register = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                credentials : "include",
                 body: JSON.stringify(formData)
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                // login(data);
+                login(data);
                 navigate('/profile/edit');
             } else {
-                console.error("Login failed: ", data.message);
+                toast(data.message);
             }
         } catch (error) {
             console.error("An error occurred during login:", error);
@@ -72,7 +74,7 @@ const Register = () => {
                     <label htmlFor="">Password</label>
                     <input type="password" name="password" placeholder="Enter our password" onChange={handleChange} value={formData.password} />
                 </div>
-                <button className="form__signin-btn login" type="submit" onClick={handleSubmit}>Register</button>
+                <button className="form__signin-btn login" type="submit">Register</button>
                 <p>
                     By continuing, you agree to our
                     <a className="form__link" href="/privacy-policy">Privacy Policy</a>
