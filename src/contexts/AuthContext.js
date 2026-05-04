@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         console.log("user logged in");
-        setUser(data.user);
+        setUser(data);
         navigate("/");
       } else {
         // console.error("Login failed:", data?.message || data);
