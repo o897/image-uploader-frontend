@@ -62,10 +62,23 @@ const UpdateProfile = () => {
     e.preventDefault();
 
     try {
-      const form = new FormData(); // ← moved inside handleSubmit
+      // 1. upload photo first if selected
+      // the photo mudt go to cloudinary
+      if (formData.photo) {
+        const photoForm = new FormData();
+        photoForm.append("file", formData.photo);
 
+        await fetch("https://oraserver.online/auth/update/photo", {
+          method: "PUT",
+          credentials: "include",
+          body: photoForm
+        });
+      }
+
+      // 2. update text fields
+      const form = new FormData();
       Object.keys(formData).forEach(key => {
-        if (formData[key]) { // ← simplified check since everything starts as null
+        if (formData[key] && key !== "photo") {
           form.append(key, formData[key]);
         }
       });
@@ -73,7 +86,6 @@ const UpdateProfile = () => {
       const response = await fetch("https://oraserver.online/auth/update", {
         method: "PUT",
         credentials: "include",
-        // ← removed Content-Type header, FormData sets it automatically
         body: form
       });
 
@@ -90,7 +102,6 @@ const UpdateProfile = () => {
       console.log("network error:", error);
     }
   }
-
   return (
     <>
       <Navbar />
