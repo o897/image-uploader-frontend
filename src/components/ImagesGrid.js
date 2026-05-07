@@ -34,7 +34,7 @@ function ImagesGrid({ columns, likes }) {
                 alt={photo?.photographer || photo?.image}
                 loading='lazy'
               />
-
+    
               <span className="img-icon-username">
                 {photo?.photographer || photo?.image || "username"}
               </span>
